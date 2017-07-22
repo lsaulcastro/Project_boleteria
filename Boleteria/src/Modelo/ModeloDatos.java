@@ -8,6 +8,8 @@ import java.sql.*;
 
 public class ModeloDatos {
 
+   
+    private static ModeloDatos modelo;
 
     private ModeloDatos() {
         hostname = "localhost";
