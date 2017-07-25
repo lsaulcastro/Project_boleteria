@@ -12,6 +12,7 @@ public class ModeloDatos {
     private static ModeloDatos modelo;
 
     private ModeloDatos() {
+        string ti = "tito"
         hostname = "localhost";
         portnumber = "3306";
         database = "db_centraltele";
