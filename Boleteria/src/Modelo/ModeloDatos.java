@@ -8,11 +8,22 @@ import java.sql.*;
 
 public class ModeloDatos {
 
-
+    private Connection conn;
+    private String hostname = null;
+    private String portnumber = null;
+    private String database = null;
+    private String username = null;
+    private String password = null;
+    private String url = null;
     private static ModeloDatos modelo;
 
     private ModeloDatos() {
-
+        hostname = "localhost";
+        portnumber = "3306";
+        database = "db_centraltele";
+        username = "root";
+        password = "1523";
+        url = "jdbc:mysql://" + hostname +/*":"+portnumber+*/ "/" + database + "?user=" + username + "&password=" + password;
     }
 
     public static ModeloDatos getInstance() {
