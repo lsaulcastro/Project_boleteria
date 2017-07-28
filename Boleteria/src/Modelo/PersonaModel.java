@@ -13,6 +13,7 @@ public abstract class  PersonaModel {
     
     private String nombre;
     private String appellido;
+   
 
     public PersonaModel(String nombre, String appellido) {
         this.nombre = nombre;
