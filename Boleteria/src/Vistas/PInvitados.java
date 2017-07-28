@@ -119,7 +119,7 @@ public class PInvitados extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Script MT Bold", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuarios ");
+        jLabel1.setText("Persona");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/admin-with-cogwheels (1).png"))); // NOI18N
 
