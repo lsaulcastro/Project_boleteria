@@ -5,6 +5,8 @@
  */
 package boleteria;
 
+import Vistas.PMenu;
+
 /**
  *
  * @author sauld
@@ -16,6 +18,10 @@ public class Boleteria {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Vistas.PMenu menu = new PMenu();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
+        
     }
     
 }
