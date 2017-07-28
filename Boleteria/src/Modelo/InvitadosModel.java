@@ -15,6 +15,7 @@ public class InvitadosModel extends PersonaModel{
     private String direccion= null;
     private String sexo = null;
     private String email= null;
+     private String nomp = "sau";
    
 
     public InvitadosModel(String telefono, String direccion, String sexo, String email, String nombre, String appellido) {
