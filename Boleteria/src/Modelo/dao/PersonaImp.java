@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Modelo.dao;
+
+import Modelo.dao.Repository;
 
 /**
  *
- * @author Lenovo
+ * @author sauld
  */
-public class CUsuario {
-    
-    
-    
+public interface PersonaImp extends Repository<Modelo.InvitadosModel>{
     
 }

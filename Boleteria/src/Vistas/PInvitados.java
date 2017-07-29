@@ -16,6 +16,7 @@ public class PInvitados extends javax.swing.JFrame {
      */
     public PInvitados() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -56,7 +57,7 @@ public class PInvitados extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Nombre: ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 28, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 26, 261, 32));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

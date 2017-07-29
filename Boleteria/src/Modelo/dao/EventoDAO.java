@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Modelo.dao;
 
 /**
  *
- * @author Lenovo
+ * @author sauld
  */
-public class CUsuario {
-    
-    
-    
+public interface EventoDAO extends Repository<Modelo.EventoModel>{
     
 }

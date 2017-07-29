@@ -5,7 +5,15 @@
 // */
 //package boleteria;
 //
+//import Controlador.Factory.ApplicationContext;
+//import Modelo.EventoModel;
+//import Modelo.Factory.Repository_Enum;
+//
+//import Modelo.InvitadosModel;
+//import Modelo.PersonaModel;
+//import Modelo.dao.InvitadoRepository;
 //import Vistas.PMenu;
+//import java.util.Date;
 //
 ///**
 // *
@@ -17,11 +25,14 @@
 //     * @param args the command line arguments
 //     */
 //    public static void main(String[] args) {
+//
 //        // TODO code application logic here
-//        Vistas.PMenu menu = new PMenu();
-//        menu.setVisible(true);
-//        menu.setLocationRelativeTo(menu);
+//        Date a = new Date();
+//        Modelo.InvitadosModel en = new InvitadosModel("asd", "asd", "asd", "asd", "asd", "asd");
+//        InvitadoRepository in = (InvitadoRepository) ApplicationContext.getRepository(Repository_Enum.INVITADO_REPOSITORY);
+//        in.save(en);
 //        
+//        Modelo.PersonaModel p  = new PersonaModel("asd", "asd"){};
 //    }
-//    
+//
 //}

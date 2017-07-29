@@ -5,9 +5,10 @@
  */
 package Vistas;
 
-import Modelo.InvitadosModel;
+import Controlador.EventoImp;
+import Controlador.GUID;
 import java.awt.Color;
-import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -18,17 +19,17 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
+    public static Controlador.EventoImp event = null;
+    public static Modelo.EventoModel evenMode = null;
+
     public PMenu() {
         initComponents();
         this.setLocationRelativeTo(this);
-      //  MostrarEven();
-    }
+        //  MostrarEven();
 
-    public static void MostrarEven() {
-        Vistas.PEventos p = new PEventos();
-        p.setVisible(true);
-        p.setLocation(565, 300);
-        p.setAlwaysOnTop(true);
+        event = new EventoImp();
+        event.search(JTableEvento, null);
+
     }
 
     public static void LabelHover(javax.swing.JSeparator separator, int e) {
@@ -38,6 +39,52 @@ public class PMenu extends javax.swing.JFrame {
 
         } else {
             separator.setForeground(Color.black);
+        }
+
+    }
+
+    public static boolean btnShow() {
+        //Este evento e spara mostrar El InternalFrame y desabilitar o habilitar sus botones
+        Controlador.GUID Clean = new GUID();
+
+        JInternalFrame e = EventoImp.getinstance();
+        e.setVisible(true);
+        jInternalFrame2.setVisible(false);
+        Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
+        PeventosInternal.AgregarEvento.setEnabled(true);
+        PeventosInternal.EditarEvento.setEnabled(false);
+        return false;
+    }
+
+    public static void BusquedaFiltrada() {
+        String a = BusquedaEvento.getText();
+        event.search(JTableEvento, a);
+    }
+
+    public static void DeleteEvent() {
+        int a = JTableEvento.getSelectedRow();
+        if (a >= 0) {
+            event.delete(Integer.parseInt((String) JTableEvento.getValueAt(a, 0)));
+        }
+    }
+
+    public static void mostrasbtnModEle(boolean x) {
+        //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
+        int a = JTableEvento.getSelectedRow();
+        if (x) {
+
+            if (a < 0) {
+                btnmodificar.setEnabled(false);
+                btnEliminar.setEnabled(false);
+                btnAgregar.setEnabled(true);
+            }
+        } else {
+            if (a >= 0) {
+
+                btnmodificar.setEnabled(true);
+                btnEliminar.setEnabled(true);
+                btnAgregar.setEnabled(false);
+            }
         }
 
     }
@@ -74,14 +121,16 @@ public class PMenu extends javax.swing.JFrame {
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        JTableEvento = new javax.swing.JTable();
+        BusquedaEvento = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btnmodificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         jFrame1.setAlwaysOnTop(true);
         jFrame1.setBounds(new java.awt.Rectangle(123, 2342, 123, 123));
@@ -153,19 +202,16 @@ public class PMenu extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(jLabel10))
+                        .addComponent(jLabel10)
+                        .addGap(259, 259, 259)
+                        .addComponent(jLabel4)
+                        .addGap(0, 306, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(259, 259, 259)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 296, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel9)
                 .addContainerGap())
         );
@@ -285,18 +331,19 @@ public class PMenu extends javax.swing.JFrame {
                         .addComponent(JPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 520));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 570));
 
+        jInternalFrame2.setResizable(true);
         jInternalFrame2.setVisible(true);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTableEvento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -312,32 +359,56 @@ public class PMenu extends javax.swing.JFrame {
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return false;
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        JTableEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTableEventoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JTableEventoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JTableEventoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTableEventoMousePressed(evt);
+            }
+        });
+        JTableEvento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JTableEventoKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JTableEvento);
 
-        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 199));
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        BusquedaEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                BusquedaEventoActionPerformed(evt);
             }
         });
-        jPanel7.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 212, -1));
+        BusquedaEvento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BusquedaEventoKeyReleased(evt);
+            }
+        });
+        jPanel7.add(BusquedaEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 212, -1));
 
         jLabel12.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         jLabel12.setText("Buscar : ");
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 120, 153));
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 100, -1));
+        jPanel7.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 100, -1));
 
         jPanel8.setBackground(new java.awt.Color(0, 120, 153));
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 0, 0), null));
@@ -360,9 +431,9 @@ public class PMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152)
+                .addGap(146, 146, 146)
                 .addComponent(jLabel7)
                 .addGap(24, 24, 24))
         );
@@ -381,7 +452,27 @@ public class PMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 720, 80));
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
+
+        btnmodificar.setBackground(new java.awt.Color(0, 120, 153));
+        btnmodificar.setText("Modificar");
+        btnmodificar.setEnabled(false);
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 100, -1));
+
+        btnEliminar.setBackground(new java.awt.Color(0, 120, 153));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 100, -1));
 
         javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
@@ -391,7 +482,7 @@ public class PMenu extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
         );
 
         jDesktopPane1.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -401,42 +492,36 @@ public class PMenu extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(50, 50, 50)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(22, 22, 22)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 520));
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
+
         System.exit(0);
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -475,26 +560,65 @@ public class PMenu extends javax.swing.JFrame {
         LabelHover(jSeparator2, 1);
     }//GEN-LAST:event_JUserMouseEntered
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void BusquedaEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaEventoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_BusquedaEventoActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        Modelo.InvitadosModel in =  new InvitadosModel("as", "as", "as", "as", "as", "as");
-        jTextField1.setText(in.getSexo());
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        btnShow();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void JTableEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseClicked
+        mostrasbtnModEle(false);
+    }//GEN-LAST:event_JTableEventoMouseClicked
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        DeleteEvent();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        // TODO add your handling code here:
+        PeventosInternal.UpdateShow();
+    }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void BusquedaEventoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaEventoKeyReleased
+        // TODO add your handling code here:
+        BusquedaFiltrada();
+    }//GEN-LAST:event_BusquedaEventoKeyReleased
+
+    private void JTableEventoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseEntered
+        // TODO add your handling code here:
+        event.search(JTableEvento, null);
+        // btnmodificar.setEnabled(true);
+    }//GEN-LAST:event_JTableEventoMouseEntered
+
+    private void JTableEventoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTableEventoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTableEventoKeyPressed
+
+    private void JTableEventoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMousePressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JTableEventoMousePressed
+
+    private void JTableEventoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseExited
+        // TODO add your handling code here:
+        mostrasbtnModEle(true);
+
+    }//GEN-LAST:event_JTableEventoMouseExited
 
     /**
      * @param args the command line arguments
      */
-     public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -508,13 +632,13 @@ public class PMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -525,22 +649,24 @@ public class PMenu extends javax.swing.JFrame {
             }
         });
     }
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField BusquedaEvento;
     private javax.swing.JLabel JPerson;
+    public static javax.swing.JTable JTableEvento;
     private javax.swing.JLabel JUser;
     private javax.swing.JLabel Jevento;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public static javax.swing.JButton btnAgregar;
+    public static javax.swing.JButton btnEliminar;
+    public static javax.swing.JButton btnmodificar;
+    public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JInternalFrame jInternalFrame2;
+    public static javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -548,21 +674,15 @@ public class PMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanelPrincipal;
-    private javax.swing.JPanel jPanelPrincipal1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

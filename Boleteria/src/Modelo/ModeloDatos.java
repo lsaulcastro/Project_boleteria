@@ -20,7 +20,7 @@ public class ModeloDatos {
     private ModeloDatos() {
         hostname = "localhost";
         portnumber = "3306";
-        database = "db_centraltele";
+        database = "db_boleteriaevento";
         username = "root";
         password = "1523";
         url = "jdbc:mysql://" + hostname +/*":"+portnumber+*/ "/" + database + "?user=" + username + "&password=" + password;

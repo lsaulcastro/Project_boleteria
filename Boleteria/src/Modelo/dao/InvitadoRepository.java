@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Modelo.dao;
 
 /**
  *
- * @author Lenovo
+ * @author sauld
  */
-public interface CRUID {
-
-    public void savedb(Modelo.UsuarioModel usuario);
+public interface InvitadoRepository extends Repository<Modelo.InvitadosModel>{
     
 }

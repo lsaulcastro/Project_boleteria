@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -14,11 +14,11 @@ import java.sql.Date;
 public class EventoModel {
     
     private String nombre;
-    private Date fechal;
+    private String fechal;
     private String ubicacion;
     private String tipo_Evento;
 
-    public EventoModel(String nombre, Date fechal, String ubicacion, String tipo_Evento) {
+    public EventoModel(String nombre, String fechal, String ubicacion, String tipo_Evento) {
         this.nombre = nombre;
         this.fechal = fechal;
         this.ubicacion = ubicacion;
@@ -33,11 +33,11 @@ public class EventoModel {
         this.nombre = nombre;
     }
 
-    public Date getFechal() {
+    public String getFechal() {
         return fechal;
     }
 
-    public void setFechal(Date fechal) {
+    public void setFechal(String fechal) {
         this.fechal = fechal;
     }
 
