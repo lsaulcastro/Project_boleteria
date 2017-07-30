@@ -209,8 +209,10 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         event = new EventoImp();
         if (x == 0) {
             if (nombre.getText().length() >= 1 && Fecha.getText().length() > 1 && 1 <= Ubicacion.getText().length()) {
+
                 evenMode = new EventoModel(nombre.getText(), Fecha.getText(), Ubicacion.getText(), Tipo.getSelectedItem().toString());
                 event.save(evenMode);
+
             } else {
                 JOptionPane.showMessageDialog(null, "No deje campos vacios.");
             }

@@ -142,7 +142,7 @@ public class EventoImp implements Modelo.dao.EventoDAO {
     public static JInternalFrame getinstance() {
         if (em == null) {
             em = new Vistas.PeventosInternal();
-            Vistas.PMenu.jDesktopPane1.add(em);
+            Vistas.PMenu.jDesktopPanePrincipal.add(em);
         
           
         }
