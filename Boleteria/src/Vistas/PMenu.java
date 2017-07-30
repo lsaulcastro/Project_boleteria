@@ -5,7 +5,6 @@
  */
 package Vistas;
 
-import Controlador.CInvitado;
 import Controlador.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
@@ -20,7 +19,6 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
-    public static Controlador.CInvitado InvitadoControler = null;
     public static Controlador.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
     public static GUID m;
@@ -29,10 +27,14 @@ public class PMenu extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         //  MostrarEven();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         InvitadoControler = new CInvitado();
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+
+>>>>>>> parent of 6f649ab... Actualizacion Botones
         event = new EventoImp();
         event.search(JTableEvento, null);
 
@@ -95,11 +97,6 @@ public class PMenu extends javax.swing.JFrame {
 
     }
 
-    public static void ShowInternalInvitado() {
-        jInternalFrame2.setVisible(false);
-        InvitadoControler.getinstance();
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,11 +117,15 @@ public class PMenu extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
+        JUser = new javax.swing.JLabel();
+        Jevento = new javax.swing.JLabel();
+        JPerson = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+<<<<<<< HEAD
 <<<<<<< HEAD
         jLabel10 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -135,6 +136,9 @@ public class PMenu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jDesktopPanePrincipal = new javax.swing.JDesktopPane();
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+>>>>>>> parent of 6f649ab... Actualizacion Botones
         jInternalFrame2 = new javax.swing.JInternalFrame();
         JPanelPrincipalMenu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -257,6 +261,7 @@ public class PMenu extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(0, 153, 153));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
+<<<<<<< HEAD
         jSeparator2.setBackground(new java.awt.Color(0, 153, 153));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -288,33 +293,55 @@ public class PMenu extends javax.swing.JFrame {
         btnPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPersonaActionPerformed(evt);
+=======
+        JUser.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        JUser.setForeground(new java.awt.Color(255, 255, 255));
+        JUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user.png"))); // NOI18N
+        JUser.setText("Usuario");
+        JUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JUserMouseExited(evt);
+>>>>>>> parent of 6f649ab... Actualizacion Botones
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 120, 153));
-        jButton2.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/election-event-on-a-calendar-with-star-symbol.png"))); // NOI18N
-        jButton2.setText("Eventos");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        Jevento.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        Jevento.setForeground(new java.awt.Color(255, 255, 255));
+        Jevento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/election-event-on-a-calendar-with-star-symbol.png"))); // NOI18N
+        Jevento.setText("Eventos");
+        Jevento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JeventoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JeventoMouseExited(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 120, 153));
-        jButton3.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user.png"))); // NOI18N
-        jButton3.setText("Usuario");
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        JPerson.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        JPerson.setForeground(new java.awt.Color(255, 255, 255));
+        JPerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/users.png"))); // NOI18N
+        JPerson.setText("Persona");
+        JPerson.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPersonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JPersonMouseExited(evt);
             }
         });
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+
+        jSeparator2.setBackground(new java.awt.Color(0, 153, 153));
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 153, 153));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/if_ic_menu_48px_352539.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -330,13 +357,15 @@ public class PMenu extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Jevento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
                             .addComponent(jSeparator2)
-                            .addComponent(jSeparator1)
-                            .addComponent(btnPersona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jSeparator1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel8))
+<<<<<<< HEAD
             .addGroup(jPanel5Layout.createSequentialGroup()
 <<<<<<< HEAD
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,6 +381,8 @@ public class PMenu extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(4, 4, 4))
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+>>>>>>> parent of 6f649ab... Actualizacion Botones
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,17 +405,22 @@ public class PMenu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
 =======
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
+                        .addComponent(Jevento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                         .addComponent(btnPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                        .addComponent(JPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+>>>>>>> parent of 6f649ab... Actualizacion Botones
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(285, Short.MAX_VALUE))
         );
@@ -439,10 +475,14 @@ public class PMenu extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTableEvento);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         JPanelPrincipalMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
 =======
         jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 320));
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 
         BusquedaEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -542,36 +582,44 @@ public class PMenu extends javax.swing.JFrame {
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 <<<<<<< HEAD
+<<<<<<< HEAD
             .addComponent(JPanelPrincipalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
 =======
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+>>>>>>> parent of 6f649ab... Actualizacion Botones
         );
 
-        jDesktopPanePrincipal.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPanePrincipalLayout = new javax.swing.GroupLayout(jDesktopPanePrincipal);
-        jDesktopPanePrincipal.setLayout(jDesktopPanePrincipalLayout);
-        jDesktopPanePrincipalLayout.setHorizontalGroup(
-            jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
-        jDesktopPanePrincipalLayout.setVerticalGroup(
-            jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
 <<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 =======
                 .addContainerGap(29, Short.MAX_VALUE))
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                .addContainerGap(14, Short.MAX_VALUE))
+>>>>>>> parent of 6f649ab... Actualizacion Botones
         );
 
-        jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -596,6 +644,36 @@ public class PMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void JPersonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPersonMouseExited
+        // TODO add your handling code here:
+        LabelHover(jSeparator3, 0);
+    }//GEN-LAST:event_JPersonMouseExited
+
+    private void JPersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPersonMouseEntered
+        // TODO add your handling code here:
+        LabelHover(jSeparator3, 1);
+    }//GEN-LAST:event_JPersonMouseEntered
+
+    private void JeventoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JeventoMouseExited
+        // TODO add your handling code here:
+        LabelHover(jSeparator1, 0);
+    }//GEN-LAST:event_JeventoMouseExited
+
+    private void JeventoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JeventoMouseEntered
+        // TODO add your handling code here:
+        LabelHover(jSeparator1, 1);
+    }//GEN-LAST:event_JeventoMouseEntered
+
+    private void JUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JUserMouseExited
+        // TODO add your handling code here:
+        LabelHover(jSeparator2, 0);
+    }//GEN-LAST:event_JUserMouseExited
+
+    private void JUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JUserMouseEntered
+        // TODO add your handling code here:
+        LabelHover(jSeparator2, 1);
+    }//GEN-LAST:event_JUserMouseEntered
 
     private void BusquedaEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaEventoActionPerformed
         // TODO add your handling code here:
@@ -652,6 +730,7 @@ public class PMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JTableEventoMouseExited
 
+<<<<<<< HEAD
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
         // TODO add your handling code here:
@@ -671,6 +750,8 @@ public class PMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+=======
+>>>>>>> parent of 6f649ab... Actualizacion Botones
     /**
      * @param args the command line arguments
      */
@@ -709,17 +790,20 @@ public class PMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField BusquedaEvento;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JPanel JPanelPrincipalMenu;
 =======
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+    private javax.swing.JLabel JPerson;
+>>>>>>> parent of 6f649ab... Actualizacion Botones
     public static javax.swing.JTable JTableEvento;
+    private javax.swing.JLabel JUser;
+    private javax.swing.JLabel Jevento;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnPersona;
     public static javax.swing.JButton btnmodificar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    public static javax.swing.JDesktopPane jDesktopPanePrincipal;
+    public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
