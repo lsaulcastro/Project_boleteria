@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class CInvitado implements Modelo.dao.InvitadoRepository {
 
     private static JInternalFrame em = null;
+    private static JInternalFrame em1 = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
     private ResultSet rs;
@@ -144,11 +145,22 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     public static JInternalFrame getinstance() {
         if (em == null) {
             em = new Vistas.P_InvitadosInternalFrame();
-            em.setVisible(true);
+            
             Vistas.PMenu.jDesktopPanePrincipal.add(em);
 
         }
+        em.setVisible(true);
         return em;
+    }
+    public static JInternalFrame getinstanceInvi() {
+        if (em1 == null) {
+            em1 = new Vistas.PInvitacion();
+           
+            Vistas.PMenu.jDesktopPanePrincipal.add(em1);
+
+        }
+         em1.setVisible(true);
+        return em1;
     }
 
 }

@@ -36,37 +36,37 @@
 //        return db;
 //    }
 ////
-//    public void saveInDB(LLamada local) {
-//        System.out.println(UserId + "regis");
-//        PreparedStatement sta = null;
-//      //  Modelo.ModeloDatos md = ModeloDatos.getInstance();
-//        String sql = "INSERT INTO `llamada`(`LlamadaDestino`, `LlamadaOrigen`, `Duracion`, `Tipo`,`Usuario_idUsuario`) VALUES (?,?,?,?,?)";
-//        try {
-//            md.connectar();
-//            sta = md.getConn().prepareStatement(sql);
-//            // sta.setString(1, local.getId());
-//            sta.setString(1, local.getNumDestino());
-//            sta.setString(2, local.getNumOrigen());
-//            sta.setDouble(3, local.getDuracion());
-//            sta.setString(4, local.getTipo());
-//            // sta.setString(5, String.valueOf(local));
-//            sta.setString(5, String.valueOf(UserId));
-//            int exito = sta.executeUpdate();
-//            if (exito == 0) {
-//                System.out.println("No funciono " + exito);
-//            } else {
-//                System.out.println("Si FUNCIONO" + exito);
-//                JOptionPane.showMessageDialog(null, "Llamada Realizada exitosamente!");
-//
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("Error " + e.getMessage());
-//        } finally {
-//            md.desconnectar();
-//            System.out.println("Desconectado");
-//        }
-//        // return this;
-//    }
+////    public void saveInDB(LLamada local) {
+////        System.out.println(UserId + "regis");
+////        PreparedStatement sta = null;
+////      //  Modelo.ModeloDatos md = ModeloDatos.getInstance();
+////        String sql = "INSERT INTO `llamada`(`LlamadaDestino`, `LlamadaOrigen`, `Duracion`, `Tipo`,`Usuario_idUsuario`) VALUES (?,?,?,?,?)";
+////        try {
+////            md.connectar();
+////            sta = md.getConn().prepareStatement(sql);
+////            // sta.setString(1, local.getId());
+////            sta.setString(1, local.getNumDestino());
+////            sta.setString(2, local.getNumOrigen());
+////            sta.setDouble(3, local.getDuracion());
+////            sta.setString(4, local.getTipo());
+////            // sta.setString(5, String.valueOf(local));
+////            sta.setString(5, String.valueOf(UserId));
+////            int exito = sta.executeUpdate();
+////            if (exito == 0) {
+////                System.out.println("No funciono " + exito);
+////            } else {
+////                System.out.println("Si FUNCIONO" + exito);
+////                JOptionPane.showMessageDialog(null, "Llamada Realizada exitosamente!");
+////
+////            }
+////        } catch (SQLException e) {
+////            System.out.println("Error " + e.getMessage());
+////        } finally {
+////            md.desconnectar();
+////            System.out.println("Desconectado");
+////        }
+////        // return this;
+////    }
 ////
 ////    public void saveFactura(double costo_LLamada) {
 ////        PreparedStatement sta = null;

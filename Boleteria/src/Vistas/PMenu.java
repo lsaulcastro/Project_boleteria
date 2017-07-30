@@ -9,7 +9,7 @@ import Controlador.CInvitado;
 import Controlador.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
-import javax.swing.JInternalFrame; 
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -23,11 +23,13 @@ public class PMenu extends javax.swing.JFrame {
     public static Controlador.CInvitado InvitadoControler = null;
     public static Controlador.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
+    public static Controlador.GUID guid = null;
 
     public PMenu() {
         initComponents();
         this.setLocationRelativeTo(this);
         //  MostrarEven();
+        guid = new GUID();
         InvitadoControler = new CInvitado();
         event = new EventoImp();
         event.search(JTableEvento, null);
@@ -51,7 +53,7 @@ public class PMenu extends javax.swing.JFrame {
 
         JInternalFrame e = EventoImp.getinstance();
         e.setVisible(true);
-        jInternalFrame2.setVisible(false);
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
         PeventosInternal.AgregarEvento.setEnabled(true);
         PeventosInternal.EditarEvento.setEnabled(false);
@@ -92,8 +94,12 @@ public class PMenu extends javax.swing.JFrame {
     }
 
     public static void ShowInternalInvitado() {
-        jInternalFrame2.setVisible(false);
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
         InvitadoControler.getinstance();
+    }
+    public static void ShowInternalEvento() {
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
+        jInternalFrame2.setVisible(true);
     }
 
     /**
@@ -553,7 +559,15 @@ public class PMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void JTableEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseClicked
-        mostrasbtnModEle(false);
+
+        if (evt.getClickCount() == 1) {
+            mostrasbtnModEle(false);
+        } else if (evt.getClickCount() == 2) {
+            guid.DeskopPnae(jDesktopPanePrincipal, false);
+            InvitadoControler.getinstanceInvi();
+
+        }
+
     }//GEN-LAST:event_JTableEventoMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -599,6 +613,7 @@ public class PMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        ShowInternalEvento();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

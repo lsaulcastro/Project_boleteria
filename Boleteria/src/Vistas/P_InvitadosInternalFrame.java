@@ -6,16 +6,9 @@
 package Vistas;
 
 import Controlador.CInvitado;
-import Controlador.EventoImp;
 import Controlador.GUID;
-import Modelo.EventoModel;
 import Modelo.InvitadosModel;
-import static Vistas.PMenu.JTableEvento;
-import static Vistas.PMenu.jInternalFrame2;
 import static Vistas.P_InvitadosInternalFrame.persona;
-import static Vistas.PeventosInternal.evenMode;
-import static Vistas.PeventosInternal.event;
-import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -33,9 +26,11 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
      * Creates new form P_InvitadosInternalFram
      */
    
+     public static GUID guid = null;
     public P_InvitadosInternalFrame() {
         initComponents();
-        this.setLocation(65, 10);
+        guid = new GUID()  ;
+        this.setLocation(60, 10);
         persona = new CInvitado();
         persona.search(JtablePersona, null);
         
@@ -46,7 +41,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel7 = new javax.swing.JPanel();
+        JpanelPrincipalInvitado = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -74,9 +69,9 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
         setName(""); // NOI18N
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JpanelPrincipalInvitado.setBackground(new java.awt.Color(255, 255, 255));
+        JpanelPrincipalInvitado.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        JpanelPrincipalInvitado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel8.setBackground(new java.awt.Color(0, 120, 153));
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 0, 0), null));
@@ -120,36 +115,36 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
+        JpanelPrincipalInvitado.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Nombre: ");
-        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-        jPanel7.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 200, 30));
+        JpanelPrincipalInvitado.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        JpanelPrincipalInvitado.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 200, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Apellido:");
-        jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
-        jPanel7.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 200, 32));
+        JpanelPrincipalInvitado.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        JpanelPrincipalInvitado.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 200, 32));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Telefono:");
-        jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
-        jPanel7.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 200, 32));
+        JpanelPrincipalInvitado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        JpanelPrincipalInvitado.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 200, 32));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Sexo:");
-        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+        JpanelPrincipalInvitado.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Direccion:");
-        jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
-        jPanel7.add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 32));
+        JpanelPrincipalInvitado.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        JpanelPrincipalInvitado.add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 32));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Email: ");
-        jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 33));
-        jPanel7.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 210, 32));
+        JpanelPrincipalInvitado.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 33));
+        JpanelPrincipalInvitado.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 210, 32));
 
         JtablePersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,11 +186,11 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(JtablePersona);
 
-        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 650, 170));
+        JpanelPrincipalInvitado.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 650, 170));
 
         jLabel12.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         jLabel12.setText("Buscar : ");
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        JpanelPrincipalInvitado.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
         Busqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +202,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
                 BusquedaKeyReleased(evt);
             }
         });
-        jPanel7.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 212, 30));
+        JpanelPrincipalInvitado.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 212, 30));
 
         btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -218,7 +213,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel7.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 100, 30));
+        JpanelPrincipalInvitado.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 100, 30));
 
         btnmodificar.setBackground(new java.awt.Color(0, 120, 153));
         btnmodificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -230,7 +225,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
                 btnmodificarActionPerformed(evt);
             }
         });
-        jPanel7.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 100, 30));
+        JpanelPrincipalInvitado.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 100, 30));
 
         btnEliminar.setBackground(new java.awt.Color(0, 120, 153));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -242,23 +237,23 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel7.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 100, 30));
+        JpanelPrincipalInvitado.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 100, 30));
 
         sexo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
-        jPanel7.add(sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 210, 40));
-        jPanel7.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 252, 650, 10));
+        JpanelPrincipalInvitado.add(sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 210, 40));
+        JpanelPrincipalInvitado.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 252, 650, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(JpanelPrincipalInvitado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JpanelPrincipalInvitado, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -295,12 +290,8 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No deje campos vacios.");
             }
-            nombre.setText("");
-            apellido.setText("");
-            telefono.setText("");
-            direccion.setText("");
-            email.setText("");
-            // persona.search(JTableEvento, title);
+            guid.limpiar_texto(JpanelPrincipalInvitado);
+            
     }
     
     public static void buscar(){
@@ -309,6 +300,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }
       public static void mostrasbtnModEle(boolean x) {
         //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
+        
         int a = JtablePersona.getSelectedRow();
         if (x) {
 
@@ -358,8 +350,9 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         Controlador.GUID Clean = new GUID();
 
         JInternalFrame e = CInvitado.getinstance();
+        
+       guid.DeskopPnae(PMenu.jDesktopPanePrincipal, false);
         e.setVisible(true);
-        jInternalFrame2.setVisible(false);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
       // PeventosInternal.btnAgregar.setEnabled(true);
        PeventosInternal.EditarEvento.setEnabled(false);
@@ -433,6 +426,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField Busqueda;
+    private static javax.swing.JPanel JpanelPrincipalInvitado;
     public static javax.swing.JTable JtablePersona;
     private javax.swing.JTextField apellido;
     public static javax.swing.JButton btnAgregar;
@@ -450,7 +444,6 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
