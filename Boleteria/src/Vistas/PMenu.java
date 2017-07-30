@@ -28,10 +28,14 @@ public class PMenu extends javax.swing.JFrame {
         //  MostrarEven();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         InvitadoControler = new CInvitado();
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
 
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -127,6 +131,7 @@ public class PMenu extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         jLabel10 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -136,6 +141,9 @@ public class PMenu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jDesktopPanePrincipal = new javax.swing.JDesktopPane();
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
         jDesktopPane1 = new javax.swing.JDesktopPane();
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -262,6 +270,7 @@ public class PMenu extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         jSeparator2.setBackground(new java.awt.Color(0, 153, 153));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -294,6 +303,8 @@ public class PMenu extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPersonaActionPerformed(evt);
 =======
+=======
+>>>>>>> parent of 6f649ab... Actualizacion Botones
         JUser.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
         JUser.setForeground(new java.awt.Color(255, 255, 255));
         JUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user.png"))); // NOI18N
@@ -304,6 +315,9 @@ public class PMenu extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 JUserMouseExited(evt);
+<<<<<<< HEAD
+>>>>>>> parent of 6f649ab... Actualizacion Botones
+=======
 >>>>>>> parent of 6f649ab... Actualizacion Botones
             }
         });
@@ -343,6 +357,14 @@ public class PMenu extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/if_ic_menu_48px_352539.png"))); // NOI18N
 
+        jSeparator2.setBackground(new java.awt.Color(0, 153, 153));
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 153, 153));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/if_ic_menu_48px_352539.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -366,6 +388,7 @@ public class PMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel8))
 <<<<<<< HEAD
+<<<<<<< HEAD
             .addGroup(jPanel5Layout.createSequentialGroup()
 <<<<<<< HEAD
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,6 +404,8 @@ public class PMenu extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(4, 4, 4))
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
 >>>>>>> parent of 6f649ab... Actualizacion Botones
         );
@@ -407,6 +432,11 @@ public class PMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Jevento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
+=======
+                        .addComponent(Jevento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> parent of 6f649ab... Actualizacion Botones
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -414,9 +444,14 @@ public class PMenu extends javax.swing.JFrame {
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 <<<<<<< HEAD
+<<<<<<< HEAD
                         .addComponent(btnPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                        .addComponent(JPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
                         .addComponent(JPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -476,10 +511,14 @@ public class PMenu extends javax.swing.JFrame {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         JPanelPrincipalMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
 =======
         jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 320));
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
         jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -583,10 +622,14 @@ public class PMenu extends javax.swing.JFrame {
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             .addComponent(JPanelPrincipalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
 =======
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -610,10 +653,14 @@ public class PMenu extends javax.swing.JFrame {
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 =======
                 .addContainerGap(29, Short.MAX_VALUE))
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                .addContainerGap(14, Short.MAX_VALUE))
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
                 .addContainerGap(14, Short.MAX_VALUE))
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -731,6 +778,7 @@ public class PMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_JTableEventoMouseExited
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
         // TODO add your handling code here:
@@ -750,6 +798,8 @@ public class PMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+=======
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
 >>>>>>> parent of 6f649ab... Actualizacion Botones
     /**
@@ -791,9 +841,13 @@ public class PMenu extends javax.swing.JFrame {
     public static javax.swing.JTextField BusquedaEvento;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JPanel JPanelPrincipalMenu;
 =======
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+    private javax.swing.JLabel JPerson;
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
     private javax.swing.JLabel JPerson;
 >>>>>>> parent of 6f649ab... Actualizacion Botones

@@ -254,6 +254,7 @@
                   </Group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -273,6 +274,8 @@
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
                   </Group>
+=======
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
 >>>>>>> parent of 6f649ab... Actualizacion Botones
               </Group>
@@ -300,6 +303,11 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="Jevento" min="-2" pref="33" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
+=======
+                              <Component id="Jevento" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> parent of 6f649ab... Actualizacion Botones
                               <Component id="jSeparator1" min="-2" pref="8" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JUser" min="-2" pref="37" max="-2" attributes="0"/>
@@ -307,9 +315,14 @@
                               <Component id="jSeparator2" min="-2" pref="2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                               <Component id="btnPersona" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                              <Component id="JPerson" min="-2" pref="39" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
                               <Component id="JPerson" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -334,9 +347,13 @@
               </Properties>
             </Component>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Component class="javax.swing.JSeparator" name="jSeparator2">
 <<<<<<< HEAD
 =======
+=======
+            <Component class="javax.swing.JLabel" name="JUser">
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
             <Component class="javax.swing.JLabel" name="JUser">
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -346,10 +363,17 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
+<<<<<<< HEAD
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/IMG/user.png"/>
                 </Property>
+=======
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IMG/user.png"/>
+                </Property>
+>>>>>>> parent of 6f649ab... Actualizacion Botones
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
               <Events>
@@ -393,6 +417,7 @@
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JPersonMouseExited"/>
               </Events>
             </Component>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <Component class="javax.swing.JButton" name="jButton2">
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
@@ -447,12 +472,43 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Modern No. 20" size="24" style="0"/>
+=======
+            <Component class="javax.swing.JSeparator" name="jSeparator2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="0" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="0" type="rgb"/>
+>>>>>>> parent of 6f649ab... Actualizacion Botones
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+<<<<<<< HEAD
                 <Property name="text" type="java.lang.String" value="Administrador"/>
               </Properties>
+=======
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IMG/if_ic_menu_48px_352539.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator5">
+>>>>>>> parent of 6f649ab... Actualizacion Botones
             </Component>
           </SubComponents>
         </Container>
@@ -483,10 +539,14 @@
                       <Component id="jInternalFrame2" min="-2" max="-2" attributes="0"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       <EmptySpace max="32767" attributes="0"/>
 =======
                       <EmptySpace pref="29" max="32767" attributes="0"/>
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
                       <EmptySpace pref="14" max="32767" attributes="0"/>
 >>>>>>> parent of 6f649ab... Actualizacion Botones
@@ -514,10 +574,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       <Component id="JPanelPrincipalMenu" alignment="0" pref="536" max="32767" attributes="0"/>
 =======
                       <Component id="jPanel7" alignment="0" pref="472" max="32767" attributes="0"/>
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
+=======
+                      <Component id="jPanel7" alignment="0" pref="504" max="32767" attributes="0"/>
+>>>>>>> parent of 6f649ab... Actualizacion Botones
 =======
                       <Component id="jPanel7" alignment="0" pref="504" max="32767" attributes="0"/>
 >>>>>>> parent of 6f649ab... Actualizacion Botones
