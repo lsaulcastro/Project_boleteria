@@ -16,6 +16,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
      */
     public P_InvitadosInternalFrame() {
         initComponents();
+        this.setLocation(65, 10);
     }
 
     /**
@@ -27,6 +28,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -39,7 +41,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         telefono = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        Masculino = new javax.swing.JRadioButton();
         Femenino = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         direccion = new javax.swing.JTextField();
@@ -52,6 +54,11 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         btnAgregar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+
+        buttonGroup1.add(Femenino);
+        buttonGroup1.add(Masculino);
+
+        setName(""); // NOI18N
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
@@ -120,14 +127,14 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         jLabel9.setText("Sexo:");
         jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton1.setText("Masculino");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        Masculino.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Masculino.setText("Masculino");
+        Masculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                MasculinoActionPerformed(evt);
             }
         });
-        jPanel7.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+        jPanel7.add(Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
 
         Femenino.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Femenino.setText("Femenino");
@@ -238,15 +245,17 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasculinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_MasculinoActionPerformed
 
     private void JTableEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseClicked
   
@@ -304,10 +313,12 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField BusquedaEvento;
     private javax.swing.JRadioButton Femenino;
     public static javax.swing.JTable JTableEvento;
+    private javax.swing.JRadioButton Masculino;
     private javax.swing.JTextField apellido;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField direccion;
     private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel10;
@@ -322,7 +333,6 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField telefono;

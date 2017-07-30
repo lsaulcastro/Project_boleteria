@@ -19,7 +19,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sauld
  */
-public class InvitadoRepositoryImp implements Modelo.dao.InvitadoRepository{
+public class CInvitado implements Modelo.dao.InvitadoRepository {
+
     private static JInternalFrame em = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
@@ -27,7 +28,7 @@ public class InvitadoRepositoryImp implements Modelo.dao.InvitadoRepository{
     private String sql;
     private Statement s;
     private DefaultTableModel m;
-    
+
     @Override
     public void save(InvitadosModel en) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -53,5 +54,14 @@ public class InvitadoRepositoryImp implements Modelo.dao.InvitadoRepository{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    public static JInternalFrame getinstance() {
+        if (em == null) {
+            em = new Vistas.P_InvitadosInternalFrame();
+            em.setVisible(true);
+            Vistas.PMenu.jDesktopPanePrincipal.add(em);
+
+        }
+        return em;
+    }
+
 }

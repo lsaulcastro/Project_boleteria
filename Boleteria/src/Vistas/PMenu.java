@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import Controlador.CInvitado;
 import Controlador.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
@@ -19,6 +20,7 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
+    public static Controlador.CInvitado InvitadoControler = null;
     public static Controlador.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
     public static GUID m;
@@ -26,7 +28,11 @@ public class PMenu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         //  MostrarEven();
+<<<<<<< HEAD
         
+=======
+        InvitadoControler = new CInvitado();
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
         event = new EventoImp();
         event.search(JTableEvento, null);
 
@@ -89,6 +95,11 @@ public class PMenu extends javax.swing.JFrame {
 
     }
 
+    public static void ShowInternalInvitado() {
+        jInternalFrame2.setVisible(false);
+        InvitadoControler.getinstance();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,9 +125,16 @@ public class PMenu extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+<<<<<<< HEAD
         jLabel10 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+=======
+        btnPersona = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jDesktopPanePrincipal = new javax.swing.JDesktopPane();
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
         jInternalFrame2 = new javax.swing.JInternalFrame();
         JPanelPrincipalMenu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -247,6 +265,7 @@ public class PMenu extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/if_ic_menu_48px_352539.png"))); // NOI18N
 
+<<<<<<< HEAD
         jLabel10.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Administrador");
@@ -259,6 +278,43 @@ public class PMenu extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Administrador");
+=======
+        btnPersona.setBackground(new java.awt.Color(0, 120, 153));
+        btnPersona.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        btnPersona.setForeground(new java.awt.Color(255, 255, 255));
+        btnPersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/users.png"))); // NOI18N
+        btnPersona.setText("Persona");
+        btnPersona.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersonaActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 120, 153));
+        jButton2.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/election-event-on-a-calendar-with-star-symbol.png"))); // NOI18N
+        jButton2.setText("Eventos");
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(0, 120, 153));
+        jButton3.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user.png"))); // NOI18N
+        jButton3.setText("Usuario");
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -276,10 +332,13 @@ public class PMenu extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator3)
                             .addComponent(jSeparator2)
-                            .addComponent(jSeparator1))
+                            .addComponent(jSeparator1)
+                            .addComponent(btnPersona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel8))
             .addGroup(jPanel5Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
@@ -288,6 +347,11 @@ public class PMenu extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jLabel16)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addContainerGap()
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(4, 4, 4))
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,6 +362,7 @@ public class PMenu extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                         .addGap(55, 55, 55)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -307,6 +372,19 @@ public class PMenu extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+=======
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(285, Short.MAX_VALUE))
         );
@@ -360,7 +438,11 @@ public class PMenu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTableEvento);
 
+<<<<<<< HEAD
         JPanelPrincipalMenu.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 340));
+=======
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 320));
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
 
         BusquedaEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -459,29 +541,37 @@ public class PMenu extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(JPanelPrincipalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+=======
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
         );
 
-        jDesktopPane1.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanePrincipal.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+        javax.swing.GroupLayout jDesktopPanePrincipalLayout = new javax.swing.GroupLayout(jDesktopPanePrincipal);
+        jDesktopPanePrincipal.setLayout(jDesktopPanePrincipalLayout);
+        jDesktopPanePrincipalLayout.setHorizontalGroup(
+            jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+        jDesktopPanePrincipalLayout.setVerticalGroup(
+            jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addContainerGap(29, Short.MAX_VALUE))
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
         );
 
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
+        jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -562,10 +652,25 @@ public class PMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JTableEventoMouseExited
 
+<<<<<<< HEAD
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jLabel10MouseEntered
+=======
+    private void btnPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonaActionPerformed
+        // TODO add your handling code here:
+        ShowInternalInvitado();
+    }//GEN-LAST:event_btnPersonaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
 
     /**
      * @param args the command line arguments
@@ -604,12 +709,18 @@ public class PMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField BusquedaEvento;
+<<<<<<< HEAD
     private javax.swing.JPanel JPanelPrincipalMenu;
+=======
+>>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
     public static javax.swing.JTable JTableEvento;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnPersona;
     public static javax.swing.JButton btnmodificar;
-    public static javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
