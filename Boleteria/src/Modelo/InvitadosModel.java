@@ -18,7 +18,7 @@ public class InvitadosModel extends PersonaModel{
      private String nomp = "sau";
    
 
-    public InvitadosModel(String telefono, String direccion, String sexo, String email, String nombre, String appellido) {
+    public InvitadosModel(String nombre, String appellido,String telefono, String direccion, String sexo, String email) {
         super(nombre, appellido);
         this.telefono = telefono;
         this.direccion = direccion;

@@ -9,7 +9,7 @@ import Controlador.CInvitado;
 import Controlador.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
-import javax.swing.JInternalFrame;
+import javax.swing.JInternalFrame; 
 
 /**
  *
