@@ -29,7 +29,7 @@ public class PMenu extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         //  MostrarEven();
 <<<<<<< HEAD
-        
+
 =======
         InvitadoControler = new CInvitado();
 >>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
@@ -652,12 +652,12 @@ public class PMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JTableEventoMouseExited
 
-<<<<<<< HEAD
+
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jLabel10MouseEntered
-=======
+
     private void btnPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonaActionPerformed
         // TODO add your handling code here:
         ShowInternalInvitado();
@@ -670,7 +670,6 @@ public class PMenu extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
->>>>>>> 6f649ab75304ba7acc5ceaaca41d2aae0f59a787
 
     /**
      * @param args the command line arguments
