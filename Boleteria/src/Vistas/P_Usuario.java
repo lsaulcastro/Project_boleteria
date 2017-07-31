@@ -5,8 +5,8 @@
  */
 package Vistas;
 
-import Controlador.CInvitado;
-import Controlador.CUsuario;
+import Controlador.dao.CInvitado;
+import Controlador.dao.CUsuario;
 import Modelo.InvitadosModel;
 import Modelo.UsuarioModel;
 import static Vistas.P_InvitadosInternalFrame.JtablePersona;
