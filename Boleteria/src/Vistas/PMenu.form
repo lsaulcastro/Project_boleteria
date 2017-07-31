@@ -407,22 +407,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="jInternalFrame2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jInternalFrame2" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace max="-2" attributes="0"/>
-=======
                       <EmptySpace max="32767" attributes="0"/>
->>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
                   </Group>
               </Group>
             </DimensionLayout>
@@ -445,11 +441,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <Component id="jPanel7" alignment="0" pref="484" max="32767" attributes="0"/>
-=======
                       <Component id="jPanel7" alignment="0" pref="504" max="32767" attributes="0"/>
->>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
                   </Group>
                 </DimensionLayout>
               </Layout>

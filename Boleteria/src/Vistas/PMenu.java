@@ -9,13 +9,8 @@ import Controlador.dao.CInvitado;
 import Controlador.dao.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
-<<<<<<< HEAD
-import javax.swing.JInternalFrame; 
-import Controlador.CUsuario;
-=======
 import javax.swing.JInternalFrame;
 
->>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
 /**
  *
  * @author sauld
@@ -25,14 +20,8 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
-<<<<<<< HEAD
-    public static CUsuario cusuario = null;
-    public static Controlador.CInvitado InvitadoControler = null;
-    public static Controlador.EventoImp event = null;
-=======
     public static Controlador.dao.CInvitado InvitadoControler = null;
     public static Controlador.dao.EventoImp event = null;
->>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
     public static Modelo.EventoModel evenMode = null;
     public static Controlador.GUID guid = null;
 
@@ -110,12 +99,6 @@ public class PMenu extends javax.swing.JFrame {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         InvitadoControler.getinstance();
     }
-    
-      public static void ShowInternalUsuario() {
-        jInternalFrame2.setVisible(false);
-        cusuario.getinstance();
-    }
-
 
     public static void ShowInternalEvento() {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
@@ -531,11 +514,7 @@ public class PMenu extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
-=======
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
->>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
         );
 
         jDesktopPanePrincipal.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -545,20 +524,16 @@ public class PMenu extends javax.swing.JFrame {
         jDesktopPanePrincipalLayout.setHorizontalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(56, 56, 56)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jDesktopPanePrincipalLayout.setVerticalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+            .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addContainerGap())
-=======
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
         );
 
         jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
@@ -662,7 +637,7 @@ public class PMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ShowInternalUsuario();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
