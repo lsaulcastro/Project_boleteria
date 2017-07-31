@@ -198,7 +198,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
     public static void UpdateAction() {
         int a = JTableEvento.getSelectedRow();
 
-        if (nombreEvento.getText().length() >= 1 && FechaEvento.getText().length() > 1 && 1 <= UbicacionEvento.getText().length()) {
+        if (!nombreEvento.getText().isEmpty()  &&  !FechaEvento.getText().isEmpty() &&   !UbicacionEvento.getText().isEmpty()) {
             btnAgregarInternalFrameEvento(nombreEvento, FechaEvento, UbicacionEvento, TipoEvento, 1);
 
         } else {
@@ -211,7 +211,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         int a = JTableEvento.getSelectedRow();
         event = new EventoImp();
         if (x == 0) {
-            if (nombre.getText().length() >= 1 && Fecha.getText().length() > 1 && 1 <= Ubicacion.getText().length()) {
+            if (!nombre.getText().isEmpty() &&  !Fecha.getText().isEmpty() &&  !Ubicacion.getText().isEmpty()) {
 
                 evenMode = new EventoModel(nombre.getText(), Fecha.getText(), Ubicacion.getText(), Tipo.getSelectedItem().toString());
                 event.save(evenMode);

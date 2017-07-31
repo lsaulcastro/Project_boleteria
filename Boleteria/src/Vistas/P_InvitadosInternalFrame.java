@@ -266,7 +266,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         
         persona = new CInvitado();
         
-        if (nombre.getText().length() >= 1 && apellido.getText().length() > 1 && 1 <= telefono.getText().length() && direccion.getText().length() >=1 && email.getText().length() >=1) {
+        if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
 
                 invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(),direccion.getText(),sexo.getSelectedItem().toString(), email.getText());
                 persona.save(invimodel);
@@ -282,7 +282,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
       
         persona = new CInvitado();
        
-            if (nombre.getText().length() >= 1 && apellido.getText().length() > 1 && 1 <= telefono.getText().length() && direccion.getText().length() >=1 && email.getText().length() >=1) {
+            if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
 
                 invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(),direccion.getText(),sexo.getSelectedItem().toString(), email.getText());
                 persona.save(invimodel);
