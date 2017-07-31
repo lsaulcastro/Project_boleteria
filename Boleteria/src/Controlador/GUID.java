@@ -6,6 +6,8 @@
 package Controlador;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
@@ -30,6 +32,17 @@ public class GUID {
             }
             else if(panel.getComponents()[i] instanceof JButton){
                 ((JButton)panel.getComponents()[i]).setEnabled(x);
+            }
+        }
+    }
+    public void DeskopPnae(JDesktopPane panel, boolean x){
+        for(int i = 0; panel.getComponents().length > i; i++){
+            if(panel.getComponents()[i] instanceof JInternalFrame){
+                ((JInternalFrame)panel.getComponents()[i]).setVisible(x);
+                System.out.println("Encontro");
+            }
+            else if(panel.getComponents()[i] instanceof JInternalFrame){
+                ((JInternalFrame)panel.getComponents()[i]).setVisible(x);
             }
         }
     }

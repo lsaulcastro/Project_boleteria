@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Controlador.dao;
 
-import Modelo.InvitadosModel;
 import Modelo.ModeloDatos;
+import Modelo.UsuarioModel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,10 +19,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author sauld
+ * @author Lenovo
  */
-public class CInvitado implements Modelo.dao.InvitadoRepository {
-
+public class CUsuario implements Modelo.dao.Usuariodao {
     private static JInternalFrame em = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
@@ -32,19 +31,19 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     private DefaultTableModel m;
 
     @Override
-    public void save(InvitadosModel en) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-      try{
+    public void save(UsuarioModel en) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try{
           
           md.connectar();
-          sql = "INSERT INTO `persona`( `nombre`, `apellido`, `Telefono`, `direccion`, `sexo`, `email`) VALUES (?,?,?,?,?,?)";
+          sql = "INSERT INTO `usuario`( `username`, password, perfilUsuario) VALUES (?,?,?)";
           presta=md.getConn().prepareStatement(sql);
-          presta.setString(1, en.getNombre());
-          presta.setString(2, en.getAppellido());
-          presta.setString(3, en.getTelefono());
-          presta.setString(4, en.getDireccion());
-          presta.setString(5, en.getSexo());
-          presta.setString(6, en.getEmail());
+          //presta.setString(1, en.getNombre());
+         // presta.setString(2, en.getAppellido());
+          presta.setString(1, en.getUsuario());
+          presta.setString(2, en.getPassword());
+          presta.setString(3, en.getPerfil_Usuario());
+         // presta.setString(6, en.getEmail());
           
            int x = presta.executeUpdate();
             if (x == 0) {
@@ -60,11 +59,11 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     }
 
     @Override
-    public void update(InvitadosModel en, int x) {
+    public void update(UsuarioModel en, int x) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-       try{
+        try{
            md.connectar();
-          sql = "update persona set nombre ='"+en.getNombre()+"', apellido ='"+en.getAppellido()+"', Telefono ='"+en.getTelefono()+"', direccion ='"+en.getDireccion()+"', sexo='"+en.getSexo()+"', email ="+en.getEmail()+"'where idPersona ='"+ x +"'";   
+          sql = "update usuario set username  ='"+en.getUsuario()+"', password ='"+en.getPassword()+"', perfilUsuario ='"+en.getPerfil_Usuario()+"'";   
           presta = md.getConn().prepareStatement(sql);
          presta.executeUpdate();
          
@@ -76,17 +75,17 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
 
     @Override
     public JTable search(JTable en, String a) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        if (a != null) {
-            sql = "SELECT * FROM persona WHERE idPersona LIKE '%" + a + "%'"
-                    + "OR nombre LIKE '%" + a + "%'" + "OR apellido LIKE '%" + a + "%'"
-                    + "OR Telefono LIKE '%" + a + "%'" + "OR direccion LIKE '%" + a + "%'" + "OR sexo LIKE '&" + a + "&'" + "OR email LIKE '&" + a +"&'";
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      if (a != null) {
+            sql = "SELECT * FROM usuario WHERE idPersona LIKE '%" + a + "%'"
+                    + "OR username LIKE '%" + a + "%'" + "OR password LIKE '%" + a + "%'"
+                    + "OR perfilUsuario LIKE '%" + a + "%'";
         }
         if (a == null) {
-            sql = "SELECT * FROM `persona`";
+            sql = "SELECT * FROM `usuario`";
         }
         
-         String[] tituloEmple = {"ID", "Nombre", "Apellido", "Telefono", "Direccion", "Sexo", "Email"};
+         String[] tituloEmple = {"ID", "Usuario", "Contrasena", "Perfil Usuario", "idpersona"};
         m = new DefaultTableModel(null, tituloEmple) {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -96,7 +95,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
             md.connectar();
             s = md.getConn().createStatement();
             rs = s.executeQuery(sql);
-            Object[] values = new Object[7];
+            Object[] values = new Object[5];
 
             while (rs.next()) {
                 values[0] = rs.getString(1);
@@ -104,8 +103,8 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
                 values[2] = rs.getString(3);
                 values[3] = rs.getString(4);
                 values[4] = rs.getString(5);
-                values[5] = rs.getString(6);
-                values[6] = rs.getString(7);
+              //  values[5] = rs.getString(6);
+              //  values[6] = rs.getString(7);
                 m.addRow(values);
 
             }
@@ -116,13 +115,12 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         en.setModel(m);
 
         return en;
-
     }
 
     @Override
     public void delete(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-         sql = "DELETE FROM persona WHERE idPersona = '"+id+"'";
+          sql = "DELETE FROM usuario WHERE idPersona = '"+id+"'";
         try {
             md.connectar();
             s = md.getConn().createStatement();
@@ -137,18 +135,20 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     }
 
     @Override
-    public List<InvitadosModel> finAll() {
+    public List<UsuarioModel> finAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     public static JInternalFrame getinstance() {
         if (em == null) {
-            em = new Vistas.P_InvitadosInternalFrame();
+            em = new Vistas.P_Usuario();
             em.setVisible(true);
             Vistas.PMenu.jDesktopPanePrincipal.add(em);
 
         }
         return em;
     }
-
+    
+    
+    
 }

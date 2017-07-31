@@ -5,12 +5,17 @@
  */
 package Vistas;
 
-import Controlador.CInvitado;
-import Controlador.EventoImp;
+import Controlador.dao.CInvitado;
+import Controlador.dao.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
+<<<<<<< HEAD
 import javax.swing.JInternalFrame; 
+import Controlador.CUsuario;
+=======
+import javax.swing.JInternalFrame;
 
+>>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
 /**
  *
  * @author sauld
@@ -20,14 +25,22 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
+<<<<<<< HEAD
+    public static CUsuario cusuario = null;
     public static Controlador.CInvitado InvitadoControler = null;
     public static Controlador.EventoImp event = null;
+=======
+    public static Controlador.dao.CInvitado InvitadoControler = null;
+    public static Controlador.dao.EventoImp event = null;
+>>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
     public static Modelo.EventoModel evenMode = null;
+    public static Controlador.GUID guid = null;
 
     public PMenu() {
         initComponents();
         this.setLocationRelativeTo(this);
         //  MostrarEven();
+        guid = new GUID();
         InvitadoControler = new CInvitado();
         event = new EventoImp();
         event.search(JTableEvento, null);
@@ -50,8 +63,8 @@ public class PMenu extends javax.swing.JFrame {
         Controlador.GUID Clean = new GUID();
 
         JInternalFrame e = EventoImp.getinstance();
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
         e.setVisible(true);
-        jInternalFrame2.setVisible(false);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
         PeventosInternal.AgregarEvento.setEnabled(true);
         PeventosInternal.EditarEvento.setEnabled(false);
@@ -64,8 +77,10 @@ public class PMenu extends javax.swing.JFrame {
     }
 
     public static void DeleteEvent() {
+        //Obtengo la fila
         int a = JTableEvento.getSelectedRow();
         if (a >= 0) {
+            //Esto es para ontener el id
             event.delete(Integer.parseInt((String) JTableEvento.getValueAt(a, 0)));
         }
     }
@@ -92,8 +107,32 @@ public class PMenu extends javax.swing.JFrame {
     }
 
     public static void ShowInternalInvitado() {
-        jInternalFrame2.setVisible(false);
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
         InvitadoControler.getinstance();
+    }
+    
+      public static void ShowInternalUsuario() {
+        jInternalFrame2.setVisible(false);
+        cusuario.getinstance();
+    }
+
+
+    public static void ShowInternalEvento() {
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
+        jInternalFrame2.setVisible(true);
+    }
+
+    public static void DatosInvi() {
+        int a = JTableEvento.getSelectedRow();
+        if (a >= 0) {
+
+            //Obtenemos el id para almacenarlo en una variable estatica
+            PInvitacion.IDevento.setText(JTableEvento.getValueAt(a, 0).toString());
+            //Nombre del evento
+            PInvitacion.NombreDelEvento.setText(JTableEvento.getValueAt(a, 1).toString());
+
+        }
+
     }
 
     /**
@@ -409,6 +448,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
+        btnAgregar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,6 +502,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
 
         btnmodificar.setBackground(new java.awt.Color(0, 120, 153));
+        btnmodificar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnmodificar.setText("Modificar");
         btnmodificar.setEnabled(false);
         btnmodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -472,6 +513,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 100, -1));
 
         btnEliminar.setBackground(new java.awt.Color(0, 120, 153));
+        btnEliminar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -489,7 +531,11 @@ public class PMenu extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+<<<<<<< HEAD
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+=======
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+>>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
         );
 
         jDesktopPanePrincipal.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -499,16 +545,20 @@ public class PMenu extends javax.swing.JFrame {
         jDesktopPanePrincipalLayout.setHorizontalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(57, 57, 57)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jDesktopPanePrincipalLayout.setVerticalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPanePrincipalLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+<<<<<<< HEAD
+                .addContainerGap())
+=======
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> c86dda4423be10995105c17ab9c8e713456dcff4
         );
 
         jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
@@ -553,7 +603,16 @@ public class PMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void JTableEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseClicked
-        mostrasbtnModEle(false);
+
+        if (evt.getClickCount() == 1) {
+            mostrasbtnModEle(false);
+        } else if (evt.getClickCount() == 2) {
+            guid.DeskopPnae(jDesktopPanePrincipal, false);
+            InvitadoControler.getinstanceInvi();
+            DatosInvi();
+
+        }
+
     }//GEN-LAST:event_JTableEventoMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -599,10 +658,11 @@ public class PMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        ShowInternalEvento();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        ShowInternalUsuario();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

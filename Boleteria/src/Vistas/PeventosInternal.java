@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Controlador.EventoImp;
+import Controlador.dao.EventoImp;
 import Modelo.EventoModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -23,7 +23,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
      * Creates new form PeventosInternal
      */
 
-    public static Controlador.EventoImp event = null;
+    public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
 
     public PeventosInternal() {
@@ -90,7 +90,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
                 AgregarEventoActionPerformed(evt);
             }
         });
-        jPanelEventoMante.add(AgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, 40));
+        jPanelEventoMante.add(AgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 40));
 
         jButton4.setBackground(new java.awt.Color(0, 120, 153));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -101,7 +101,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanelEventoMante.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 120, 40));
+        jPanelEventoMante.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 120, 40));
 
         EditarEvento.setBackground(new java.awt.Color(0, 120, 153));
         EditarEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -118,7 +118,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
                 EditarEventoActionPerformed(evt);
             }
         });
-        jPanelEventoMante.add(EditarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 130, 40));
+        jPanelEventoMante.add(EditarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 40));
 
         TipoEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hola" }));
         jPanelEventoMante.add(TipoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 260, 40));
@@ -137,7 +137,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,18 +153,21 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelEventoMante, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelEventoMante, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelEventoMante, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanelEventoMante, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
