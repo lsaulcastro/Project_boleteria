@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Controlador.dao;
 
 import Modelo.EventoModel;
 import Modelo.ModeloDatos;
@@ -64,7 +64,12 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         try {
             md.connectar();
             presta = md.getConn().prepareStatement(sql);
-            presta.executeUpdate();
+           int x = presta.executeUpdate();
+            if (x == 0) {
+                System.out.println("No funciono");
+            } else {
+                JOptionPane.showMessageDialog(null, "Evento modificado, Correctamente!!");
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error! " + e.getMessage());
         }

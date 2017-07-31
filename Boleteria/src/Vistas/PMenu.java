@@ -5,8 +5,8 @@
  */
 package Vistas;
 
-import Controlador.CInvitado;
-import Controlador.EventoImp;
+import Controlador.dao.CInvitado;
+import Controlador.dao.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
 import javax.swing.JInternalFrame;
@@ -20,8 +20,8 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
-    public static Controlador.CInvitado InvitadoControler = null;
-    public static Controlador.EventoImp event = null;
+    public static Controlador.dao.CInvitado InvitadoControler = null;
+    public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
     public static Controlador.GUID guid = null;
 
@@ -52,8 +52,8 @@ public class PMenu extends javax.swing.JFrame {
         Controlador.GUID Clean = new GUID();
 
         JInternalFrame e = EventoImp.getinstance();
-        e.setVisible(true);
         guid.DeskopPnae(jDesktopPanePrincipal, false);
+        e.setVisible(true);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
         PeventosInternal.AgregarEvento.setEnabled(true);
         PeventosInternal.EditarEvento.setEnabled(false);
@@ -66,8 +66,10 @@ public class PMenu extends javax.swing.JFrame {
     }
 
     public static void DeleteEvent() {
+        //Obtengo la fila
         int a = JTableEvento.getSelectedRow();
         if (a >= 0) {
+            //Esto es para ontener el id
             event.delete(Integer.parseInt((String) JTableEvento.getValueAt(a, 0)));
         }
     }
@@ -97,9 +99,23 @@ public class PMenu extends javax.swing.JFrame {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         InvitadoControler.getinstance();
     }
+
     public static void ShowInternalEvento() {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         jInternalFrame2.setVisible(true);
+    }
+
+    public static void DatosInvi() {
+        int a = JTableEvento.getSelectedRow();
+        if (a >= 0) {
+
+            //Obtenemos el id para almacenarlo en una variable estatica
+            PInvitacion.IDevento.setText(JTableEvento.getValueAt(a, 0).toString());
+            //Nombre del evento
+            PInvitacion.NombreDelEvento.setText(JTableEvento.getValueAt(a, 1).toString());
+
+        }
+
     }
 
     /**
@@ -415,6 +431,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
+        btnAgregar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,6 +485,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
 
         btnmodificar.setBackground(new java.awt.Color(0, 120, 153));
+        btnmodificar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnmodificar.setText("Modificar");
         btnmodificar.setEnabled(false);
         btnmodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -478,6 +496,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 100, -1));
 
         btnEliminar.setBackground(new java.awt.Color(0, 120, 153));
+        btnEliminar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -495,7 +514,7 @@ public class PMenu extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
         );
 
         jDesktopPanePrincipal.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -514,7 +533,7 @@ public class PMenu extends javax.swing.JFrame {
             .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
@@ -565,6 +584,7 @@ public class PMenu extends javax.swing.JFrame {
         } else if (evt.getClickCount() == 2) {
             guid.DeskopPnae(jDesktopPanePrincipal, false);
             InvitadoControler.getinstanceInvi();
+            DatosInvi();
 
         }
 

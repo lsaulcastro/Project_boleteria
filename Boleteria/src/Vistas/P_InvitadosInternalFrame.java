@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Controlador.CInvitado;
+import Controlador.dao.CInvitado;
 import Controlador.GUID;
 import Modelo.InvitadosModel;
 import static Vistas.P_InvitadosInternalFrame.persona;

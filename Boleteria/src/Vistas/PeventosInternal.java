@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Controlador.EventoImp;
+import Controlador.dao.EventoImp;
 import Modelo.EventoModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -23,7 +23,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
      * Creates new form PeventosInternal
      */
 
-    public static Controlador.EventoImp event = null;
+    public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
 
     public PeventosInternal() {
