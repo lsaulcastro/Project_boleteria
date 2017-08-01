@@ -39,7 +39,7 @@ public class EventoImp implements Modelo.dao.EventoDAO {
             md.connectar();
             presta = md.getConn().prepareStatement(sql);
             presta.setString(1, en.getNombre());
-            presta.setString(2, en.getFechal());
+            presta.setDate(2, en.getFechal());
             presta.setString(3, en.getUbicacion());
             presta.setString(4, en.getTipo_Evento());
             int x = presta.executeUpdate();
@@ -64,7 +64,7 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         try {
             md.connectar();
             presta = md.getConn().prepareStatement(sql);
-           int x = presta.executeUpdate();
+            int x = presta.executeUpdate();
             if (x == 0) {
                 System.out.println("No funciono");
             } else {
@@ -124,15 +124,15 @@ public class EventoImp implements Modelo.dao.EventoDAO {
 
     @Override
     public void delete(int id) {
-        sql = "DELETE FROM `evento` WHERE idEventos = '"+id+"'";
+        sql = "DELETE FROM `evento` WHERE idEventos = '" + id + "'";
         try {
             md.connectar();
             s = md.getConn().createStatement();
-             //s.executeUpdate(sql);
-            if ( s.executeUpdate(sql)  == 1) {
+            //s.executeUpdate(sql);
+            if (s.executeUpdate(sql) == 1) {
                 JOptionPane.showMessageDialog(null, "Evento Eliminado o Cancelado!");
             }
- 
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -144,14 +144,16 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 //Este getinstance es para que me devuelva la vista de InternalFrame de eventos
+
     public static JInternalFrame getinstance() {
         if (em == null) {
             em = new Vistas.PeventosInternal();
             Vistas.PMenu.jDesktopPanePrincipal.add(em);
-        
-          
+
         }
         return em;
+
     }
 
+    
 }
