@@ -24,12 +24,12 @@ public class PInvitacion extends javax.swing.JInternalFrame {
         initComponents();
         this.setLocation(55, 45);
         invi = new CInvitado();
-        invi.search(JTableInvitacion, null);
+        invi.search(JTableInvitacion, null,0);
     }
 
     public static void BusquedaFiltrada() {
         String a = BusquedaInvitacion.getText();
-        invi.search(JTableInvitacion, a);
+        invi.search(JTableInvitacion, a,0);
     }
 
     /**

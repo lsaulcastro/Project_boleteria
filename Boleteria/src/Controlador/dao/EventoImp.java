@@ -24,12 +24,16 @@ import javax.swing.table.DefaultTableModel;
 public class EventoImp implements Modelo.dao.EventoDAO {
 
     private static JInternalFrame em = null;
+    private static JInternalFrame em1 = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
     private ResultSet rs;
     private String sql;
     private Statement s;
     private DefaultTableModel m;
+
+    public EventoImp() {
+    }
 
     @Override
     public void save(EventoModel en) {
@@ -77,15 +81,20 @@ public class EventoImp implements Modelo.dao.EventoDAO {
     }
 
     @Override
-    public JTable search(javax.swing.JTable tabla, String a) {
+    public JTable search(javax.swing.JTable tabla, String a , int b) {
 
-        if (a != null) {
+        if (a != null ) {
             sql = "SELECT * FROM evento WHERE idEventos LIKE '%" + a + "%'"
                     + "OR nombre LIKE '%" + a + "%'" + "OR fecha LIKE '%" + a + "%'"
                     + "OR ubicacion LIKE '%" + a + "%'" + "OR tipo LIKE '%" + a + "%'";
         }
-        if (a == null) {
-            sql = "SELECT * FROM `evento`";
+        if (b ==1) {
+            sql = "SELECT * FROM `evento` where fecha = '"+FechaActual()+"'";
+            System.out.println(FechaActual());
+        }
+        if (b ==2) {
+            sql = "SELECT * FROM `evento` ";
+           
         }
 
         // tabla.setDeflseaultRenderer(Object.class, new Render());
@@ -154,6 +163,22 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         return em;
 
     }
+    public static JInternalFrame getinstanceProxEven() {
+        if (em1 == null) {
+            em1 = new Vistas.ProxEvent();
+            Vistas.PMenu.jDesktopPanePrincipal.add(em1);
+           // em1.setVisible(true);
 
-    
+        }
+         em1.setVisible(true);
+        return em1;
+
+    }
+
+      public static java.sql.Date FechaActual() {
+        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("####-##-##");
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        return sqlDate;
+    }
 }

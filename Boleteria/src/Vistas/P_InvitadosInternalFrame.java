@@ -32,7 +32,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         guid = new GUID()  ;
         this.setLocation(60, 10);
         persona = new CInvitado();
-        persona.search(JtablePersona, null);
+        persona.search(JtablePersona,null ,0);
         
     }
    
@@ -296,7 +296,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     
     public static void buscar(){
     String a = Busqueda.getText();
-    persona.search(JtablePersona, a);
+    persona.search(JtablePersona, a,0);
     }
       public static void mostrasbtnModEle(boolean x) {
         //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
@@ -355,7 +355,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         e.setVisible(true);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
       // PeventosInternal.btnAgregar.setEnabled(true);
-       PeventosInternal.EditarEvento.setEnabled(false);
+       PeventosInternal.btnEditarEvento.setEnabled(false);
         return false;
     }
           public static void DeletePersona() {

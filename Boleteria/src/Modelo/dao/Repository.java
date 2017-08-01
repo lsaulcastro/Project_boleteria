@@ -18,7 +18,7 @@ public interface Repository<entidad> {
 
     void update(entidad en, int x);
 
-    javax.swing.JTable search(javax.swing.JTable en , String a);
+    javax.swing.JTable search(javax.swing.JTable en , String a , int b);
 
     void delete(int id);
 

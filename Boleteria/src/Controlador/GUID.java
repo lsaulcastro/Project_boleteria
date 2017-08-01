@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
@@ -48,11 +49,11 @@ public class GUID {
 
     public static java.sql.Date formateadorFecha(String a) throws Exception {
 
-        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat(a);
-        java.util.Date utilDate = format.parse(a);
-        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-
-        return sqlDate;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date parsed = format.parse(a);
+        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+        System.out.println(sql);
+        return sql;
     }
 
 }

@@ -35,7 +35,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         initComponents();
         this.setLocation(65, 10);
         cusuario = new CUsuario();
-        cusuario.search(JtableUsuario, null);
+        cusuario.search(JtableUsuario,null, 0);
     }
     
     public static void btnAgregar(JTextField nombre ,JTextField apellido,JTextField usuario, JTextField password, JComboBox perfilusuario) {
@@ -206,6 +206,12 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Nombre:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 280, 30));
 
         JtableUsuario.setModel(new javax.swing.table.DefaultTableModel(
@@ -291,6 +297,10 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     private void JtableUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseExited
          mostrasbtnModEle(true);
     }//GEN-LAST:event_JtableUsuarioMouseExited
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
