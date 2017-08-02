@@ -95,7 +95,7 @@ public class PMenu extends javax.swing.JFrame {
                 btnevent.setEnabled(false);
             }
         }
-         event.search(JTableEvent, null, 1);
+     //    event.search(JTableEvent, null, 1);
 
     }
 
@@ -139,6 +139,7 @@ public class PMenu extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -711,6 +712,7 @@ public class PMenu extends javax.swing.JFrame {
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JCalendar jCalendar1;
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;

@@ -90,7 +90,7 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         }
         if (b ==1) {
             sql = "SELECT * FROM `evento` where fecha = '"+FechaActual()+"'";
-            System.out.println(FechaActual());
+         //  System.out.println(FechaActual());
         }
         if (b ==2) {
             sql = "SELECT * FROM `evento` ";

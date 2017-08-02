@@ -90,7 +90,6 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         btnAgregarEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregarEvento.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarEvento.setText("Agregar");
-        btnAgregarEvento.setEnabled(false);
         btnAgregarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarEventoActionPerformed(evt);
@@ -204,7 +203,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
 
             PMenu.btnShow();
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
-            ///  btnAgregarEvento.setEnabled(false);
+             btnAgregarEvento.setEnabled(false);
             btnEditarEvento.setEnabled(true);
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
 
