@@ -20,11 +20,11 @@ public class PMenu extends javax.swing.JFrame {
     /**
      * Creates new form PMenu
      */
+    public static Controlador.dao.CUsuario cusuario = null;
     public static Controlador.dao.CInvitado InvitadoControler = null;
     public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
     public static Controlador.GUID guid = null;
-    public static Controlador.dao.CUsuario cusuario = null;
 
     public PMenu() {
         initComponents();
@@ -110,7 +110,7 @@ public class PMenu extends javax.swing.JFrame {
         jInternalFrame2.setVisible(true);
     }
     
-     public static void ShowInternalUsuario() {
+    public static void ShowInternalUsuario() {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         cusuario.getinstance();
     }
@@ -133,9 +133,6 @@ public class PMenu extends javax.swing.JFrame {
         }
 
     }
-     public static void GestionUsuario(){
-     
-     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,7 +145,7 @@ public class PMenu extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+      
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -721,7 +718,6 @@ public class PMenu extends javax.swing.JFrame {
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JCalendar jCalendar1;
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;

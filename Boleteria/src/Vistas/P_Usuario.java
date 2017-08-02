@@ -35,7 +35,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         initComponents();
         this.setLocation(65, 10);
         cusuario = new CUsuario();
-        cusuario.search(JtableUsuario,null, 0);
+        cusuario.search(JtableUsuario, null,0);
     }
     
   
@@ -187,17 +187,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Nombre:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-<<<<<<< HEAD
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 280, 30));
-=======
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 280, 30));
->>>>>>> 31147a4e62f6ff7287f085e3716686c47be978c2
 
         JtableUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -300,15 +290,9 @@ public class P_Usuario extends javax.swing.JInternalFrame {
          mostrasbtnModEle(true);
     }//GEN-LAST:event_JtableUsuarioMouseExited
 
-<<<<<<< HEAD
     private void persona_idpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persona_idpersonaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_persona_idpersonaActionPerformed
-=======
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
->>>>>>> 31147a4e62f6ff7287f085e3716686c47be978c2
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
