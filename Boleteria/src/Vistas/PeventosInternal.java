@@ -5,13 +5,16 @@
  */
 package Vistas;
 
+import Controlador.GUID;
 import Controlador.dao.EventoImp;
 import Modelo.EventoModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import static Vistas.PMenu.JTableEvento;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFormattedTextField;
+import static Vistas.PMenu.JTableEvent;
 
 /**
  *
@@ -22,15 +25,17 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
     /**
      * Creates new form PeventosInternal
      */
-
     public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
+    public static Controlador.GUID gui = null;
 
     public PeventosInternal() {
 
         initComponents();
         this.setLocation(190, 40);
         event = new EventoImp();
+        gui = new GUID();
+
     }
 
     /**
@@ -45,31 +50,33 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
 
         jPanelEventoMante = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        nombreEvento = new javax.swing.JTextField();
+        txtNombreEvento = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        UbicacionEvento = new javax.swing.JTextField();
+        TxtUbicacionEvento = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        FechaEvento = new javax.swing.JTextField();
-        AgregarEvento = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        EditarEvento = new javax.swing.JButton();
-        TipoEvento = new javax.swing.JComboBox<>();
+        btnAgregarEvento = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+        btnEditarEvento = new javax.swing.JButton();
+        TxtTipoEvento = new javax.swing.JComboBox<>();
+        TxtFechaEvento = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         jPanelEventoMante.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanelEventoMante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre: ");
-        jPanelEventoMante.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        jPanelEventoMante.add(nombreEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 261, 32));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jLabel5.setText("2017-12-31");
+        jPanelEventoMante.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
+        jPanelEventoMante.add(txtNombreEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 261, 32));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Fecha:");
         jPanelEventoMante.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-        jPanelEventoMante.add(UbicacionEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 261, 32));
+        jPanelEventoMante.add(TxtUbicacionEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 261, 32));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Tipo:");
@@ -78,50 +85,65 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Direccion:");
         jPanelEventoMante.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-        jPanelEventoMante.add(FechaEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 261, 32));
 
-        AgregarEvento.setBackground(new java.awt.Color(0, 120, 153));
-        AgregarEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        AgregarEvento.setForeground(new java.awt.Color(255, 255, 255));
-        AgregarEvento.setText("Agregar");
-        AgregarEvento.setEnabled(false);
-        AgregarEvento.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarEvento.setBackground(new java.awt.Color(0, 120, 153));
+        btnAgregarEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAgregarEvento.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarEvento.setText("Agregar");
+        btnAgregarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarEventoActionPerformed(evt);
+                btnAgregarEventoActionPerformed(evt);
             }
         });
-        jPanelEventoMante.add(AgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 40));
+        jPanelEventoMante.add(btnAgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, 40));
 
-        jButton4.setBackground(new java.awt.Color(0, 120, 153));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Atras");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnAtras.setBackground(new java.awt.Color(0, 120, 153));
+        btnAtras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAtras.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnAtrasActionPerformed(evt);
             }
         });
-        jPanelEventoMante.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 120, 40));
+        jPanelEventoMante.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 120, 40));
 
-        EditarEvento.setBackground(new java.awt.Color(0, 120, 153));
-        EditarEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        EditarEvento.setForeground(new java.awt.Color(255, 255, 255));
-        EditarEvento.setText("Editar");
-        EditarEvento.setEnabled(false);
-        EditarEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEditarEvento.setBackground(new java.awt.Color(0, 120, 153));
+        btnEditarEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEditarEvento.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEvento.setText("Editar");
+        btnEditarEvento.setEnabled(false);
+        btnEditarEvento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EditarEventoMouseClicked(evt);
+                btnEditarEventoMouseClicked(evt);
             }
         });
-        EditarEvento.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarEventoActionPerformed(evt);
+                btnEditarEventoActionPerformed(evt);
             }
         });
-        jPanelEventoMante.add(EditarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 40));
+        jPanelEventoMante.add(btnEditarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 130, 40));
 
-        TipoEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hola" }));
-        jPanelEventoMante.add(TipoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 260, 40));
+        TxtTipoEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hola" }));
+        jPanelEventoMante.add(TxtTipoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 260, 40));
+
+        try {
+            TxtFechaEvento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtFechaEvento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtFechaEvento.setText("    -    -");
+        jPanelEventoMante.add(TxtFechaEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 260, 40));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Nombre: ");
+        jPanelEventoMante.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jLabel10.setText("Formato");
+        jPanelEventoMante.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 80, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 120, 153));
 
@@ -163,43 +185,49 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelEventoMante, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addComponent(jPanelEventoMante, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public static void UpdateShow() {
-        int a = JTableEvento.getSelectedRow();
+        int a = JTableEvent.getSelectedRow();
 
         if (a >= 0) {
             // if (nombreEvento.getText().length() >= 1 && FechaEvento.getText().length() > 1 && 1 <= UbicacionEvento.getText().length()) {
-            
-           PMenu.btnShow();
+
+            PMenu.btnShow();
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
-             AgregarEvento.setEnabled(false);
-            EditarEvento.setEnabled(true);
+             btnAgregarEvento.setEnabled(false);
+            btnEditarEvento.setEnabled(true);
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
-           
-            nombreEvento.setText(JTableEvento.getValueAt(a, 1).toString());
-            FechaEvento.setText(JTableEvento.getValueAt(a, 2).toString());
-            UbicacionEvento.setText(JTableEvento.getValueAt(a, 3).toString());
-            TipoEvento.setSelectedItem(JTableEvento.getValueAt(a, 4).toString());
+
+            txtNombreEvento.setText(JTableEvent.getValueAt(a, 1).toString());
+            TxtFechaEvento.setText(JTableEvent.getValueAt(a, 2).toString());
+            TxtUbicacionEvento.setText(JTableEvent.getValueAt(a, 3).toString());
+            TxtTipoEvento.setSelectedItem(JTableEvent.getValueAt(a, 4).toString());
             PMenu.btnmodificar.setEnabled(true);
             PMenu.btnmodificar.setEnabled(true);
 
         }
     }
 
-    public static void UpdateAction() {
-        int a = JTableEvento.getSelectedRow();
+//    public static java.sql.Date FechaActual() {
+//        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("####-##-##");
+//        java.util.Date utilDate = new java.util.Date();
+//        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+//        return sqlDate;
+//    }
+    public static void UpdateAction() throws Exception {
+        int a = JTableEvent.getSelectedRow();
 
-        if (!nombreEvento.getText().isEmpty()  &&  !FechaEvento.getText().isEmpty() &&   !UbicacionEvento.getText().isEmpty()) {
-            btnAgregarInternalFrameEvento(nombreEvento, FechaEvento, UbicacionEvento, TipoEvento, 1);
+        if (!txtNombreEvento.getText().isEmpty() && !TxtFechaEvento.getText().isEmpty() && !TxtUbicacionEvento.getText().isEmpty()) {
+            btnAgregarInternalFrameEvento(txtNombreEvento, TxtFechaEvento, TxtUbicacionEvento, TxtTipoEvento, 1);
 
         } else {
             JOptionPane.showMessageDialog(null, "No deje campos vacios.");
@@ -207,67 +235,80 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         }
     }
 
-    public static void btnAgregarInternalFrameEvento(JTextField nombre, JTextField Fecha, JTextField Ubicacion, JComboBox Tipo, int x) {
-        int a = JTableEvento.getSelectedRow();
-        event = new EventoImp();
-        if (x == 0) {
-            if (!nombre.getText().isEmpty() &&  !Fecha.getText().isEmpty() &&  !Ubicacion.getText().isEmpty()) {
+    public static void btnAgregarInternalFrameEvento(JTextField nombre, JFormattedTextField Fecha, JTextField Ubicacion, JComboBox Tipo, int x) throws Exception {
+        int a = JTableEvent.getSelectedRow();
 
-                evenMode = new EventoModel(nombre.getText(), Fecha.getText(), Ubicacion.getText(), Tipo.getSelectedItem().toString());
+        if (x == 0) {
+            if (!nombre.getText().isEmpty() && !Fecha.getText().isEmpty() && !Ubicacion.getText().isEmpty()) {
+
+                evenMode = new EventoModel(nombre.getText(), gui.formateadorFecha(Fecha.getText()), Ubicacion.getText(), Tipo.getSelectedItem().toString());
                 event.save(evenMode);
 
             } else {
                 JOptionPane.showMessageDialog(null, "No deje campos vacios.");
             }
         } else {
-            evenMode = new EventoModel(nombre.getText(), Fecha.getText(), Ubicacion.getText(), Tipo.getSelectedItem().toString());
+            evenMode = new EventoModel(nombre.getText(), gui.formateadorFecha(Fecha.getText()), Ubicacion.getText(), Tipo.getSelectedItem().toString());
 
             if (a >= 0) {
-                event.update(evenMode, Integer.parseInt(JTableEvento.getValueAt(a, 0).toString()));
+                event.update(evenMode, Integer.parseInt(JTableEvent.getValueAt(a, 0).toString()));
             }
 
         }
 
     }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
+    public static void ComeBack() {
+        gui.DeskopPnae(PMenu.jDesktopPanePrincipal,false);
         Vistas.PMenu.jInternalFrame2.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
-    private void AgregarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarEventoActionPerformed
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         // TODO add your handling code here:
+        ComeBack();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
-        btnAgregarInternalFrameEvento(nombreEvento, FechaEvento, UbicacionEvento, TipoEvento, 0);
-    }//GEN-LAST:event_AgregarEventoActionPerformed
+    private void btnAgregarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEventoActionPerformed
+        //  TODO add your handling code here:
+        try {
+            btnAgregarInternalFrameEvento(txtNombreEvento, TxtFechaEvento, TxtUbicacionEvento, TxtTipoEvento, 0);
+        } catch (Exception e) {
+        }
 
-    private void EditarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEventoActionPerformed
-        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarEventoActionPerformed
 
-        UpdateAction();
-    }//GEN-LAST:event_EditarEventoActionPerformed
+    private void btnEditarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEventoActionPerformed
+        try {
+            // TODO add your handling code here:
 
-    private void EditarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarEventoMouseClicked
+            UpdateAction();
+        } catch (Exception ex) {
+            Logger.getLogger(PeventosInternal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditarEventoActionPerformed
+
+    private void btnEditarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarEventoMouseClicked
         // TODO add your handling code heupre:
         //   Update_Delete(evt);
-    }//GEN-LAST:event_EditarEventoMouseClicked
+    }//GEN-LAST:event_btnEditarEventoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton AgregarEvento;
-    protected static javax.swing.JButton EditarEvento;
-    public static javax.swing.JTextField FechaEvento;
-    public static javax.swing.JComboBox<String> TipoEvento;
-    public static javax.swing.JTextField UbicacionEvento;
-    private javax.swing.JButton jButton4;
+    public static javax.swing.JFormattedTextField TxtFechaEvento;
+    public static javax.swing.JComboBox<String> TxtTipoEvento;
+    public static javax.swing.JTextField TxtUbicacionEvento;
+    public static javax.swing.JButton btnAgregarEvento;
+    public static javax.swing.JButton btnAtras;
+    public static javax.swing.JButton btnEditarEvento;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JPanel jPanelEventoMante;
-    public static javax.swing.JTextField nombreEvento;
+    public static javax.swing.JTextField txtNombreEvento;
     // End of variables declaration//GEN-END:variables
 }

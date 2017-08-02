@@ -83,7 +83,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     }
 
     @Override
-    public JTable search(JTable en, String a) {
+    public JTable search(JTable en, String a, int b) {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         if (a != null) {
             sql = "SELECT * FROM persona WHERE idPersona LIKE '%" + a + "%'"

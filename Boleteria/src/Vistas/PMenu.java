@@ -33,7 +33,8 @@ public class PMenu extends javax.swing.JFrame {
         guid = new GUID();
         InvitadoControler = new CInvitado();
         event = new EventoImp();
-        event.search(JTableEvento, null);
+       // System.out.println("Hola");
+        event.search(JTableEvent, null, 1);
 
     }
 
@@ -56,34 +57,35 @@ public class PMenu extends javax.swing.JFrame {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         e.setVisible(true);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
-        PeventosInternal.AgregarEvento.setEnabled(true);
-        PeventosInternal.EditarEvento.setEnabled(false);
+        PeventosInternal.btnAgregarEvento.setEnabled(true);
+        PeventosInternal.btnEditarEvento.setEnabled(false);
         return false;
     }
 
     public static void BusquedaFiltrada() {
         String a = BusquedaEvento.getText();
-        event.search(JTableEvento, a);
+        event.search(JTableEvent, a, 0);
     }
 
     public static void DeleteEvent() {
         //Obtengo la fila
-        int a = JTableEvento.getSelectedRow();
+        int a = JTableEvent.getSelectedRow();
         if (a >= 0) {
             //Esto es para ontener el id
-            event.delete(Integer.parseInt((String) JTableEvento.getValueAt(a, 0)));
+            event.delete(Integer.parseInt((String) JTableEvent.getValueAt(a, 0)));
         }
     }
 
     public static void mostrasbtnModEle(boolean x) {
         //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
-        int a = JTableEvento.getSelectedRow();
+        int a = JTableEvent.getSelectedRow();
         if (x) {
 
             if (a < 0) {
                 btnmodificar.setEnabled(false);
                 btnEliminar.setEnabled(false);
                 btnAgregar.setEnabled(true);
+                btnevent.setEnabled(true);
             }
         } else {
             if (a >= 0) {
@@ -91,8 +93,10 @@ public class PMenu extends javax.swing.JFrame {
                 btnmodificar.setEnabled(true);
                 btnEliminar.setEnabled(true);
                 btnAgregar.setEnabled(false);
+                btnevent.setEnabled(false);
             }
         }
+     //    event.search(JTableEvent, null, 1);
 
     }
 
@@ -111,14 +115,20 @@ public class PMenu extends javax.swing.JFrame {
         cusuario.getinstance();
     }
 
+    public static void proxEvent() {
+       guid.DeskopPnae(jDesktopPanePrincipal, false);
+       event.getinstanceProxEven();
+//        JTableEventoProximo.setVisible(true);
+    }
+
     public static void DatosInvi() {
-        int a = JTableEvento.getSelectedRow();
+        int a = JTableEvent.getSelectedRow();
         if (a >= 0) {
 
             //Obtenemos el id para almacenarlo en una variable estatica
-            PInvitacion.IDevento.setText(JTableEvento.getValueAt(a, 0).toString());
+            PInvitacion.IDevento.setText(JTableEvent.getValueAt(a, 0).toString());
             //Nombre del evento
-            PInvitacion.NombreDelEvento.setText(JTableEvento.getValueAt(a, 1).toString());
+            PInvitacion.NombreDelEvento.setText(JTableEvent.getValueAt(a, 1).toString());
 
         }
 
@@ -138,6 +148,7 @@ public class PMenu extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -159,16 +170,17 @@ public class PMenu extends javax.swing.JFrame {
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTableEvento = new javax.swing.JTable();
+        JTableEvent = new javax.swing.JTable();
         BusquedaEvento = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
+        btnevent = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnmodificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         jFrame1.setAlwaysOnTop(true);
         jFrame1.setBounds(new java.awt.Rectangle(123, 2342, 123, 123));
@@ -381,7 +393,7 @@ public class PMenu extends javax.swing.JFrame {
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JTableEvento.setModel(new javax.swing.table.DefaultTableModel(
+        JTableEvent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -400,26 +412,26 @@ public class PMenu extends javax.swing.JFrame {
                 return false;
             }
         });
-        JTableEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTableEvent.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTableEventoMouseClicked(evt);
+                JTableEventMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                JTableEventoMouseEntered(evt);
+                JTableEventMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                JTableEventoMouseExited(evt);
+                JTableEventMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                JTableEventoMousePressed(evt);
+                JTableEventMousePressed(evt);
             }
         });
-        JTableEvento.addKeyListener(new java.awt.event.KeyAdapter() {
+        JTableEvent.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                JTableEventoKeyPressed(evt);
+                JTableEventKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(JTableEvento);
+        jScrollPane1.setViewportView(JTableEvent);
 
         jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 320));
 
@@ -439,15 +451,15 @@ public class PMenu extends javax.swing.JFrame {
         jLabel12.setText("Buscar : ");
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
-        btnAgregar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnevent.setBackground(new java.awt.Color(0, 120, 153));
+        btnevent.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
+        btnevent.setText("Proximos Eventos");
+        btnevent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btneventActionPerformed(evt);
             }
         });
-        jPanel7.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 100, -1));
+        jPanel7.add(btnevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 160, -1));
 
         jPanel8.setBackground(new java.awt.Color(0, 120, 153));
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 0, 0), null));
@@ -515,15 +527,25 @@ public class PMenu extends javax.swing.JFrame {
         });
         jPanel7.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 100, -1));
 
+        btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
+        btnAgregar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 100, -1));
+
         javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jDesktopPanePrincipal.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -533,16 +555,16 @@ public class PMenu extends javax.swing.JFrame {
         jDesktopPanePrincipalLayout.setHorizontalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(52, 52, 52)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jDesktopPanePrincipalLayout.setVerticalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(22, 22, 22)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
@@ -580,13 +602,13 @@ public class PMenu extends javax.swing.JFrame {
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btneventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneventActionPerformed
         // TODO add your handling code here:
+        proxEvent();
 
-        btnShow();
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btneventActionPerformed
 
-    private void JTableEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseClicked
+    private void JTableEventMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseClicked
 
         if (evt.getClickCount() == 1) {
             mostrasbtnModEle(false);
@@ -597,7 +619,7 @@ public class PMenu extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_JTableEventoMouseClicked
+    }//GEN-LAST:event_JTableEventMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
@@ -614,26 +636,26 @@ public class PMenu extends javax.swing.JFrame {
         BusquedaFiltrada();
     }//GEN-LAST:event_BusquedaEventoKeyReleased
 
-    private void JTableEventoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseEntered
+    private void JTableEventMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseEntered
         // TODO add your handling code here:
-        event.search(JTableEvento, null);
+        event.search(JTableEvent, null, 1);
         // btnmodificar.setEnabled(true);
-    }//GEN-LAST:event_JTableEventoMouseEntered
+    }//GEN-LAST:event_JTableEventMouseEntered
 
-    private void JTableEventoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTableEventoKeyPressed
+    private void JTableEventKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTableEventKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTableEventoKeyPressed
+    }//GEN-LAST:event_JTableEventKeyPressed
 
-    private void JTableEventoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMousePressed
+    private void JTableEventMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMousePressed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_JTableEventoMousePressed
+    }//GEN-LAST:event_JTableEventMousePressed
 
-    private void JTableEventoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventoMouseExited
+    private void JTableEventMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseExited
         // TODO add your handling code here:
         mostrasbtnModEle(true);
 
-    }//GEN-LAST:event_JTableEventoMouseExited
+    }//GEN-LAST:event_JTableEventMouseExited
 
     private void btnPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonaActionPerformed
         // TODO add your handling code here:
@@ -648,6 +670,11 @@ public class PMenu extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ShowInternalUsuario();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        btnShow();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -666,13 +693,13 @@ public class PMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //  java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //  java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //  java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //  java.util.logging.Logger.getLogger(PUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -686,13 +713,15 @@ public class PMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField BusquedaEvento;
-    public static javax.swing.JTable JTableEvento;
+    public static javax.swing.JTable JTableEvent;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnPersona;
+    public static javax.swing.JButton btnevent;
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JCalendar jCalendar1;
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;
