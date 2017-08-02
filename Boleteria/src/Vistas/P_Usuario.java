@@ -38,35 +38,16 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         cusuario.search(JtableUsuario, null);
     }
     
-    public static void btnAgregar(JTextField nombre ,JTextField apellido,JTextField usuario, JTextField password, JComboBox perfilusuario) {
-      
-        persona = new CInvitado();
-       
-            if (usuario.getText().length() >= 1 && password.getText().length()  >=1) {
-
-                musuario = new UsuarioModel(nombre.getText(),apellido.getText(),usuario.getText(), password.getText(),perfilusuario.getSelectedItem().toString());
-                cusuario.save(musuario);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
-            }
-            nombre.setText("");
-            apellido.setText("");
-            usuario.setText("");
-            password.setText("");
-            //email.setText("");
-            // persona.search(JTableEvento, title);
-
-    }
+  
      public static void UpdateAction(JTextField nombre, JTextField apellido, 
-           JTextField usuario, JComboBox perfilusaurio ,JTextField password, JTextField email) {
+           JTextField usuario, JComboBox perfilusaurio ,JTextField password, JTextField email, JTextField persona_idpersona) {
         int a = JtablePersona.getSelectedRow();
         
         cusuario = new CUsuario();
         
         if (nombre.getText().length() >= 1 && apellido.getText().length() > 1 && 1 <= usuario.getText().length() && password .getText().length() >=1 ) {
 
-                musuario = new UsuarioModel(nombre.getText(), apellido.getText(), usuario.getText(),perfilusaurio.getSelectedItem().toString(),password.getText());
+                musuario = new UsuarioModel(nombre.getText(), apellido.getText(), usuario.getText(),perfilusaurio.getSelectedItem().toString(),password.getText(),persona_idpersona.getText());
                 persona.save(invimodel);
 
             } else {
@@ -120,6 +101,9 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         nombre = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         apellido = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        persona_idpersona = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(0, 120, 153));
 
@@ -150,7 +134,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Buscar:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
         jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 197, 33));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -166,47 +150,44 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
-        btnEliminar.setEnabled(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 110, 40));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 110, 40));
 
         btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
-        btnAgregar.setEnabled(false);
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 220, 30));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 220, 40));
 
         btnmodificar.setBackground(new java.awt.Color(0, 120, 153));
         btnmodificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnmodificar.setForeground(new java.awt.Color(255, 255, 255));
         btnmodificar.setText("Editar");
-        btnmodificar.setEnabled(false);
         btnmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmodificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 110, 40));
+        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 110, 40));
 
         perfilusuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         perfilusuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRADOR", "PORTERO" }));
         jPanel1.add(perfilusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 200, 30));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 670, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 670, 10));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Nombre:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 280, 30));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 280, 30));
 
         JtableUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -226,7 +207,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(JtableUsuario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 670, 160));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 670, 160));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Usuario:");
@@ -240,9 +221,26 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 200, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel12.setText("Contrasena: ");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jLabel12.setText("IdPersona:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
         jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 220, 30));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Contrasena: ");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+
+        persona_idpersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                persona_idpersonaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(persona_idpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 110, 40));
+
+        jButton1.setBackground(new java.awt.Color(0, 120, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Buscar");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,8 +257,8 @@ public class P_Usuario extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -273,7 +271,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-       btnAgregar(nombre,apellido,usuario,contrasena,perfilusuario);
+       cusuario.btnAgregar(usuario,contrasena,perfilusuario,nombre,apellido,persona_idpersona);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -292,6 +290,10 @@ public class P_Usuario extends javax.swing.JInternalFrame {
          mostrasbtnModEle(true);
     }//GEN-LAST:event_JtableUsuarioMouseExited
 
+    private void persona_idpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persona_idpersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_persona_idpersonaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JtableUsuario;
@@ -300,10 +302,12 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JTextField contrasena;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -314,6 +318,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nombre;
     private javax.swing.JComboBox<String> perfilusuario;
+    private javax.swing.JTextField persona_idpersona;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }

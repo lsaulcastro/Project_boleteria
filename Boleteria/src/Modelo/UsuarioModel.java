@@ -13,12 +13,23 @@ public class UsuarioModel extends PersonaModel {
     private String usuario;
     private String password;
     private String perfil_Usuario;
+    private String persona_idpersona;
 
-    public UsuarioModel(String usuario, String password, String perfil_Usuario, String nombre, String appellido) {
+    public UsuarioModel(String usuario, String password, String perfil_Usuario, String nombre, String appellido,String persona_idpersona) {
         super(nombre, appellido);
         this.usuario = usuario;
         this.password = password;
         this.perfil_Usuario = perfil_Usuario;
+        this.persona_idpersona = persona_idpersona;
+        
+    }
+
+    public String getPersona_idpersona() {
+        return persona_idpersona;
+    }
+
+    public void setPersona_idpersona(String persona_idpersona) {
+        this.persona_idpersona = persona_idpersona;
     }
 
     public String getUsuario() {

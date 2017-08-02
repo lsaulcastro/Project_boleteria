@@ -7,14 +7,19 @@ package Controlador.dao;
 
 import Modelo.ModeloDatos;
 import Modelo.UsuarioModel;
+import static Vistas.P_InvitadosInternalFrame.persona;
+import static Vistas.P_Usuario.cusuario;
+import static Vistas.P_Usuario.musuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,13 +41,14 @@ public class CUsuario implements Modelo.dao.Usuariodao {
          try{
           
           md.connectar();
-          sql = "INSERT INTO `usuario`( `username`, password, perfilUsuario) VALUES (?,?,?)";
+          sql = "INSERT INTO `usuario`( `username`, password, perfilUsuario,Persona_idpersona) VALUES (?,?,?,?)";
           presta=md.getConn().prepareStatement(sql);
           //presta.setString(1, en.getNombre());
          // presta.setString(2, en.getAppellido());
           presta.setString(1, en.getUsuario());
           presta.setString(2, en.getPassword());
           presta.setString(3, en.getPerfil_Usuario());
+          presta.setString(4, en.getPersona_idpersona());
          // presta.setString(6, en.getEmail());
           
            int x = presta.executeUpdate();
@@ -147,6 +153,27 @@ public class CUsuario implements Modelo.dao.Usuariodao {
 
         }
         return em;
+    }
+    
+     public static void btnAgregar(JTextField usuario, JTextField password, JComboBox perfilusuario,JTextField nombre ,JTextField apellido, JTextField persona_idpersona ) {
+      
+        cusuario = new CUsuario();
+       
+            if (usuario.getText().length() >= 1 && password.getText().length()  >=1) {
+
+                musuario = new UsuarioModel(usuario.getText(), password.getText(),perfilusuario.getSelectedItem().toString(),nombre.getText(),apellido.getText(), persona_idpersona.getText());
+                cusuario.save(musuario);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+            }
+            nombre.setText("");
+            apellido.setText("");
+            usuario.setText("");
+            password.setText("");
+            //email.setText("");
+            // persona.search(JTableEvento, title);
+
     }
     
     

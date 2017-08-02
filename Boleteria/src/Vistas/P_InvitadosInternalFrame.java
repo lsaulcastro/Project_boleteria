@@ -277,22 +277,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
    }
     
-    public static void btnAgregarInternalFrameInvitados(JTextField nombre, JTextField apellido, 
-           JTextField telefono, JComboBox sexo ,JTextField direccion, JTextField email) {
-      
-        persona = new CInvitado();
-       
-            if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
-
-                invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(),direccion.getText(),sexo.getSelectedItem().toString(), email.getText());
-                persona.save(invimodel);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
-            }
-            guid.limpiar_texto(JpanelPrincipalInvitado);
-            
-    }
+  
     
     public static void buscar(){
     String a = Busqueda.getText();
@@ -358,13 +343,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
        PeventosInternal.EditarEvento.setEnabled(false);
         return false;
     }
-          public static void DeletePersona() {
-        int a = JtablePersona.getSelectedRow();
-        if (a >= 0) {
-            persona.delete(Integer.parseInt((String) JtablePersona.getValueAt(a, 0)));
-        }
-    }
-
+       
 
    
     
@@ -400,7 +379,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
     //    JCombobox1
-        btnAgregarInternalFrameInvitados(nombre,apellido,telefono,sexo,direccion,email);
+        persona.btnAgregarInternalFrameInvitados(nombre,apellido,telefono,sexo,direccion,email);
        
        
      
@@ -421,7 +400,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        // persona.delete(WIDTH);
-       DeletePersona();
+      persona.DeletePersona();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,6 +24,7 @@ public class PMenu extends javax.swing.JFrame {
     public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
     public static Controlador.GUID guid = null;
+    public static Controlador.dao.CUsuario cusuario = null;
 
     public PMenu() {
         initComponents();
@@ -104,6 +105,11 @@ public class PMenu extends javax.swing.JFrame {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         jInternalFrame2.setVisible(true);
     }
+    
+     public static void ShowInternalUsuario() {
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
+        cusuario.getinstance();
+    }
 
     public static void DatosInvi() {
         int a = JTableEvento.getSelectedRow();
@@ -117,6 +123,9 @@ public class PMenu extends javax.swing.JFrame {
         }
 
     }
+     public static void GestionUsuario(){
+     
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -637,7 +646,7 @@ public class PMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        ShowInternalUsuario();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -7,15 +7,21 @@ package Controlador.dao;
 
 import Modelo.InvitadosModel;
 import Modelo.ModeloDatos;
+import static Vistas.P_InvitadosInternalFrame.JtablePersona;
+import static Vistas.P_InvitadosInternalFrame.guid;
+import static Vistas.P_InvitadosInternalFrame.invimodel;
+import static Vistas.P_InvitadosInternalFrame.persona;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -188,5 +194,28 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         }
 
     }
+      public static void btnAgregarInternalFrameInvitados(JTextField nombre, JTextField apellido, 
+           JTextField telefono, JComboBox sexo ,JTextField direccion, JTextField email) {
+      
+        persona = new CInvitado();
+       
+            if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
+
+                invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(),direccion.getText(),sexo.getSelectedItem().toString(), email.getText());
+                persona.save(invimodel);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+            }
+           // guid.limpiar_texto(JpanelPrincipalInvitado);
+            
+    }
+         public static void DeletePersona() {
+        int a = JtablePersona.getSelectedRow();
+        if (a >= 0) {
+            persona.delete(Integer.parseInt((String) JtablePersona.getValueAt(a, 0)));
+        }
+    }
+
 
 }
