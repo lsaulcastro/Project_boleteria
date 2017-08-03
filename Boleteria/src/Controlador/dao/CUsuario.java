@@ -192,7 +192,6 @@ public class CUsuario implements Modelo.dao.Usuariodao {
 
     }
     
-      public void Ingresar(){
       public void Ingresar(JTextField usuario, JTextField password){
     try{
        

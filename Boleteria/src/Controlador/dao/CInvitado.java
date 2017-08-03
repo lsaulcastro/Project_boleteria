@@ -44,6 +44,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     private String sql;
     private Statement s;
     private DefaultTableModel m;
+    public static P_Usuario pu = null;
 
     @Override
     public void save(InvitadosModel en) {
@@ -255,15 +256,15 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
       
        JOptionPane.showMessageDialog(null, "Usted Selecciono a "+nom+" "+ape+" "+id);
         
-       
-       //ESTE CODIGO VAAAAAAAA!
-       
-//       P_Usuario pu = new P_Usuario();
-//       pu.nombre.setText(nom);
-//       pu.apellido.setText(ape);
-//       pu.persona_idpersona.setText(id);
-//       
-//       JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
+        
+        pu.nombre.setText(nom);
+        pu.apellido.setText(ape);
+        pu.persona_idpersona.setText(id);
+        JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
+        
+        
+            
+            
        
        
      }
