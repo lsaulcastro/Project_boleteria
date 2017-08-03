@@ -22,8 +22,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         cusuario = new CUsuario();
+        this.setLocationRelativeTo(null);
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        perfi = new javax.swing.JComboBox<>();
         Fondo = new javax.swing.JLabel();
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -74,7 +77,11 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 300, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, 300, 40));
+
+        perfi.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        perfi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Portero" }));
+        getContentPane().add(perfi, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 300, 40));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo-de-pantalla-degradado-azul.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 462, 600));
@@ -88,7 +95,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Resuelve YA!!!
-        cusuario.Ingresar(user, password);
+        cusuario.Ingresar(user, password,perfi);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -134,6 +142,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField password;
+    private javax.swing.JComboBox<String> perfi;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

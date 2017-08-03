@@ -17,15 +17,15 @@ public class Puser extends javax.swing.JInternalFrame {
      * Creates new form Puser
      */
     private static Controlador.dao.CInvitado invi = null;
+    private static Controlador.dao.CUsuario user = null;
 
     public Puser() {
         initComponents();
         this.setLocation(65, 10);
         invi = new Controlador.dao.CInvitado();
         invi.search(jTable1, null, 0);
-    }
 
-   
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -147,27 +147,23 @@ public class Puser extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void perfilKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilKeyReleased
-      invi.BusquedaFiltrada(perfil);
+        invi.BusquedaFiltrada(perfil);
     }//GEN-LAST:event_perfilKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+
         invi.Select();
-      
-      
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        invi.ComeBack();
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-
 
     /**
      * @param args the command line arguments
      */
-   
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

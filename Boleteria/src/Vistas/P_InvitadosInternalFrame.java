@@ -353,7 +353,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JtablePersonaMouseEntered
 
     private void JtablePersonaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMouseExited
-        mostrasbtnModEle(true);
+       // mostrasbtnModEle(true);
       
     }//GEN-LAST:event_JtablePersonaMouseExited
 

@@ -22,14 +22,16 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
         event = new Controlador.dao.EventoImp();
 
     }
-   public void confir(java.awt.event.MouseEvent evt){
-       int a = JTableInvitacion.getSelectedRow();
-   if (evt.getClickCount() == 2) {
-       if (a >= 0)
-           event.ConfirmarLLegada(Integer.parseInt(JTableInvitacion.getValueAt(a, 0)
-                   .toString()), Integer.parseInt(IDevento.getText()));
+
+    public void confir(java.awt.event.MouseEvent evt) {
+        int a = JTableInvitacion.getSelectedRow();
+        if (evt.getClickCount() == 2) {
+            if (a >= 0) {
+                event.ConfirmarLLegada(Integer.parseInt(JTableInvitacion.getValueAt(a, 0)
+                        .toString()), Integer.parseInt(IDevento.getText()));
+            }
         }
-   }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -270,6 +272,8 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
 
     private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
         // TODO add your handling code here:
+        event.UserNoConfir(JTableInvitacion, Integer.parseInt(IDevento.getText()));
+
     }//GEN-LAST:event_jPanel7MouseMoved
 
 
