@@ -84,7 +84,7 @@ public class P_InvitadosLista extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(JTableEvento);
 
-        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 310));
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 620, 260));
 
         BusquedaEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

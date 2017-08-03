@@ -5,35 +5,31 @@
  */
 package Vistas;
 
-import Controlador.dao.CInvitado;
-import Controlador.dao.EventoImp;
-import javax.swing.JLabel;
-
 /**
  *
  * @author sauld
  */
-public class PInvitacion extends javax.swing.JInternalFrame {
+public class ConfirmLlegada extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form PInvitacion
+     * Creates new form ConfirmLlegada
      */
-    public static Controlador.dao.CInvitado invi;
-    public static Controlador.dao.EventoImp event;
+    private static Controlador.dao.EventoImp event = null;
 
-    public PInvitacion() {
-
+    public ConfirmLlegada() {
         initComponents();
         this.setLocation(55, 45);
-        invi = new CInvitado();
-        invi.search(JTableInvitacion, null,0);
-        event =  new EventoImp();
-    }
+        event = new Controlador.dao.EventoImp();
 
-    public static void BusquedaFiltrada() {
-        String a = BusquedaInvitacion.getText();
-        invi.search(JTableInvitacion, a,0);
     }
+   public void confir(java.awt.event.MouseEvent evt){
+       int a = JTableInvitacion.getSelectedRow();
+   if (evt.getClickCount() == 2) {
+       if (a >= 0)
+           event.ConfirmarLLegada(Integer.parseInt(JTableInvitacion.getValueAt(a, 0)
+                   .toString()), Integer.parseInt(IDevento.getText()));
+        }
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,9 +53,16 @@ public class PInvitacion extends javax.swing.JInternalFrame {
         NombreDelEvento = new javax.swing.JLabel();
         IDevento = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        CantidadFaltante = new javax.swing.JLabel();
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jPanel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel7MouseMoved(evt);
+            }
+        });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JTableInvitacion.setModel(new javax.swing.table.DefaultTableModel(
@@ -102,7 +105,7 @@ public class PInvitacion extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(JTableInvitacion);
 
-        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 610, 210));
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 610, 190));
 
         BusquedaInvitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +117,7 @@ public class PInvitacion extends javax.swing.JInternalFrame {
                 BusquedaInvitacionKeyReleased(evt);
             }
         });
-        jPanel7.add(BusquedaInvitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 390, 30));
+        jPanel7.add(BusquedaInvitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 320, 30));
 
         jLabel12.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         jLabel12.setText("Buscar : ");
@@ -125,7 +128,7 @@ public class PInvitacion extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Script MT Bold", 2, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Invitar");
+        jLabel6.setText("Confirmar LLegada");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/icon (2).png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,9 +144,9 @@ public class PInvitacion extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(193, 193, 193)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
                 .addComponent(jLabel7)
                 .addGap(24, 24, 24))
         );
@@ -166,13 +169,13 @@ public class PInvitacion extends javax.swing.JInternalFrame {
 
         btnInvitacion.setBackground(new java.awt.Color(0, 120, 153));
         btnInvitacion.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
-        btnInvitacion.setText("Invitar");
+        btnInvitacion.setText("Confirmar Llegada");
         btnInvitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInvitacionActionPerformed(evt);
             }
         });
-        jPanel7.add(btnInvitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 120, 30));
+        jPanel7.add(btnInvitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 180, 30));
 
         NombreDelEvento.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
         NombreDelEvento.setText("Nombre Evento");
@@ -190,7 +193,16 @@ public class PInvitacion extends javax.swing.JInternalFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 120, 30));
+        jPanel7.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Modern No. 20", 0, 14)); // NOI18N
+        jLabel2.setText("Cantidad Faltante por llegar :");
+        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+
+        CantidadFaltante.setFont(new java.awt.Font("Modern No. 20", 0, 14)); // NOI18N
+        CantidadFaltante.setForeground(new java.awt.Color(204, 0, 0));
+        CantidadFaltante.setText("Cantidad Faltante por llegar");
+        jPanel7.add(CantidadFaltante, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,7 +215,7 @@ public class PInvitacion extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -211,10 +223,7 @@ public class PInvitacion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTableInvitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableInvitacionMouseClicked
-        if (evt.getClickCount() == 2) {
-            invitacioEvento(IDevento);
-        }
-
+        confir(evt);
     }//GEN-LAST:event_JTableInvitacionMouseClicked
 
     private void JTableInvitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableInvitacionMouseEntered
@@ -223,6 +232,8 @@ public class PInvitacion extends javax.swing.JInternalFrame {
 
     private void JTableInvitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableInvitacionMouseExited
         // TODO add your handling code here:
+        event.UserNoConfir(JTableInvitacion, Integer.parseInt(IDevento.getText()));
+
     }//GEN-LAST:event_JTableInvitacionMouseExited
 
     private void JTableInvitacionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableInvitacionMousePressed
@@ -239,37 +250,32 @@ public class PInvitacion extends javax.swing.JInternalFrame {
 
     private void BusquedaInvitacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaInvitacionKeyReleased
         // TODO add your handling code here:
-        BusquedaFiltrada();
+
     }//GEN-LAST:event_BusquedaInvitacionKeyReleased
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void btnInvitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitacionActionPerformed
         // TODO add your handling code here:
 
-        invitacioEvento(IDevento);
     }//GEN-LAST:event_btnInvitacionActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-       event.getinstanceProxEven();
+        Vistas.PMenu.jInternalFrame2.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    public static void invitacioEvento(JLabel idEvento) {
-        int a = JTableInvitacion.getSelectedRow();
-        if (a >= 0) {
-            System.out.println(Integer.parseInt((String) JTableInvitacion.getValueAt(a, 0))+ Integer.parseInt(idEvento.getText()+ 0));
-            invi.Invitar(Integer.parseInt((String) JTableInvitacion.getValueAt(a, 0)), Integer.parseInt(idEvento.getText()), 0);
-        }
+    private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel7MouseMoved
 
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField BusquedaInvitacion;
+    private static javax.swing.JLabel CantidadFaltante;
     public static javax.swing.JLabel IDevento;
     public static javax.swing.JTable JTableInvitacion;
     public static javax.swing.JLabel NombreDelEvento;
@@ -277,6 +283,7 @@ public class PInvitacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel7;

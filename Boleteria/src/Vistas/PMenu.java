@@ -33,7 +33,7 @@ public class PMenu extends javax.swing.JFrame {
         guid = new GUID();
         InvitadoControler = new CInvitado();
         event = new EventoImp();
-       // System.out.println("Hola");
+        // System.out.println("Hola");
         event.search(JTableEvent, null, 1);
 
     }
@@ -86,6 +86,7 @@ public class PMenu extends javax.swing.JFrame {
                 btnEliminar.setEnabled(false);
                 btnAgregar.setEnabled(true);
                 btnevent.setEnabled(true);
+//                btnInvitacion.setEnabled(false);
             }
         } else {
             if (a >= 0) {
@@ -94,9 +95,11 @@ public class PMenu extends javax.swing.JFrame {
                 btnEliminar.setEnabled(true);
                 btnAgregar.setEnabled(false);
                 btnevent.setEnabled(false);
+           //     btnInvitacion.setEnabled(true);
+
             }
         }
-     //    event.search(JTableEvent, null, 1);
+        //    event.search(JTableEvent, null, 1);
 
     }
 
@@ -109,15 +112,15 @@ public class PMenu extends javax.swing.JFrame {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         jInternalFrame2.setVisible(true);
     }
-    
+
     public static void ShowInternalUsuario() {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         cusuario.getinstance();
     }
 
     public static void proxEvent() {
-       guid.DeskopPnae(jDesktopPanePrincipal, false);
-       event.getinstanceProxEven();
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
+        event.getinstanceProxEven();
 //        JTableEventoProximo.setVisible(true);
     }
 
@@ -134,6 +137,36 @@ public class PMenu extends javax.swing.JFrame {
 
     }
 
+    public static void DatosConfir() {
+        int a = JTableEvent.getSelectedRow();
+        if (a >= 0) {
+
+            //Obtenemos el id para almacenarlo en una variable estatica
+            Vistas.ConfirmLlegada.IDevento.setText(JTableEvent.getValueAt(a, 0).toString());
+            //Nombre del evento
+            Vistas.ConfirmLlegada.NombreDelEvento.setText(JTableEvent.getValueAt(a, 1).toString());
+
+        }
+
+    }
+
+    public void ConfirmLL(java.awt.event.MouseEvent evt) {
+        if (evt.getClickCount() == 1) {
+            mostrasbtnModEle(false);
+        } else if (evt.getClickCount() == 2) {
+            guid.DeskopPnae(jDesktopPanePrincipal, false);
+            InvitadoControler.getinstanceConfir();
+            DatosConfir();
+
+        }
+    }
+
+    public void InvitarEvento() {
+        guid.DeskopPnae(jDesktopPanePrincipal, false);
+        InvitadoControler.getinstanceInvi();
+        DatosInvi();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -145,7 +178,7 @@ public class PMenu extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
-      
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -163,6 +196,8 @@ public class PMenu extends javax.swing.JFrame {
         btnPersona = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        btnPersona1 = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
         jDesktopPanePrincipal = new javax.swing.JDesktopPane();
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jPanel7 = new javax.swing.JPanel();
@@ -178,6 +213,7 @@ public class PMenu extends javax.swing.JFrame {
         btnmodificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jFrame1.setAlwaysOnTop(true);
         jFrame1.setBounds(new java.awt.Rectangle(123, 2342, 123, 123));
@@ -331,6 +367,21 @@ public class PMenu extends javax.swing.JFrame {
             }
         });
 
+        btnPersona1.setBackground(new java.awt.Color(0, 120, 153));
+        btnPersona1.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        btnPersona1.setForeground(new java.awt.Color(255, 255, 255));
+        btnPersona1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/if_report_2199101.png"))); // NOI18N
+        btnPersona1.setText("Reportes");
+        btnPersona1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPersona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersona1ActionPerformed(evt);
+            }
+        });
+
+        jSeparator6.setBackground(new java.awt.Color(0, 153, 153));
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -345,17 +396,23 @@ public class PMenu extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator3)
                             .addComponent(jSeparator2)
                             .addComponent(jSeparator1)
                             .addComponent(btnPersona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnPersona1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel8))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(4, 4, 4))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jSeparator6)
+                        .addContainerGap())))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,8 +434,12 @@ public class PMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addComponent(btnPersona1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 570));
@@ -388,6 +449,16 @@ public class PMenu extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jPanel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel7MouseMoved(evt);
+            }
+        });
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel7MouseEntered(evt);
+            }
+        });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JTableEvent.setModel(new javax.swing.table.DefaultTableModel(
@@ -407,6 +478,16 @@ public class PMenu extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return false;
+            }
+        });
+        JTableEvent.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                JTableEventMouseMoved(evt);
+            }
+        });
+        JTableEvent.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                JTableEventMouseWheelMoved(evt);
             }
         });
         JTableEvent.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -442,7 +523,7 @@ public class PMenu extends javax.swing.JFrame {
                 BusquedaEventoKeyReleased(evt);
             }
         });
-        jPanel7.add(BusquedaEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 212, -1));
+        jPanel7.add(BusquedaEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         jLabel12.setText("Buscar : ");
@@ -506,6 +587,11 @@ public class PMenu extends javax.swing.JFrame {
         btnmodificar.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
         btnmodificar.setText("Modificar");
         btnmodificar.setEnabled(false);
+        btnmodificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnmodificarMouseExited(evt);
+            }
+        });
         btnmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmodificarActionPerformed(evt);
@@ -534,6 +620,16 @@ public class PMenu extends javax.swing.JFrame {
         });
         jPanel7.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 100, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 120, 153));
+        jButton1.setFont(new java.awt.Font("Modern No. 20", 0, 15)); // NOI18N
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 110, -1));
+
         javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
@@ -561,7 +657,7 @@ public class PMenu extends javax.swing.JFrame {
             .addGroup(jDesktopPanePrincipalLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.add(jDesktopPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 820, 570));
@@ -606,15 +702,7 @@ public class PMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btneventActionPerformed
 
     private void JTableEventMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseClicked
-
-        if (evt.getClickCount() == 1) {
-            mostrasbtnModEle(false);
-        } else if (evt.getClickCount() == 2) {
-            guid.DeskopPnae(jDesktopPanePrincipal, false);
-            InvitadoControler.getinstanceInvi();
-            DatosInvi();
-
-        }
+        ConfirmLL(evt);
 
     }//GEN-LAST:event_JTableEventMouseClicked
 
@@ -635,7 +723,7 @@ public class PMenu extends javax.swing.JFrame {
 
     private void JTableEventMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseEntered
         // TODO add your handling code here:
-        event.search(JTableEvent, null, 1);
+        
         // btnmodificar.setEnabled(true);
     }//GEN-LAST:event_JTableEventMouseEntered
 
@@ -650,8 +738,8 @@ public class PMenu extends javax.swing.JFrame {
 
     private void JTableEventMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseExited
         // TODO add your handling code here:
+        
         mostrasbtnModEle(true);
-
     }//GEN-LAST:event_JTableEventMouseExited
 
     private void btnPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonaActionPerformed
@@ -672,6 +760,40 @@ public class PMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnShow();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        event.search(JTableEvent, null, 1);
+        mostrasbtnModEle(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPanel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseEntered
+        // TODO add your handling code here:
+       // mostrasbtnModEle(true);
+    }//GEN-LAST:event_jPanel7MouseEntered
+
+    private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
+        // TODO add your handling code here:
+      //  mostrasbtnModEle(true);
+    }//GEN-LAST:event_jPanel7MouseMoved
+
+    private void JTableEventMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseMoved
+        // TODO add your handling code here:
+        //mostrasbtnModEle(false);
+    }//GEN-LAST:event_JTableEventMouseMoved
+
+    private void JTableEventMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_JTableEventMouseWheelMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTableEventMouseWheelMoved
+
+    private void btnmodificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmodificarMouseExited
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnmodificarMouseExited
+
+    private void btnPersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersona1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPersona1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -714,10 +836,13 @@ public class PMenu extends javax.swing.JFrame {
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnPersona;
+    private javax.swing.JButton btnPersona1;
     public static javax.swing.JButton btnevent;
     public static javax.swing.JButton btnmodificar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JCalendar jCalendar1;
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;
@@ -743,5 +868,6 @@ public class PMenu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
