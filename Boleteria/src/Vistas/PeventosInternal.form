@@ -211,9 +211,17 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="TxtTipoEvento">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Modern No. 20" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="Hola"/>
+              <StringArray count="6">
+                <StringItem index="0" value="Fiesta"/>
+                <StringItem index="1" value="Boda"/>
+                <StringItem index="2" value="Reunion"/>
+                <StringItem index="3" value="Serrucho"/>
+                <StringItem index="4" value="Empaguetada"/>
+                <StringItem index="5" value="Graduacion"/>
               </StringArray>
             </Property>
           </Properties>

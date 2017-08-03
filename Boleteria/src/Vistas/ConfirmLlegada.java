@@ -273,7 +273,7 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
     private void btnInvitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitacionActionPerformed
         // TODO add your handling code here:
         event.UserNoConfir(JTableInvitacion, Integer.parseInt(IDevento.getText()));
-        CantidadFaltante.setText(re.Contador());
+        CantidadFaltante.setText(re.Contador(Integer.parseInt(IDevento.getText())));
     }//GEN-LAST:event_btnInvitacionActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

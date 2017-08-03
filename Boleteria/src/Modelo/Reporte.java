@@ -25,7 +25,7 @@ public interface Reporte {
 
     public JTable DiasDeLaSemana(JTable tabla);
     
-    public String Contador();
+    public String Contador(int x);
     
    
 }

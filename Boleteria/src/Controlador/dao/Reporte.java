@@ -33,7 +33,7 @@ public class Reporte implements Modelo.Reporte {
     public JTable PersonasAsistencia(JTable tabla) {
         sql = "select Eventos_idEventos, sum(Estado = true)  as CantidadDePersonas"
                 + " from invitacion Group by Eventos_idEventos order by  "
-                + "CantidadDePersonas desc limit 0,3;";
+                + "CantidadDePersonas desc;";
 
         String[] tituloEmple = {"ID_Evento", "Cantidad  de Personas"};
         m = new DefaultTableModel(null, tituloEmple) {
@@ -67,7 +67,7 @@ public class Reporte implements Modelo.Reporte {
     public JTable PersonasAsistenciaPorcentaje(JTable tabla) {
 
         sql = "select Eventos_idEventos, avg(Estado = true) as Porcentaje from"
-                + " invitacion Group by Eventos_idEventos order by  Porcentaje desc limit 0,3;";
+                + " invitacion Group by Eventos_idEventos order by  Porcentaje desc;";
 
         String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
         m = new DefaultTableModel(null, tituloEmple) {
@@ -102,7 +102,7 @@ public class Reporte implements Modelo.Reporte {
 
         sql = "select  Eventos_idEventos, sum(Estado)/12 "
                 + "as Suma_Total from invitacion inner join persona group by "
-                + " Eventos_idEventos order by Suma_Total desc limit 0,3;";
+                + " Eventos_idEventos order by Suma_Total desc;";
 
         String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
         m = new DefaultTableModel(null, tituloEmple) {
@@ -263,10 +263,10 @@ public class Reporte implements Modelo.Reporte {
     }
 
     @Override
-    public String Contador() {
+    public String Contador(int a) {
         String x = null;
         sql = "select Count(i.Eventos_idEventos ) from persona p inner join invitacion i on \n"
-                + "i.Persona_idPersona = p.idPersona where i.Eventos_idEventos = 39 and i.Estado = false;";
+                + "i.Persona_idPersona = p.idPersona where i.Eventos_idEventos = '"+a+"' and i.Estado = false;";
 
         try {
             md.connectar();
