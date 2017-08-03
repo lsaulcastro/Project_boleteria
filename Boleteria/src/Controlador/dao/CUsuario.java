@@ -7,10 +7,15 @@ package Controlador.dao;
 
 import Modelo.ModeloDatos;
 import Modelo.UsuarioModel;
+import static Vistas.PInvitacion.BusquedaInvitacion;
+import static Vistas.PInvitacion.JTableInvitacion;
+import static Vistas.PInvitacion.invi;
 import Vistas.PMenu;
 import static Vistas.P_InvitadosInternalFrame.persona;
+import static Vistas.P_Usuario.JtableUsuario;
 import static Vistas.P_Usuario.cusuario;
 import static Vistas.P_Usuario.musuario;
+import Vistas.Puser;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,6 +45,7 @@ public class CUsuario implements Modelo.dao.Usuariodao {
     private Statement s;
     private DefaultTableModel m;
     public static UsuarioModel en = null;
+    public static Puser a = null;
 
     @Override
     public void save(UsuarioModel en) {
@@ -89,9 +95,9 @@ public class CUsuario implements Modelo.dao.Usuariodao {
     public JTable search(JTable en, String a, int b) {
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         if (a != null) {
-            sql = "SELECT * FROM usuario WHERE idPersona LIKE '%" + a + "%'"
+            sql = "SELECT * FROM usuario WHERE idUsuario LIKE '%" + a + "%'"
                     + "OR username LIKE '%" + a + "%'" + "OR password LIKE '%" + a + "%'"
-                    + "OR perfilUsuario LIKE '%" + a + "%'";
+                    + "OR perfilUsuario LIKE '%" + a + "%'" + " OR Persona_idPersona LIKE '%" + a + "%'";
         }
         if (a == null) {
             sql = "SELECT * FROM `usuario`";
@@ -214,12 +220,18 @@ public class CUsuario implements Modelo.dao.Usuariodao {
             } else {
                 JOptionPane.showMessageDialog(null, "Error Su Usuario o Contrasena son incorrectos");
             }
-
+                JOptionPane.showMessageDialog(null, "BIENVENIDOOO!"); 
         } catch (Exception o) {
             o.printStackTrace();
         }
         return x;
        
     }
+    
+   public static void BusquedaFiltrada(JTextField busqueda) {
+        String a = busqueda.getText();
+        cusuario.search(JtableUsuario , a, 0);
+    }
+
 
 }

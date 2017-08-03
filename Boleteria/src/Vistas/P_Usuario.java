@@ -109,7 +109,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         perfilusuario = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        busqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         JtableUsuario = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
@@ -202,7 +202,13 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Nombre:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 280, 30));
+
+        busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                busquedaKeyReleased(evt);
+            }
+        });
+        jPanel1.add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 280, 30));
 
         JtableUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -318,13 +324,18 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         cusuario.getinstanceUser();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void busquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busquedaKeyReleased
+        cusuario.BusquedaFiltrada(busqueda);
+    }//GEN-LAST:event_busquedaKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JtableUsuario;
+    public static javax.swing.JTable JtableUsuario;
     public static javax.swing.JTextField apellido;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
+    private javax.swing.JTextField busqueda;
     public static javax.swing.JTextField contrasena;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -339,7 +350,6 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField nombre;
     private javax.swing.JComboBox<String> perfilusuario;
     public static javax.swing.JTextField persona_idpersona;
