@@ -30,6 +30,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import static Vistas.P_InvitadosInternalFrame.perf;
+import static Vistas.P_Usuario.nombre;
 
 /**
  *
@@ -83,7 +84,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         try {
             md.connectar();
-            sql = "update persona set nombre ='" + en.getNombre() + "', apellido ='" + en.getAppellido() + "', Telefono ='" + en.getTelefono() + "', direccion ='" + en.getDireccion() + "', sexo='" + en.getSexo() + "', email =" + en.getEmail() + "'where idPersona ='" + x + "'";
+            sql = "UPDATE `persona` SET `nombre`='"+en.getNombre()+"',`apellido`='"+en.getAppellido()+"',`Telefono`='"+en.getTelefono()+"',`direccion`='"+en.getDireccion()+"',`sexo`='"+en.getSexo()+"',`email`= WHERE idPersona ='"+x+"' ";
             presta = md.getConn().prepareStatement(sql);
             presta.executeUpdate();
 
@@ -243,7 +244,12 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
 
     public static void BusquedaFiltrada(JTextField perf, JTable b) {
         String a = perf.getText();
+
+        persona = new CInvitado();
+      //  persona.search(jTable1, a, 0);
+
         persona.search(b, a, 0);
+
     }
 
     public static void ComeBack() {
@@ -303,6 +309,20 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         tabla.setRowHeight(30);
         tabla.setModel(m);
         return tabla;
+    }
+    
+    public void actualizar(JTextField nombre, JTextField apellido,
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email){
+        int a = JtablePersona.getSelectedRow();
+        
+     nombre.setText(JtablePersona.getValueAt(a , 1).toString());
+     apellido.setText(JtablePersona.getValueAt(a , 2).toString());
+     telefono.setText(JtablePersona.getValueAt(a , 3).toString());
+     //sexo.getSelectedItem().toString((JtablePersona.getValueAt(a , 4));
+    direccion.setText(JtablePersona.getValueAt(a , 4).toString());
+    email.setText(JtablePersona.getValueAt(a , 6).toString());
+     
+     
     }
     
    

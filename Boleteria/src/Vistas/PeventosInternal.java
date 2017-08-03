@@ -279,6 +279,7 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         try {
             btnAgregarInternalFrameEvento(txtNombreEvento, TxtFechaEvento, TxtUbicacionEvento, TxtTipoEvento, 0);
         } catch (Exception e) {
+            System.out.println(" Error" + e.getMessage());
         }
 
     }//GEN-LAST:event_btnAgregarEventoActionPerformed

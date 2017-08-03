@@ -7,6 +7,7 @@ package Vistas;
 
 import Controlador.dao.CInvitado;
 import Controlador.GUID;
+import static Controlador.dao.CUsuario.a;
 import Modelo.InvitadosModel;
 import static Vistas.P_InvitadosInternalFrame.persona;
 import javax.swing.JComboBox;
@@ -20,23 +21,24 @@ import javax.swing.JInternalFrame;
  * @author sauld
  */
 public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
-   public static CInvitado persona = null;
-   public static InvitadosModel invimodel = null;
+
+    public static CInvitado persona = null;
+    public static InvitadosModel invimodel = null;
     /**
      * Creates new form P_InvitadosInternalFram
      */
-   
-     public static GUID guid = null;
+
+    public static GUID guid = null;
+
     public P_InvitadosInternalFrame() {
         initComponents();
-        guid = new GUID()  ;
+        guid = new GUID();
         this.setLocation(60, 10);
         persona = new CInvitado();
-        persona.search(JtablePersona,null ,0);
-        
+        persona.search(JtablePersona, null, 0);
+
     }
-   
-  
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -240,7 +242,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         JpanelPrincipalInvitado.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 100, 30));
 
         sexo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
         JpanelPrincipalInvitado.add(sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 210, 40));
         JpanelPrincipalInvitado.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 252, 650, 10));
 
@@ -259,30 +261,32 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
-  public static void UpdateAction(JTextField nombre, JTextField apellido, 
-           JTextField telefono, JComboBox sexo ,JTextField direccion, JTextField email) {
+
+    public static void UpdateAction(JTextField nombre, JTextField apellido,
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email, int x) {
         int a = JtablePersona.getSelectedRow();
-        
+
         persona = new CInvitado();
-        
+
         if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
 
-                invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(),direccion.getText(),sexo.getSelectedItem().toString(), email.getText());
-                persona.save(invimodel);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+            invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
+            persona.save(invimodel);
+            if (x != 0) {
+                persona.update(invimodel, Integer.parseInt(JtablePersona.getValueAt(a, 0).toString()));
             }
-
-   }
-    
-  
-    
-
-      public static void mostrasbtnModEle(boolean x) {
-        //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
+              
+        } else {
+            JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+        }
+       
         
+
+    }
+
+    public static void mostrasbtnModEle(boolean x) {
+        //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
+
         int a = JtablePersona.getSelectedRow();
         if (x) {
 
@@ -301,60 +305,62 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         }
 
     }
-      
-       public static void UpdateShow(JTextField nombre, JTextField apellido, 
-           JTextField telefono, JComboBox sexo ,JTextField direccion, JTextField email) {
+
+    public static void UpdateShow(JTextField nombre, JTextField apellido,
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
         int a = JtablePersona.getSelectedRow();
 
-        if (a >= 1) {
+        if (a >= 0) {
             // if (nombreEvento.getText().length() >= 1 && FechaEvento.getText().length() > 1 && 1 <= UbicacionEvento.getText().length()) {
-            
-          // PMenu.btnShow();
+
+            // PMenu.btnShow();
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
             btnAgregar.setEnabled(false);
             btnmodificar.setEnabled(true);
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
-           
-            nombre.setText(JtablePersona.getValueAt(a, 1).toString());
-            apellido.setText(JtablePersona.getValueAt(a, 2).toString());
-            telefono.setText(JtablePersona.getValueAt(a, 3).toString());
-            direccion.setText(JtablePersona.getValueAt(a, 4).toString());
-            sexo.setSelectedItem(JtablePersona.getValueAt(a, 5).toString());
-            email.setText(JtablePersona.getValueAt(a, 6).toString());
+
+//            nombre.setText(JtablePersona.getValueAt(a, 1).toString());
+//            apellido.setText(JtablePersona.getValueAt(a, 2).toString());
+//            telefono.setText(JtablePersona.getValueAt(a, 3).toString());
+//            direccion.setText(JtablePersona.getValueAt(a, 4).toString());
+//            sexo.setSelectedItem(JtablePersona.getValueAt(a, 5).toString());
+//            email.setText(JtablePersona.getValueAt(a, 6).toString());
             
+            invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
+            persona.update(invimodel,Integer.parseInt(JtablePersona.getValueAt(a, 0).toString()));
             PMenu.btnmodificar.setEnabled(true);
             PMenu.btnmodificar.setEnabled(true);
 
         }
     }
-         public static boolean btnShow() {
+
+    public static boolean btnShow() {
         //Este evento e spara mostrar El InternalFrame y desabilitar o habilitar sus botones
         Controlador.GUID Clean = new GUID();
 
         JInternalFrame e = CInvitado.getinstance();
-        
-       guid.DeskopPnae(PMenu.jDesktopPanePrincipal, false);
+
+        guid.DeskopPnae(PMenu.jDesktopPanePrincipal, false);
         e.setVisible(true);
         Clean.limpiar_texto(PeventosInternal.jPanelEventoMante);
-      // PeventosInternal.btnAgregar.setEnabled(true);
-       PeventosInternal.btnEditarEvento.setEnabled(false);
+        // PeventosInternal.btnAgregar.setEnabled(true);
+        PeventosInternal.btnEditarEvento.setEnabled(false);
         return false;
     }
-       
 
-   
-    
+
     private void JtablePersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMouseClicked
         mostrasbtnModEle(false);
+        persona.actualizar(nombre, apellido, telefono, sexo, direccion, email);
     }//GEN-LAST:event_JtablePersonaMouseClicked
 
     private void JtablePersonaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMouseEntered
-     
+
     }//GEN-LAST:event_JtablePersonaMouseEntered
 
     private void JtablePersonaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMouseExited
-       // mostrasbtnModEle(true);
-      
+        // mostrasbtnModEle(true);
+
     }//GEN-LAST:event_JtablePersonaMouseExited
 
     private void JtablePersonaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMousePressed
@@ -370,34 +376,43 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_perfActionPerformed
 
     private void perfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfKeyReleased
+
+       // persona.BusquedaFiltrada(perf);
+
       persona.BusquedaFiltrada(perf,JtablePersona);
        
+
     }//GEN-LAST:event_perfKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-    //    JCombobox1
-        persona.btnAgregarInternalFrameInvitados(nombre,apellido,telefono,sexo,direccion,email);
-       
-       
-     
-     //btnAgregarInternalFrameInvitados(nombre,apellido,telefono,butt,direccion,email);
+        //    JCombobox1
+        persona.btnAgregarInternalFrameInvitados(nombre, apellido, telefono, sexo, direccion, email);
+
+        //btnAgregarInternalFrameInvitados(nombre,apellido,telefono,butt,direccion,email);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
-    
+
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+<<<<<<< HEAD
         
         UpdateShow(nombre,apellido,telefono,sexo,direccion,email);
        UpdateAction(nombre,apellido,telefono,sexo,direccion,email);
        
+=======
+
+     //  UpdateShow(nombre,apellido,telefono,sexo,direccion,email);
+       UpdateAction(nombre, apellido, telefono, sexo, direccion, email, 1);
+
+>>>>>>> f44b4d28932e7b89b51136d6ef64e0eaa2977e21
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       // persona.delete(WIDTH);
-      persona.DeletePersona();
+        // persona.delete(WIDTH);
+        persona.DeletePersona();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
