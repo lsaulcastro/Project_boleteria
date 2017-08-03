@@ -7,6 +7,7 @@ package Controlador.dao;
 
 import Modelo.ModeloDatos;
 import Modelo.UsuarioModel;
+import Vistas.PMenu;
 import static Vistas.P_InvitadosInternalFrame.persona;
 import static Vistas.P_Usuario.cusuario;
 import static Vistas.P_Usuario.musuario;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -28,12 +30,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CUsuario implements Modelo.dao.Usuariodao {
     private static JInternalFrame em = null;
+    private static JInternalFrame em1 = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
     private ResultSet rs;
     private String sql;
     private Statement s;
     private DefaultTableModel m;
+    public static UsuarioModel en = null;
 
     @Override
     public void save(UsuarioModel en) {
@@ -148,11 +152,23 @@ public class CUsuario implements Modelo.dao.Usuariodao {
     public static JInternalFrame getinstance() {
         if (em == null) {
             em = new Vistas.P_Usuario();
-            em.setVisible(true);
+           
             Vistas.PMenu.jDesktopPanePrincipal.add(em);
 
         }
+         em.setVisible(true);
         return em;
+    }
+    
+    public static JInternalFrame getinstanceUser() {
+        if (em1 == null) {
+            em1= new Vistas.Puser();
+            
+            Vistas.PMenu.jDesktopPanePrincipal.add(em1);
+
+        }
+        em1.setVisible(true);
+        return em1;
     }
     
      public static void btnAgregar(JTextField usuario, JTextField password, JComboBox perfilusuario,JTextField nombre ,JTextField apellido, JTextField persona_idpersona ) {
@@ -176,6 +192,32 @@ public class CUsuario implements Modelo.dao.Usuariodao {
 
     }
     
+      public void Ingresar(){
+    try{
+       
+        sql = "SELECT  `username`, `password`, `perfilUsuario`  FROM `usuario` WHERE perfilUsuario = 'administrador' and username = '?' and password = '?'";
+        md.connectar();
+        presta = md.getConn().prepareStatement(sql);
+        presta.setString(1, en.getUsuario());
+        presta.setString(2, en.getPassword());
+        rs =  presta.executeQuery(sql);
+        
+        if(rs.next() == true){
+        PMenu pm = new PMenu();
+        pm.GestionUsuario();
+        pm.setVisible(true);
+        pm.setLocationRelativeTo(null);
+        
+      
+        
+        }else{
+        JOptionPane.showMessageDialog(null, "Error Su Usuario o Contrasena son incorrectos");
+        }
     
     
+    }catch(Exception o){
+    o.printStackTrace();
+    }
+    
+      }
 }

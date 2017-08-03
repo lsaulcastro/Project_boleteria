@@ -7,10 +7,15 @@ package Controlador.dao;
 
 import Modelo.InvitadosModel;
 import Modelo.ModeloDatos;
+import Vistas.PMenu;
+import static Vistas.P_InvitadosInternalFrame.Busqueda;
 import static Vistas.P_InvitadosInternalFrame.JtablePersona;
 import static Vistas.P_InvitadosInternalFrame.guid;
 import static Vistas.P_InvitadosInternalFrame.invimodel;
 import static Vistas.P_InvitadosInternalFrame.persona;
+import Vistas.P_Usuario;
+import static Vistas.PeventosInternal.gui;
+import static Vistas.Puser.jTable1;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -171,7 +176,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         return em1;
     }
 
-    public void Invitar(int idPersona, int idEvento, int estado ) {
+    public void Invitar(int idPersona, int idEvento, int estado) {
         sql = "INSERT INTO `invitacion`(`Persona_idPersona`, `Eventos_idEventos`, `Estado`) VALUES (?,?,?)";
         try {
             md.connectar();
@@ -194,28 +199,61 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         }
 
     }
-      public static void btnAgregarInternalFrameInvitados(JTextField nombre, JTextField apellido, 
-           JTextField telefono, JComboBox sexo ,JTextField direccion, JTextField email) {
-      
+
+    public static void btnAgregarInternalFrameInvitados(JTextField nombre, JTextField apellido,
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
+
         persona = new CInvitado();
-       
-            if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
 
-                invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(),direccion.getText(),sexo.getSelectedItem().toString(), email.getText());
-                persona.save(invimodel);
+        if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
 
-            } else {
-                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
-            }
-           // guid.limpiar_texto(JpanelPrincipalInvitado);
-            
+            invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
+            persona.save(invimodel);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+        }
+        // guid.limpiar_texto(JpanelPrincipalInvitado);
+
     }
-         public static void DeletePersona() {
+
+    public static void DeletePersona() {
         int a = JtablePersona.getSelectedRow();
         if (a >= 0) {
             persona.delete(Integer.parseInt((String) JtablePersona.getValueAt(a, 0)));
         }
     }
 
+    public static void BusquedaFiltrada(JTextField perf) {
+        String a = perf.getText();
+        persona = new CInvitado();
+        persona.search(jTable1, a, 0);
+    }
+    
+     public static void ComeBack() {
+        gui.DeskopPnae(PMenu.jDesktopPanePrincipal,false);
+        em = new Vistas.P_Usuario();
+        em.setVisible(true);
+    }
 
+     public static void Select(){
+     int a = jTable1.getSelectedRow();
+      String id = jTable1.getValueAt(a, 0).toString();
+      String nom = jTable1.getValueAt(a, 1).toString();
+      String ape = jTable1.getValueAt(a, 2).toString();
+      
+       JOptionPane.showMessageDialog(null, "Usted Selecciono a "+nom+" "+ape+" "+id);
+        
+       
+       //ESTE CODIGO VAAAAAAAA!
+       
+//       P_Usuario pu = new P_Usuario();
+//       pu.nombre.setText(nom);
+//       pu.apellido.setText(ape);
+//       pu.persona_idpersona.setText(id);
+//       
+//       JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
+       
+       
+     }
 }

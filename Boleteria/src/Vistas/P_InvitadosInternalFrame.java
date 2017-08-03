@@ -279,10 +279,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     
   
     
-    public static void buscar(){
-    String a = Busqueda.getText();
-    persona.search(JtablePersona, a,0);
-    }
+
       public static void mostrasbtnModEle(boolean x) {
         //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
         
@@ -373,7 +370,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BusquedaActionPerformed
 
     private void BusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaKeyReleased
-       buscar();
+    //  persona.buscar();
        
     }//GEN-LAST:event_BusquedaKeyReleased
 

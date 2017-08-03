@@ -16,7 +16,7 @@ import javax.swing.JInternalFrame;
  * @author sauld
  */
 public class PMenu extends javax.swing.JFrame {
-
+        String acceso;
     /**
      * Creates new form PMenu
      */
@@ -35,6 +35,8 @@ public class PMenu extends javax.swing.JFrame {
         event = new EventoImp();
        // System.out.println("Hola");
         event.search(JTableEvent, null, 1);
+        
+        GestionUsuario();
 
     }
 
@@ -133,6 +135,20 @@ public class PMenu extends javax.swing.JFrame {
         }
 
     }
+    
+    public  void GestionUsuario(){
+         if(acceso == "ADMINISTRADOR"){
+         this.btnEvento.enable(true);
+         this.btnPersona.enable(true);
+         this.jButton3.enable(true);
+         
+         } else {
+         this.btnEvento.enable(true);
+         this.btnPersona.enable(false);
+         this.jButton3.enable(false);
+         }
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,7 +161,6 @@ public class PMenu extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
-      
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -161,7 +176,7 @@ public class PMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         btnPersona = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEvento = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jDesktopPanePrincipal = new javax.swing.JDesktopPane();
         jInternalFrame2 = new javax.swing.JInternalFrame();
@@ -307,15 +322,15 @@ public class PMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 120, 153));
-        jButton2.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/election-event-on-a-calendar-with-star-symbol.png"))); // NOI18N
-        jButton2.setText("Eventos");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEvento.setBackground(new java.awt.Color(0, 120, 153));
+        btnEvento.setFont(new java.awt.Font("Modern No. 20", 0, 24)); // NOI18N
+        btnEvento.setForeground(new java.awt.Color(255, 255, 255));
+        btnEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/election-event-on-a-calendar-with-star-symbol.png"))); // NOI18N
+        btnEvento.setText("Eventos");
+        btnEvento.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEventoActionPerformed(evt);
             }
         });
 
@@ -349,7 +364,7 @@ public class PMenu extends javax.swing.JFrame {
                             .addComponent(jSeparator2)
                             .addComponent(jSeparator1)
                             .addComponent(btnPersona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel8))
             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -367,7 +382,7 @@ public class PMenu extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
@@ -659,10 +674,10 @@ public class PMenu extends javax.swing.JFrame {
         ShowInternalInvitado();
     }//GEN-LAST:event_btnPersonaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEventoActionPerformed
         // TODO add your handling code here:
         ShowInternalEvento();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnEventoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ShowInternalUsuario();
@@ -713,10 +728,10 @@ public class PMenu extends javax.swing.JFrame {
     public static javax.swing.JTable JTableEvent;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEvento;
     private javax.swing.JButton btnPersona;
     public static javax.swing.JButton btnevent;
     public static javax.swing.JButton btnmodificar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;

@@ -9,12 +9,16 @@ import Controlador.dao.CInvitado;
 import Controlador.dao.CUsuario;
 import Modelo.InvitadosModel;
 import Modelo.UsuarioModel;
+import static Vistas.PMenu.cusuario;
+import static Vistas.PMenu.guid;
+import static Vistas.PMenu.jDesktopPanePrincipal;
 import static Vistas.P_InvitadosInternalFrame.JtablePersona;
 import static Vistas.P_InvitadosInternalFrame.btnAgregar;
 import static Vistas.P_InvitadosInternalFrame.btnEliminar;
 import static Vistas.P_InvitadosInternalFrame.btnmodificar;
 import static Vistas.P_InvitadosInternalFrame.invimodel;
 import static Vistas.P_InvitadosInternalFrame.persona;
+import static Vistas.PeventosInternal.gui;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -24,7 +28,8 @@ import javax.swing.JTextField;
  * @author Lenovo
  */
 public class P_Usuario extends javax.swing.JInternalFrame {
-    
+
+    public static Puser pusu = null;
     public static UsuarioModel musuario = null;
     public static CUsuario cusuario = null;
 
@@ -35,28 +40,28 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         initComponents();
         this.setLocation(65, 10);
         cusuario = new CUsuario();
-        cusuario.search(JtableUsuario, null,0);
+        cusuario.search(JtableUsuario, null, 0);
+
     }
-    
-  
-     public static void UpdateAction(JTextField nombre, JTextField apellido, 
-           JTextField usuario, JComboBox perfilusaurio ,JTextField password, JTextField email, JTextField persona_idpersona) {
+
+    public static void UpdateAction(JTextField nombre, JTextField apellido,
+            JTextField usuario, JComboBox perfilusaurio, JTextField password, JTextField email, JTextField persona_idpersona) {
         int a = JtablePersona.getSelectedRow();
-        
+
         cusuario = new CUsuario();
-        
-        if (nombre.getText().length() >= 1 && apellido.getText().length() > 1 && 1 <= usuario.getText().length() && password .getText().length() >=1 ) {
 
-                musuario = new UsuarioModel(nombre.getText(), apellido.getText(), usuario.getText(),perfilusaurio.getSelectedItem().toString(),password.getText(),persona_idpersona.getText());
-                persona.save(invimodel);
+        if (nombre.getText().length() >= 1 && apellido.getText().length() > 1 && 1 <= usuario.getText().length() && password.getText().length() >= 1) {
 
-            } else {
-                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
-            }
+            musuario = new UsuarioModel(nombre.getText(), apellido.getText(), usuario.getText(), perfilusaurio.getSelectedItem().toString(), password.getText(), persona_idpersona.getText());
+            persona.save(invimodel);
 
-   }
-    
-     public static void mostrasbtnModEle(boolean x) {
+        } else {
+            JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+        }
+
+    }
+
+    public static void mostrasbtnModEle(boolean x) {
         //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
         int a = JtablePersona.getSelectedRow();
         if (x) {
@@ -76,6 +81,16 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         }
 
     }
+    // ME QUEDE AQUI 
+
+    public static void ShowInternalLista() {
+
+        // gui.DeskopPnae(PMenu.jDesktopPanePrincipal,false);
+        //    pusu.getinstanceShowInternalLista();
+        //guid.DeskopPnae(jDesktopPanePrincipal, false);
+        // pusu.setVisible(true);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -240,6 +255,11 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -267,11 +287,11 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
 
-      //  btnAgregarInternalFrameEvento(nombreEvento, FechaEvento, UbicacionEvento, TipoEvento, 0);
+        //  btnAgregarInternalFrameEvento(nombreEvento, FechaEvento, UbicacionEvento, TipoEvento, 0);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-       cusuario.btnAgregar(usuario,contrasena,perfilusuario,nombre,apellido,persona_idpersona);
+        cusuario.btnAgregar(usuario, contrasena, perfilusuario, nombre, apellido, persona_idpersona);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -283,21 +303,25 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_nombreActionPerformed
 
     private void JtableUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseClicked
-         mostrasbtnModEle(false);
+        mostrasbtnModEle(false);
     }//GEN-LAST:event_JtableUsuarioMouseClicked
 
     private void JtableUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseExited
-         mostrasbtnModEle(true);
+        mostrasbtnModEle(true);
     }//GEN-LAST:event_JtableUsuarioMouseExited
 
     private void persona_idpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persona_idpersonaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_persona_idpersonaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        cusuario.getinstanceUser();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JtableUsuario;
-    private javax.swing.JTextField apellido;
+    public javax.swing.JTextField apellido;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
@@ -316,9 +340,9 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField nombre;
+    public javax.swing.JTextField nombre;
     private javax.swing.JComboBox<String> perfilusuario;
-    private javax.swing.JTextField persona_idpersona;
+    public javax.swing.JTextField persona_idpersona;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
