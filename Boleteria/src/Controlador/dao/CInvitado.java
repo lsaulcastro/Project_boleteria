@@ -37,6 +37,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
 
     private static JInternalFrame em = null;
     private static JInternalFrame em1 = null;
+    private static JInternalFrame em2 = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
     private ResultSet rs;
@@ -174,6 +175,16 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         }
         em1.setVisible(true);
         return em1;
+    }
+    public static JInternalFrame getinstanceConfir() {
+        if (em2 == null) {
+            em2 = new Vistas.ConfirmLlegada();
+
+            Vistas.PMenu.jDesktopPanePrincipal.add(em2);
+
+        }
+        em2.setVisible(true);
+        return em2;
     }
 
     public void Invitar(int idPersona, int idEvento, int estado) {

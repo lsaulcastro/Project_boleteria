@@ -22,7 +22,7 @@ public class ModeloDatos {
         portnumber = "3306";
         database = "db_boleteriaevento";
         username = "root";
-        password = "";
+        password = "1523";
         url = "jdbc:mysql://" + hostname +/*":"+portnumber+*/ "/" + database + "?user=" + username + "&password=" + password;
     }
 
