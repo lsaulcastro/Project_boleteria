@@ -6,6 +6,7 @@
 package Vistas;
 
 import Controlador.dao.CInvitado;
+import Controlador.dao.CUsuario;
 import Modelo.UsuarioModel;
 
 /**
@@ -13,12 +14,14 @@ import Modelo.UsuarioModel;
  * @author Lenovo
  */
 public class Login extends javax.swing.JFrame {
-
-    public static CInvitado cusuario = null;
+    
+    public static CUsuario cusuario = null;
     public static UsuarioModel modelusuario = null;
     String a;
+
     public Login() {
         initComponents();
+        cusuario = new CUsuario();
     }
 
     /**
@@ -84,8 +87,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       //Resuelve YA!!!
-      // cusuario.Ingresar();
+        //Resuelve YA!!!
+        cusuario.Ingresar(user, password);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

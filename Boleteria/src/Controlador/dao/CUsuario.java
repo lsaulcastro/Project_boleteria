@@ -20,6 +20,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -192,14 +193,19 @@ public class CUsuario implements Modelo.dao.Usuariodao {
 
     }
     
+<<<<<<< HEAD
       public void Ingresar(JTextField usuario, JTextField password){
+=======
+    //  public void Ingresar(){
+      public void Ingresar(JTextField usuario, JPasswordField password){
+>>>>>>> 016f546f675b4e8ef1278fed0532106faba4b80e
     try{
        
         sql = "SELECT  `username`, `password`, `perfilUsuario`  FROM `usuario` WHERE perfilUsuario = 'administrador' and username = '?' and password = '?'";
         md.connectar();
         presta = md.getConn().prepareStatement(sql);
-        presta.setString(1, en.getUsuario());
-        presta.setString(2, en.getPassword());
+        presta.setString(1, usuario.getText());
+        presta.setString(2, password.getText());
         rs =  presta.executeQuery(sql);
         
         if(rs.next() == true){
