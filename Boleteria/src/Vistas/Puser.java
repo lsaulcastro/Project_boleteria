@@ -161,13 +161,13 @@ public class Puser extends javax.swing.JInternalFrame {
         invi.ComeBack();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-<<<<<<< HEAD:Boleteria/src/Vistas/Puser.java
-=======
+
+
     /**
      * @param args the command line arguments
      */
    
->>>>>>> b42a7e0809bb3037aebca6de5cd7dc5eaf47403c:Boleteria/src/Vistas/PUsuario.java
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

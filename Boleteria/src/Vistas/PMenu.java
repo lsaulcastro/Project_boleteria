@@ -16,7 +16,7 @@ import javax.swing.JInternalFrame;
  * @author sauld
  */
 public class PMenu extends javax.swing.JFrame {
-        String acceso;
+
     /**
      * Creates new form PMenu
      */
@@ -25,6 +25,8 @@ public class PMenu extends javax.swing.JFrame {
     public static Controlador.dao.EventoImp event = null;
     public static Modelo.EventoModel evenMode = null;
     public static Controlador.GUID guid = null;
+    //privae static String acceso = null;
+    private String acceso = null;
 
     public PMenu() {
         initComponents();
@@ -35,7 +37,6 @@ public class PMenu extends javax.swing.JFrame {
         event = new EventoImp();
         // System.out.println("Hola");
         event.search(JTableEvent, null, 1);
-        
         GestionUsuario();
 
     }
@@ -49,6 +50,20 @@ public class PMenu extends javax.swing.JFrame {
             separator.setForeground(Color.black);
         }
 
+    }
+    // El boton acceso tienes que crearlo
+
+    public void GestionUsuario() {
+
+        if (acceso == "ADMINISTRADOR") {
+            this.btnEvento.enable(true);
+            this.btnPersona.enable(true);
+            this.jButton3.enable(true);
+        } else {
+            this.btnEvento.enable(true);
+            this.btnPersona.enable(false);
+            this.jButton3.enable(false);
+        }
     }
 
     public static boolean btnShow() {
@@ -97,7 +112,7 @@ public class PMenu extends javax.swing.JFrame {
                 btnEliminar.setEnabled(true);
                 btnAgregar.setEnabled(false);
                 btnevent.setEnabled(false);
-           //     btnInvitacion.setEnabled(true);
+                //     btnInvitacion.setEnabled(true);
 
             }
         }
@@ -137,20 +152,6 @@ public class PMenu extends javax.swing.JFrame {
 
         }
 
-    }
-    
-    public  void GestionUsuario(){
-         if(acceso == "ADMINISTRADOR"){
-         this.btnEvento.enable(true);
-         this.btnPersona.enable(true);
-         this.jButton3.enable(true);
-         
-         } else {
-         this.btnEvento.enable(true);
-         this.btnPersona.enable(false);
-         this.jButton3.enable(false);
-         }
-    
     }
 
     public static void DatosConfir() {
@@ -194,10 +195,6 @@ public class PMenu extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
-<<<<<<< HEAD
-=======
-        jCalendar1 = new com.toedter.calendar.JCalendar();
->>>>>>> b42a7e0809bb3037aebca6de5cd7dc5eaf47403c
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -418,13 +415,9 @@ public class PMenu extends javax.swing.JFrame {
                             .addComponent(jSeparator2)
                             .addComponent(jSeparator1)
                             .addComponent(btnPersona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-<<<<<<< HEAD
-                            .addComponent(btnEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnPersona1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> b42a7e0809bb3037aebca6de5cd7dc5eaf47403c
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel8))
             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -746,7 +739,7 @@ public class PMenu extends javax.swing.JFrame {
 
     private void JTableEventMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseEntered
         // TODO add your handling code here:
-        
+
         // btnmodificar.setEnabled(true);
     }//GEN-LAST:event_JTableEventMouseEntered
 
@@ -761,7 +754,7 @@ public class PMenu extends javax.swing.JFrame {
 
     private void JTableEventMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseExited
         // TODO add your handling code here:
-        
+
         mostrasbtnModEle(true);
     }//GEN-LAST:event_JTableEventMouseExited
 
@@ -792,12 +785,12 @@ public class PMenu extends javax.swing.JFrame {
 
     private void jPanel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseEntered
         // TODO add your handling code here:
-       // mostrasbtnModEle(true);
+        // mostrasbtnModEle(true);
     }//GEN-LAST:event_jPanel7MouseEntered
 
     private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
         // TODO add your handling code here:
-      //  mostrasbtnModEle(true);
+        //  mostrasbtnModEle(true);
     }//GEN-LAST:event_jPanel7MouseMoved
 
     private void JTableEventMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEventMouseMoved
@@ -811,7 +804,7 @@ public class PMenu extends javax.swing.JFrame {
 
     private void btnmodificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmodificarMouseExited
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnmodificarMouseExited
 
     private void btnPersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersona1ActionPerformed
@@ -863,13 +856,8 @@ public class PMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnPersona1;
     public static javax.swing.JButton btnevent;
     public static javax.swing.JButton btnmodificar;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
->>>>>>> b42a7e0809bb3037aebca6de5cd7dc5eaf47403c
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JCalendar jCalendar1;
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JFrame jFrame1;
     public static javax.swing.JInternalFrame jInternalFrame2;

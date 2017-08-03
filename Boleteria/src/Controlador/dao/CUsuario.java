@@ -193,6 +193,7 @@ public class CUsuario implements Modelo.dao.Usuariodao {
     }
     
       public void Ingresar(){
+      public void Ingresar(JTextField usuario, JTextField password){
     try{
        
         sql = "SELECT  `username`, `password`, `perfilUsuario`  FROM `usuario` WHERE perfilUsuario = 'administrador' and username = '?' and password = '?'";
@@ -220,4 +221,6 @@ public class CUsuario implements Modelo.dao.Usuariodao {
     }
     
       }
+      
+     
 }
