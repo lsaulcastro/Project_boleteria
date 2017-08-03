@@ -147,7 +147,7 @@ public class Puser extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void perfilKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilKeyReleased
-        invi.BusquedaFiltrada(perfil);
+        invi.BusquedaFiltrada(perfil,jTable1);
 
     }//GEN-LAST:event_perfilKeyReleased
 

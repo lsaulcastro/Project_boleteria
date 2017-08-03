@@ -390,7 +390,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         
-       // UpdateShow(nombre,apellido,telefono,sexo,direccion,email);
+        UpdateShow(nombre,apellido,telefono,sexo,direccion,email);
        UpdateAction(nombre,apellido,telefono,sexo,direccion,email);
        
     }//GEN-LAST:event_btnmodificarActionPerformed
@@ -403,12 +403,12 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel JpanelPrincipalInvitado;
     public static javax.swing.JTable JtablePersona;
-    private javax.swing.JTextField apellido;
+    private static javax.swing.JTextField apellido;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
-    private javax.swing.JTextField direccion;
-    private javax.swing.JTextField email;
+    private static javax.swing.JTextField direccion;
+    private static javax.swing.JTextField email;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -422,9 +422,9 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField nombre;
+    private static javax.swing.JTextField nombre;
     public static javax.swing.JTextField perf;
     private javax.swing.JComboBox<String> sexo;
-    private javax.swing.JTextField telefono;
+    private static javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 }

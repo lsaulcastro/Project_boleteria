@@ -127,6 +127,11 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
 
         TxtTipoEvento.setFont(new java.awt.Font("Modern No. 20", 0, 14)); // NOI18N
         TxtTipoEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiesta", "Boda", "Reunion", "Serrucho", "Empaguetada", "Graduacion" }));
+        TxtTipoEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtTipoEventoActionPerformed(evt);
+            }
+        });
         jPanelEventoMante.add(TxtTipoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 260, 40));
 
         try {
@@ -292,6 +297,10 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         // TODO add your handling code heupre:
         //   Update_Delete(evt);
     }//GEN-LAST:event_btnEditarEventoMouseClicked
+
+    private void TxtTipoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTipoEventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtTipoEventoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
