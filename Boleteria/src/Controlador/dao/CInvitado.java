@@ -38,6 +38,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     private static JInternalFrame em = null;
     private static JInternalFrame em1 = null;
     private static JInternalFrame em2 = null;
+    private static JInternalFrame em3 = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
     private ResultSet rs;
@@ -176,6 +177,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         em1.setVisible(true);
         return em1;
     }
+
     public static JInternalFrame getinstanceConfir() {
         if (em2 == null) {
             em2 = new Vistas.ConfirmLlegada();
@@ -240,31 +242,41 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         persona = new CInvitado();
         persona.search(jTable1, a, 0);
     }
-    
-     public static void ComeBack() {
-        gui.DeskopPnae(PMenu.jDesktopPanePrincipal,false);
+
+    public static void ComeBack() {
+        gui.DeskopPnae(PMenu.jDesktopPanePrincipal, false);
         em = new Vistas.P_Usuario();
         em.setVisible(true);
     }
 
-     public static void Select(){
-     int a = jTable1.getSelectedRow();
-      String id = jTable1.getValueAt(a, 0).toString();
-      String nom = jTable1.getValueAt(a, 1).toString();
-      String ape = jTable1.getValueAt(a, 2).toString();
-      
-       JOptionPane.showMessageDialog(null, "Usted Selecciono a "+nom+" "+ape+" "+id);
-        
-       
-       //ESTE CODIGO VAAAAAAAA!
-       
-//       P_Usuario pu = new P_Usuario();
-//       pu.nombre.setText(nom);
-//       pu.apellido.setText(ape);
-//       pu.persona_idpersona.setText(id);
+    public static void Select() {
+        int a = jTable1.getSelectedRow();
+        String id = jTable1.getValueAt(a, 0).toString();
+        String nom = jTable1.getValueAt(a, 1).toString();
+        String ape = jTable1.getValueAt(a, 2).toString();
+
+        JOptionPane.showMessageDialog(null, "Usted Selecciono a " + nom + " " + ape + " " + id);
+
+        //ESTE CODIGO VAAAAAAAA!
+        P_Usuario pu = new P_Usuario();
+        pu.nombre.setText(nom);
+        pu.apellido.setText(ape);
+        pu.persona_idpersona.setText(id);
 //       
-//       JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
+        JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
        
-       
-     }
+     
+    }
+    public static JInternalFrame getinstanceUser() {
+        if (em3 == null) {
+            em3 = new Vistas.P_Usuario();
+
+            Vistas.PMenu.jDesktopPanePrincipal.add(em3);
+
+        }
+        em3.setVisible(true);
+        return em3;
+    }
+
 }
+//Ya

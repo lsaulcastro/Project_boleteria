@@ -5,42 +5,183 @@
  */
 package Controlador.dao;
 
+import Modelo.ModeloDatos;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author sauld
  */
-public class Reporte implements Modelo.Reporte{
+public class Reporte implements Modelo.Reporte {
+
+    private Modelo.ModeloDatos md = ModeloDatos.getInstance();
+    private PreparedStatement presta;
+    private ResultSet rs;
+    private String sql;
+    private Statement s;
+    private DefaultTableModel m;
 
     @Override
     public JTable PersonasAsistencia(JTable tabla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "select Eventos_idEventos, sum(Estado = true)  as CantidadDePersonas"
+                + " from invitacion Group by Eventos_idEventos order by  "
+                + "CantidadDePersonas desc limit 0,3;";
+
+        String[] tituloEmple = {"ID_Evento", "Cantidad  de Personas"};
+        m = new DefaultTableModel(null, tituloEmple) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+            Object[] values = new Object[2];
+
+            while (rs.next()) {
+                values[0] = rs.getString(1);
+                values[1] = rs.getString(2);
+
+                m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        tabla.setRowHeight(30);
+        tabla.setModel(m);
+
+        return tabla;
     }
 
     @Override
     public JTable PersonasAsistenciaPorcentaje(JTable tabla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        sql = "select Eventos_idEventos, avg(Estado = true) as Porcentaje from"
+                + " invitacion Group by Eventos_idEventos order by  Porcentaje desc limit 0,3;";
+
+        String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
+        m = new DefaultTableModel(null, tituloEmple) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+            Object[] values = new Object[2];
+
+            while (rs.next()) {
+                values[0] = rs.getString(1);
+                values[1] = rs.getString(2);
+
+                m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        tabla.setRowHeight(30);
+        tabla.setModel(m);
+
+        return tabla;
     }
 
     @Override
     public JTable EventosMasVisitados(JTable tabla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        sql = "select  Eventos_idEventos, sum(Estado)/12 "
+                + "as Suma_Total from invitacion inner join persona group by "
+                + " Eventos_idEventos order by Suma_Total desc limit 0,3;";
+
+        String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
+        m = new DefaultTableModel(null, tituloEmple) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+            Object[] values = new Object[2];
+
+            while (rs.next()) {
+                values[0] = rs.getString(1);
+                values[1] = rs.getString(2);
+
+                m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        tabla.setRowHeight(30);
+        tabla.setModel(m);
+
+        return tabla;
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public JTable EventosMasVisitadosPorMujeres(JTable tabla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        sql = " select invitacion.Eventos_idEventos,evento.nombre, "
+                + "sum(invitacion.Estado = true) as Suma_Total "
+                + "from invitacion inner join evento "
+                + "on invitacion.Eventos_idEventos = evento.idEventos "
+                + " INNER JOIN persona "
+                + "on invitacion.Persona_idPersona = persona.idPersona "
+                + " where persona.sexo LIKE \"%Mujer%\" group by "
+                + " invitacion.Eventos_idEventos order by  Suma_Total desc limit 0,3;";
+
+        String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
+        m = new DefaultTableModel(null, tituloEmple) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+            Object[] values = new Object[2];
+
+            while (rs.next()) {
+                values[0] = rs.getString(1);
+                values[1] = rs.getString(2);
+
+                m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        tabla.setRowHeight(30);
+        tabla.setModel(m);
+        return tabla;
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public JTable EventosMasVisitadosPorHombres(JTable tabla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        return tabla;
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public JTable DiasDeLaSemana(JTable tabla) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
