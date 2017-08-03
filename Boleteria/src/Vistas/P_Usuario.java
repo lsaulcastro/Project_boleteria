@@ -63,16 +63,16 @@ public class P_Usuario extends javax.swing.JInternalFrame {
 
     public static void mostrasbtnModEle(boolean x) {
         //Este evento es para habilitar y desabilitar los botones del InternalFranme de eventos
-        int a = JtablePersona.getSelectedRow();
+        int  a= JtablePersona.getSelectedRow();
         if (x) {
 
-            if (a < 0) {
+            if (a< 0) {
                 btnmodificar.setEnabled(false);
                 btnEliminar.setEnabled(false);
                 btnAgregar.setEnabled(true);
             }
         } else {
-            if (a >= 0) {
+            if (a  >= 0) {
 
                 btnmodificar.setEnabled(true);
                 btnEliminar.setEnabled(true);
@@ -181,7 +181,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 220, 40));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 220, 40));
 
         btnmodificar.setBackground(new java.awt.Color(0, 120, 153));
         btnmodificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -303,11 +303,11 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_nombreActionPerformed
 
     private void JtableUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseClicked
-        mostrasbtnModEle(false);
+      //  mostrasbtnModEle(false);
     }//GEN-LAST:event_JtableUsuarioMouseClicked
 
     private void JtableUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseExited
-        mostrasbtnModEle(true);
+      //  mostrasbtnModEle(true);
     }//GEN-LAST:event_JtableUsuarioMouseExited
 
     private void persona_idpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persona_idpersonaActionPerformed
@@ -321,11 +321,11 @@ public class P_Usuario extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JtableUsuario;
-    public javax.swing.JTextField apellido;
+    public static javax.swing.JTextField apellido;
     public static javax.swing.JButton btnAgregar;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
-    private javax.swing.JTextField contrasena;
+    public static javax.swing.JTextField contrasena;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -340,9 +340,9 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField nombre;
+    public static javax.swing.JTextField nombre;
     private javax.swing.JComboBox<String> perfilusuario;
-    public javax.swing.JTextField persona_idpersona;
-    private javax.swing.JTextField usuario;
+    public static javax.swing.JTextField persona_idpersona;
+    public static javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }

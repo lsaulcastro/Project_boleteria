@@ -15,6 +15,7 @@ import static Vistas.P_InvitadosInternalFrame.invimodel;
 import static Vistas.P_InvitadosInternalFrame.persona;
 import Vistas.P_Usuario;
 import static Vistas.PeventosInternal.gui;
+import Vistas.Puser;
 import static Vistas.Puser.jTable1;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
@@ -39,12 +40,14 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
     private static JInternalFrame em1 = null;
     private static JInternalFrame em2 = null;
     private static JInternalFrame em3 = null;
+    private static JInternalFrame em4 = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
     private ResultSet rs;
     private String sql;
     private Statement s;
     private DefaultTableModel m;
+    public static P_Usuario pu = null;
 
     @Override
     public void save(InvitadosModel en) {
@@ -226,7 +229,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         } else {
             JOptionPane.showMessageDialog(null, "No deje campos vacios.");
         }
-        // guid.limpiar_texto(JpanelPrincipalInvitado);
+        //guid.limpiar_texto(JpanelPrincipalInvitado);
 
     }
 
@@ -255,7 +258,12 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         String nom = jTable1.getValueAt(a, 1).toString();
         String ape = jTable1.getValueAt(a, 2).toString();
 
-        JOptionPane.showMessageDialog(null, "Usted Selecciono a " + nom + " " + ape + " " + id);
+        //JOptionPane.showMessageDialog(null, "Usted Selecciono a "+nom+" "+ape+" "+id);
+        //pu = new P_Usuario();
+        Vistas.P_Usuario.persona_idpersona.setText(id);
+        Vistas.P_Usuario.nombre.setText(nom);
+        Vistas.P_Usuario.apellido.setText(ape);
+
 
         //ESTE CODIGO VAAAAAAAA!
         P_Usuario pu = new P_Usuario();
@@ -272,12 +280,9 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         if (em3 == null) {
             em3 = new Vistas.P_Usuario();
 
-            Vistas.PMenu.jDesktopPanePrincipal.add(em3);
-
-        }
-        em3.setVisible(true);
-        return em3;
+        // JOptionPane.showMessageDialog(null, ""+pu.persona_idpersona.getText()+""+pu.nombre.getText()+""+pu.apellido);
+        // Puser pum = new Puser();
+       
     }
 
-}
 //Ya
