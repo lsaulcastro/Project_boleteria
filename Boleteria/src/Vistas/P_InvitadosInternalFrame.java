@@ -263,7 +263,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void UpdateAction(JTextField nombre, JTextField apellido,
-            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email, int x) {
         int a = JtablePersona.getSelectedRow();
 
         persona = new CInvitado();
@@ -272,10 +272,15 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
             invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
             persona.save(invimodel);
-
+            if (x != 0) {
+                persona.update(invimodel, Integer.parseInt(JtablePersona.getValueAt(a, 0).toString()));
+            }
+              
         } else {
             JOptionPane.showMessageDialog(null, "No deje campos vacios.");
         }
+       
+        
 
     }
 
@@ -305,7 +310,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
             JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
         int a = JtablePersona.getSelectedRow();
 
-        if (a >= 1) {
+        if (a >= 0) {
             // if (nombreEvento.getText().length() >= 1 && FechaEvento.getText().length() > 1 && 1 <= UbicacionEvento.getText().length()) {
 
             // PMenu.btnShow();
@@ -314,13 +319,15 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
             btnmodificar.setEnabled(true);
             //Esto es para desabilitar los botones que no son necesarion para esta opcion
 
-            nombre.setText(JtablePersona.getValueAt(a, 1).toString());
-            apellido.setText(JtablePersona.getValueAt(a, 2).toString());
-            telefono.setText(JtablePersona.getValueAt(a, 3).toString());
-            direccion.setText(JtablePersona.getValueAt(a, 4).toString());
-            sexo.setSelectedItem(JtablePersona.getValueAt(a, 5).toString());
-            email.setText(JtablePersona.getValueAt(a, 6).toString());
-
+//            nombre.setText(JtablePersona.getValueAt(a, 1).toString());
+//            apellido.setText(JtablePersona.getValueAt(a, 2).toString());
+//            telefono.setText(JtablePersona.getValueAt(a, 3).toString());
+//            direccion.setText(JtablePersona.getValueAt(a, 4).toString());
+//            sexo.setSelectedItem(JtablePersona.getValueAt(a, 5).toString());
+//            email.setText(JtablePersona.getValueAt(a, 6).toString());
+            
+            invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
+            persona.update(invimodel,Integer.parseInt(JtablePersona.getValueAt(a, 0).toString()));
             PMenu.btnmodificar.setEnabled(true);
             PMenu.btnmodificar.setEnabled(true);
 
@@ -344,6 +351,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
     private void JtablePersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMouseClicked
         mostrasbtnModEle(false);
+        persona.actualizar(nombre, apellido, telefono, sexo, direccion, email);
     }//GEN-LAST:event_JtablePersonaMouseClicked
 
     private void JtablePersonaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtablePersonaMouseEntered
@@ -368,13 +376,12 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_perfActionPerformed
 
     private void perfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfKeyReleased
-<<<<<<< HEAD
-        persona.BusquedaFiltrada(perf);
 
-=======
+       // persona.BusquedaFiltrada(perf);
+
       persona.BusquedaFiltrada(perf,JtablePersona);
        
->>>>>>> 1233109db1d3b001ef7d61e89c2f9e15118aac70
+
     }//GEN-LAST:event_perfKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -391,8 +398,8 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
 
-        // UpdateShow(nombre,apellido,telefono,sexo,direccion,email);
-        UpdateAction(nombre, apellido, telefono, sexo, direccion, email);
+     //  UpdateShow(nombre,apellido,telefono,sexo,direccion,email);
+       UpdateAction(nombre, apellido, telefono, sexo, direccion, email, 1);
 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
