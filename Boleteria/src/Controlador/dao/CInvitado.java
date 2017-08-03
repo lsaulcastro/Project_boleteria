@@ -8,7 +8,6 @@ package Controlador.dao;
 import Modelo.InvitadosModel;
 import Modelo.ModeloDatos;
 import Vistas.PMenu;
-import static Vistas.P_InvitadosInternalFrame.Busqueda;
 import static Vistas.P_InvitadosInternalFrame.JtablePersona;
 import static Vistas.P_InvitadosInternalFrame.guid;
 import static Vistas.P_InvitadosInternalFrame.invimodel;
@@ -29,6 +28,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import static Vistas.P_InvitadosInternalFrame.perf;
 
 /**
  *
@@ -130,8 +130,8 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        en.setRowHeight(30);
-        en.setModel(m);
+            en.setRowHeight(30); 
+            en.setModel(m);
 
         return en;
 
@@ -242,7 +242,6 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
 
     public static void BusquedaFiltrada(JTextField perf) {
         String a = perf.getText();
-        persona = new CInvitado();
         persona.search(jTable1, a, 0);
     }
 

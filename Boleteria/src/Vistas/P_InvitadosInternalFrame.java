@@ -60,7 +60,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JtablePersona = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        Busqueda = new javax.swing.JTextField();
+        perf = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -192,17 +192,17 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         jLabel12.setText("Buscar : ");
         JpanelPrincipalInvitado.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
-        Busqueda.addActionListener(new java.awt.event.ActionListener() {
+        perf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BusquedaActionPerformed(evt);
+                perfActionPerformed(evt);
             }
         });
-        Busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+        perf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                BusquedaKeyReleased(evt);
+                perfKeyReleased(evt);
             }
         });
-        JpanelPrincipalInvitado.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 212, 30));
+        JpanelPrincipalInvitado.add(perf, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 212, 30));
 
         btnAgregar.setBackground(new java.awt.Color(0, 120, 153));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -365,14 +365,14 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JtablePersonaKeyPressed
 
-    private void BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaActionPerformed
+    private void perfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BusquedaActionPerformed
+    }//GEN-LAST:event_perfActionPerformed
 
-    private void BusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaKeyReleased
-    //  persona.buscar();
+    private void perfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfKeyReleased
+      persona.BusquedaFiltrada(perf);
        
-    }//GEN-LAST:event_BusquedaKeyReleased
+    }//GEN-LAST:event_perfKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
     //    JCombobox1
@@ -401,7 +401,6 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField Busqueda;
     private static javax.swing.JPanel JpanelPrincipalInvitado;
     public static javax.swing.JTable JtablePersona;
     private javax.swing.JTextField apellido;
@@ -424,6 +423,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField nombre;
+    public static javax.swing.JTextField perf;
     private javax.swing.JComboBox<String> sexo;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables

@@ -148,17 +148,18 @@ public class Puser extends javax.swing.JInternalFrame {
 
     private void perfilKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilKeyReleased
         invi.BusquedaFiltrada(perfil);
+
     }//GEN-LAST:event_perfilKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         invi.Select();
-
+        this.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
