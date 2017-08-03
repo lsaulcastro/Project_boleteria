@@ -127,7 +127,8 @@ public class CUsuario implements Modelo.dao.Usuariodao {
 
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+           // JOptionPane.showMessageDialog(null, e.getMessage());
+           System.out.println("Error" + e.getMessage());
         }
         en.setRowHeight(30);
         en.setModel(m);
@@ -148,7 +149,8 @@ public class CUsuario implements Modelo.dao.Usuariodao {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+          //  JOptionPane.showMessageDialog(null, e.getMessage());
+          System.out.println("Error " + e.getMessage());
         }
     }
 
@@ -216,11 +218,12 @@ public class CUsuario implements Modelo.dao.Usuariodao {
                 pm.setVisible(true);
                 pm.setLocationRelativeTo(null);
                 x = true;
-
+                
+                  JOptionPane.showMessageDialog(null, "BIENVENIDOOO!"); 
             } else {
                 JOptionPane.showMessageDialog(null, "Error Su Usuario o Contrasena son incorrectos");
             }
-                JOptionPane.showMessageDialog(null, "BIENVENIDOOO!"); 
+              
         } catch (Exception o) {
             o.printStackTrace();
         }

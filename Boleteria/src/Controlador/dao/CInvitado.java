@@ -242,6 +242,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
 
     public static void BusquedaFiltrada(JTextField perf) {
         String a = perf.getText();
+        persona = new CInvitado();
         persona.search(jTable1, a, 0);
     }
 

@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         perfi = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -50,6 +51,8 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 120, 153));
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/pass.png"))); // NOI18N
@@ -83,6 +86,14 @@ public class Login extends javax.swing.JFrame {
         perfi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Portero" }));
         getContentPane().add(perfi, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 300, 40));
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/icon (1).png"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, -1, 40));
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo-de-pantalla-degradado-azul.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 462, 600));
 
@@ -98,6 +109,11 @@ public class Login extends javax.swing.JFrame {
         cusuario.Ingresar(user, password,perfi);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+
+        System.exit(0);
+    }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -141,6 +157,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> perfi;
     private javax.swing.JTextField user;
