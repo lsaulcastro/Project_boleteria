@@ -370,7 +370,7 @@ public class P_InvitadosInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_perfActionPerformed
 
     private void perfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfKeyReleased
-      persona.BusquedaFiltrada(perf);
+      persona.BusquedaFiltrada(perf,JtablePersona);
        
     }//GEN-LAST:event_perfKeyReleased
 

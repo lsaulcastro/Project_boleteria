@@ -241,9 +241,9 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         }
     }
 
-    public static void BusquedaFiltrada(JTextField perf) {
+    public static void BusquedaFiltrada(JTextField perf, JTable b) {
         String a = perf.getText();
-        persona.search(jTable1, a, 0);
+        persona.search(b, a, 0);
     }
 
     public static void ComeBack() {
