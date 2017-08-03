@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import Controlador.dao.CInvitado;
+
 /**
  *
  * @author sauld
@@ -15,11 +17,16 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
      * Creates new form ConfirmLlegada
      */
     private static Controlador.dao.EventoImp event = null;
+    private static Controlador.dao.CInvitado invi = null;
+    private static Controlador.dao.Reporte re = null;
 
     public ConfirmLlegada() {
         initComponents();
         this.setLocation(55, 45);
         event = new Controlador.dao.EventoImp();
+        re = new Controlador.dao.Reporte();
+        invi = new CInvitado();
+        // re
 
     }
 
@@ -115,6 +122,9 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
             }
         });
         BusquedaInvitacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BusquedaInvitacionKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BusquedaInvitacionKeyReleased(evt);
             }
@@ -171,7 +181,7 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
 
         btnInvitacion.setBackground(new java.awt.Color(0, 120, 153));
         btnInvitacion.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
-        btnInvitacion.setText("Confirmar Llegada");
+        btnInvitacion.setText("Actualizar");
         btnInvitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInvitacionActionPerformed(evt);
@@ -247,12 +257,13 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JTableInvitacionKeyPressed
 
     private void BusquedaInvitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaInvitacionActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_BusquedaInvitacionActionPerformed
 
     private void BusquedaInvitacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaInvitacionKeyReleased
         // TODO add your handling code here:
-
+        invi.Busqueda(JTableInvitacion, Integer.parseInt(IDevento.getText()), BusquedaInvitacion.getText());
     }//GEN-LAST:event_BusquedaInvitacionKeyReleased
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -261,7 +272,8 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
 
     private void btnInvitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitacionActionPerformed
         // TODO add your handling code here:
-
+        event.UserNoConfir(JTableInvitacion, Integer.parseInt(IDevento.getText()));
+        CantidadFaltante.setText(re.Contador());
     }//GEN-LAST:event_btnInvitacionActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -272,9 +284,14 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
 
     private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
         // TODO add your handling code here:
-        event.UserNoConfir(JTableInvitacion, Integer.parseInt(IDevento.getText()));
+
+       // invi.Busqueda(JTableInvitacion, Integer.parseInt(IDevento.getText().toString()), BusquedaInvitacion.getText());
 
     }//GEN-LAST:event_jPanel7MouseMoved
+
+    private void BusquedaInvitacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaInvitacionKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BusquedaInvitacionKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author sauld
  */
 public class Reporte implements Modelo.Reporte {
+
     private JFrame re = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
@@ -251,14 +252,41 @@ public class Reporte implements Modelo.Reporte {
         tabla.setModel(m);
         return tabla;
     }
-    
-    public JFrame getinstance(){
+
+    public JFrame getinstance() {
         if (re == null) {
             re = new Vistas.P_Reportes();
         }
         re.setVisible(true);
-    return  re;
-    
+        return re;
+
+    }
+
+    @Override
+    public String Contador() {
+        String x = null;
+        sql = "select Count(i.Eventos_idEventos ) from persona p inner join invitacion i on \n"
+                + "i.Persona_idPersona = p.idPersona where i.Eventos_idEventos = 39 and i.Estado = false;";
+
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+         //   Object[] values = new Object[1];
+
+            while (rs.next()) {
+                x = rs.getString(1);
+                
+
+               // m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        return x;
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

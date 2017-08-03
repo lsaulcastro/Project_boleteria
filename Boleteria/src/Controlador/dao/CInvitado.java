@@ -24,6 +24,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -268,7 +269,44 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         // Puser pum = new Puser();
        
     }
+    public JTable Busqueda( JTable tabla ,int a, String b){
+     sql = "select idPersona, p.nombre, p.apellido,p.sexo , i.estado "
+             + "from persona p inner join invitacion i on \n" +
+                "i.Persona_idPersona = p.idPersona where "
+             + "i.Eventos_idEventos = '"+a+"' and i.Estado = false and"
+             + " p.nombre LIKE '%"+b+"%';";
 
+        String[] tituloEmple = {"ID","Nombre", "Apelldio", "Sexo", "Estado"};
+        m = new DefaultTableModel(null, tituloEmple) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+            Object[] values = new Object[5];
+
+            while (rs.next()) {
+                values[0] = rs.getString(1);
+                values[1] = rs.getString(2);
+                values[2] = rs.getString(3);
+                values[3] = rs.getString(4);
+              //  values[4] = rs.getString(5);
+
+                m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        tabla.setRowHeight(30);
+        tabla.setModel(m);
+        return tabla;
+    }
+    
+   
    
 
 }

@@ -24,4 +24,8 @@ public interface Reporte {
     public JTable EventosMasVisitadosPorHombres(JTable tabla);
 
     public JTable DiasDeLaSemana(JTable tabla);
+    
+    public String Contador();
+    
+   
 }

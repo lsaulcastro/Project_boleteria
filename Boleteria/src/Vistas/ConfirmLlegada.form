@@ -94,6 +94,7 @@
         <Component class="javax.swing.JTextField" name="BusquedaInvitacion">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BusquedaInvitacionActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BusquedaInvitacionKeyPressed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BusquedaInvitacionKeyReleased"/>
           </Events>
           <AuxValues>
@@ -206,7 +207,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Modern No. 20" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Confirmar Llegada"/>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInvitacionActionPerformed"/>

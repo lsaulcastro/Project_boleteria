@@ -24,6 +24,12 @@ public class Login extends javax.swing.JFrame {
         cusuario = new CUsuario();
         this.setLocationRelativeTo(null);
     }
+    public void ValidarLogin(){
+    
+        if (cusuario.Ingresar(user, password,perfi)) {
+            this.dispose();
+        }
+    }
     
     
     /**
@@ -95,7 +101,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Resuelve YA!!!
-        cusuario.Ingresar(user, password,perfi);
+       // cusuario.Ingresar(user, password,perfi);
+       ValidarLogin();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
