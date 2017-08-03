@@ -264,25 +264,12 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         Vistas.P_Usuario.nombre.setText(nom);
         Vistas.P_Usuario.apellido.setText(ape);
 
-
-        //ESTE CODIGO VAAAAAAAA!
-        P_Usuario pu = new P_Usuario();
-        pu.nombre.setText(nom);
-        pu.apellido.setText(ape);
-        pu.persona_idpersona.setText(id);
-//       
-        JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
-
-        getinstanceUser();
-    }
-
-    public static JInternalFrame getinstanceUser() {
-        if (em3 == null) {
-            em3 = new Vistas.P_Usuario();
-
         // JOptionPane.showMessageDialog(null, ""+pu.persona_idpersona.getText()+""+pu.nombre.getText()+""+pu.apellido);
         // Puser pum = new Puser();
        
     }
 
+   
+
+}
 //Ya
