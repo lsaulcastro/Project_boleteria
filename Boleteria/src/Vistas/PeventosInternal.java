@@ -125,7 +125,8 @@ public class PeventosInternal extends javax.swing.JInternalFrame {
         });
         jPanelEventoMante.add(btnEditarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 130, 40));
 
-        TxtTipoEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hola" }));
+        TxtTipoEvento.setFont(new java.awt.Font("Modern No. 20", 0, 14)); // NOI18N
+        TxtTipoEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiesta", "Boda", "Reunion", "Serrucho", "Empaguetada", "Graduacion" }));
         jPanelEventoMante.add(TxtTipoEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 260, 40));
 
         try {

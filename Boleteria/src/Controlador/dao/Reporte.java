@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author sauld
  */
 public class Reporte implements Modelo.Reporte {
+
     private JFrame re = null;
     private Modelo.ModeloDatos md = ModeloDatos.getInstance();
     private PreparedStatement presta;
@@ -32,7 +33,7 @@ public class Reporte implements Modelo.Reporte {
     public JTable PersonasAsistencia(JTable tabla) {
         sql = "select Eventos_idEventos, sum(Estado = true)  as CantidadDePersonas"
                 + " from invitacion Group by Eventos_idEventos order by  "
-                + "CantidadDePersonas desc limit 0,3;";
+                + "CantidadDePersonas desc;";
 
         String[] tituloEmple = {"ID_Evento", "Cantidad  de Personas"};
         m = new DefaultTableModel(null, tituloEmple) {
@@ -66,7 +67,7 @@ public class Reporte implements Modelo.Reporte {
     public JTable PersonasAsistenciaPorcentaje(JTable tabla) {
 
         sql = "select Eventos_idEventos, avg(Estado = true) as Porcentaje from"
-                + " invitacion Group by Eventos_idEventos order by  Porcentaje desc limit 0,3;";
+                + " invitacion Group by Eventos_idEventos order by  Porcentaje desc;";
 
         String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
         m = new DefaultTableModel(null, tituloEmple) {
@@ -101,7 +102,7 @@ public class Reporte implements Modelo.Reporte {
 
         sql = "select  Eventos_idEventos, sum(Estado)/12 "
                 + "as Suma_Total from invitacion inner join persona group by "
-                + " Eventos_idEventos order by Suma_Total desc limit 0,3;";
+                + " Eventos_idEventos order by Suma_Total desc;";
 
         String[] tituloEmple = {"ID_Evento", "Porcentaje de Personas"};
         m = new DefaultTableModel(null, tituloEmple) {
@@ -251,14 +252,41 @@ public class Reporte implements Modelo.Reporte {
         tabla.setModel(m);
         return tabla;
     }
-    
-    public JFrame getinstance(){
+
+    public JFrame getinstance() {
         if (re == null) {
             re = new Vistas.P_Reportes();
         }
         re.setVisible(true);
-    return  re;
-    
+        return re;
+
+    }
+
+    @Override
+    public String Contador(int a) {
+        String x = null;
+        sql = "select Count(i.Eventos_idEventos ) from persona p inner join invitacion i on \n"
+                + "i.Persona_idPersona = p.idPersona where i.Eventos_idEventos = '"+a+"' and i.Estado = false;";
+
+        try {
+            md.connectar();
+            s = md.getConn().createStatement();
+            rs = s.executeQuery(sql);
+         //   Object[] values = new Object[1];
+
+            while (rs.next()) {
+                x = rs.getString(1);
+                
+
+               // m.addRow(values);
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        return x;
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
