@@ -9,6 +9,7 @@ import Controlador.dao.CInvitado;
 import Controlador.dao.EventoImp;
 import Controlador.GUID;
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 /**
@@ -23,8 +24,11 @@ public class PMenu extends javax.swing.JFrame {
     public static Controlador.dao.CUsuario cusuario = null;
     public static Controlador.dao.CInvitado InvitadoControler = null;
     public static Controlador.dao.EventoImp event = null;
+    public static Controlador.dao.Reporte repo = null;
     public static Modelo.EventoModel evenMode = null;
     public static Controlador.GUID guid = null;
+    private static JFrame menu =null;
+    private static JInternalFrame inter =null;
     //privae static String acceso = null;
     private String acceso = null;
 
@@ -37,19 +41,27 @@ public class PMenu extends javax.swing.JFrame {
         event = new EventoImp();
         // System.out.println("Hola");
         event.search(JTableEvent, null, 1);
+        repo = new Controlador.dao.Reporte();
         GestionUsuario();
 
     }
+//    private JInternalFrame getinstance(){
+//        if (inter == null) {
+//            inter = new jInternalFrame2();
+//        }
+//    return inter;
+//    }
 
-    public static void LabelHover(javax.swing.JSeparator separator, int e) {
-
-        if (e == 1) {
-            separator.setForeground(Color.white);
-
-        } else {
-            separator.setForeground(Color.black);
+    public JFrame getinstance(){
+        if (menu == null) {
+            menu = new PMenu();
         }
-
+        menu.setVisible(true);
+    return menu;
+    }
+    public void ShowRepo() {
+       // guid.DeskopPnae(jDesktopPanePrincipal, false);
+        repo.getinstance();
     }
     // El boton acceso tienes que crearlo
 
@@ -128,6 +140,7 @@ public class PMenu extends javax.swing.JFrame {
     public static void ShowInternalEvento() {
         guid.DeskopPnae(jDesktopPanePrincipal, false);
         jInternalFrame2.setVisible(true);
+        
     }
 
     public static void ShowInternalUsuario() {
@@ -809,6 +822,7 @@ public class PMenu extends javax.swing.JFrame {
 
     private void btnPersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersona1ActionPerformed
         // TODO add your handling code here:
+        ShowRepo();
     }//GEN-LAST:event_btnPersona1ActionPerformed
 
     /**

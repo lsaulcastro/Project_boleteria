@@ -264,9 +264,10 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         pu.persona_idpersona.setText(id);
 //       
         JOptionPane.showMessageDialog(null, "Seguro que desea seleccionar esta persona? ");
-       
-     
+
+        getinstanceUser();
     }
+
     public static JInternalFrame getinstanceUser() {
         if (em3 == null) {
             em3 = new Vistas.P_Usuario();

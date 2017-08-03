@@ -216,6 +216,7 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         }
         tabla.setRowHeight(30);
         tabla.setModel(m);
+        md.desconnectar();
 
         return tabla;
     }
@@ -227,7 +228,9 @@ public class EventoImp implements Modelo.dao.EventoDAO {
             Vistas.PMenu.jDesktopPanePrincipal.add(em);
 
         }
+        em.setVisible(true);
         return em;
+        
 
     }
 

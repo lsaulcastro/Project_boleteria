@@ -270,6 +270,7 @@ public class ConfirmLlegada extends javax.swing.JInternalFrame {
 
     private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
         // TODO add your handling code here:
+        event.UserNoConfir(JTableInvitacion, Integer.parseInt(IDevento.getText()));
     }//GEN-LAST:event_jPanel7MouseMoved
 
 
