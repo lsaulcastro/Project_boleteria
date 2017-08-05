@@ -76,7 +76,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         } catch (Exception o) {
             System.out.println("Error! de  Base Datos" + o.getMessage());
         }
-
+        md.desconnectar();
     }
 
     @Override
@@ -84,7 +84,9 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         try {
             md.connectar();
-            sql = "UPDATE `persona` SET `nombre`='"+en.getNombre()+"',`apellido`='"+en.getAppellido()+"',`Telefono`='"+en.getTelefono()+"',`direccion`='"+en.getDireccion()+"',`sexo`='"+en.getSexo()+"',`email`= WHERE idPersona ='"+x+"' ";
+            sql = "UPDATE `persona` SET `nombre`='" + en.getNombre() + "',`apellido`='"
+                    + en.getAppellido() + "',`Telefono`='" + en.getTelefono() + "',`direccion`='"
+                    + en.getDireccion() + "',`sexo`='" + en.getSexo() + "',`email` = '" + en.getEmail() + "' WHERE idPersona = '" + x + "'";
             presta = md.getConn().prepareStatement(sql);
             presta.executeUpdate();
 
@@ -132,8 +134,9 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-            en.setRowHeight(30); 
-            en.setModel(m);
+        en.setRowHeight(30);
+        en.setModel(m);
+        md.desconnectar();
 
         return en;
 
@@ -154,6 +157,8 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        md.desconnectar();
+
     }
 
     @Override
@@ -215,24 +220,30 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
             JOptionPane.showMessageDialog(null, "Error, ESTA PERSONA YA SE ENCUENTRA EN LA \nLISTA DE INVITADOS");
             System.out.println("Error " + e.getMessage());
         }
+        md.desconnectar();
 
     }
 
     public static void btnAgregarInternalFrameInvitados(JTextField nombre, JTextField apellido,
-            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email, int x) {
 
         persona = new CInvitado();
 
-        if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
+        if (x == 0) {
+            if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !telefono.getText().isEmpty() && !direccion.getText().isEmpty() && !email.getText().isEmpty()) {
 
-            invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
-            persona.save(invimodel);
+                invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
+                persona.save(invimodel);
 
+            } else {
+                JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "No deje campos vacios.");
+            invimodel = new InvitadosModel(nombre.getText(), apellido.getText(), telefono.getText(), direccion.getText(), sexo.getSelectedItem().toString(), email.getText());
+            persona.update(invimodel, x);
         }
-        //guid.limpiar_texto(JpanelPrincipalInvitado);
 
+        //guid.limpiar_texto(JpanelPrincipalInvitado);
     }
 
     public static void DeletePersona() {
@@ -246,7 +257,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         String a = perf.getText();
 
         persona = new CInvitado();
-      //  persona.search(jTable1, a, 0);
+        //  persona.search(jTable1, a, 0);
 
         persona.search(b, a, 0);
 
@@ -272,16 +283,16 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
 
         // JOptionPane.showMessageDialog(null, ""+pu.persona_idpersona.getText()+""+pu.nombre.getText()+""+pu.apellido);
         // Puser pum = new Puser();
-       
     }
-    public JTable Busqueda( JTable tabla ,int a, String b){
-     sql = "select idPersona, p.nombre, p.apellido,p.sexo , i.estado "
-             + "from persona p inner join invitacion i on \n" +
-                "i.Persona_idPersona = p.idPersona where "
-             + "i.Eventos_idEventos = '"+a+"' and i.Estado = false and"
-             + " p.nombre LIKE '%"+b+"%';";
 
-        String[] tituloEmple = {"ID","Nombre", "Apelldio", "Sexo", "Estado"};
+    public JTable Busqueda(JTable tabla, int a, String b) {
+        sql = "select idPersona, p.nombre, p.apellido,p.sexo , i.estado "
+                + "from persona p inner join invitacion i on \n"
+                + "i.Persona_idPersona = p.idPersona where "
+                + "i.Eventos_idEventos = '" + a + "' and i.Estado = false and"
+                + " p.nombre LIKE '%" + b + "%';";
+
+        String[] tituloEmple = {"ID", "Nombre", "Apelldio", "Sexo", "Estado"};
         m = new DefaultTableModel(null, tituloEmple) {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -298,7 +309,7 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
                 values[1] = rs.getString(2);
                 values[2] = rs.getString(3);
                 values[3] = rs.getString(4);
-              //  values[4] = rs.getString(5);
+                //  values[4] = rs.getString(5);
 
                 m.addRow(values);
 
@@ -308,25 +319,23 @@ public class CInvitado implements Modelo.dao.InvitadoRepository {
         }
         tabla.setRowHeight(30);
         tabla.setModel(m);
+        md.desconnectar();
+
         return tabla;
     }
-    
+
     public void actualizar(JTextField nombre, JTextField apellido,
-            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email){
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
         int a = JtablePersona.getSelectedRow();
-        
-     nombre.setText(JtablePersona.getValueAt(a , 1).toString());
-     apellido.setText(JtablePersona.getValueAt(a , 2).toString());
-     telefono.setText(JtablePersona.getValueAt(a , 3).toString());
-     //sexo.getSelectedItem().toString((JtablePersona.getValueAt(a , 4));
-    direccion.setText(JtablePersona.getValueAt(a , 4).toString());
-    email.setText(JtablePersona.getValueAt(a , 6).toString());
-     
-     
+
+        nombre.setText(JtablePersona.getValueAt(a, 1).toString());
+        apellido.setText(JtablePersona.getValueAt(a, 2).toString());
+        telefono.setText(JtablePersona.getValueAt(a, 3).toString());
+        //sexo.getSelectedItem().toString((JtablePersona.getValueAt(a , 4));
+        direccion.setText(JtablePersona.getValueAt(a, 4).toString());
+        email.setText(JtablePersona.getValueAt(a, 6).toString());
+
     }
-    
-   
-   
 
 }
 //Ya

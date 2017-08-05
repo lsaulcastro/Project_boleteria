@@ -81,7 +81,8 @@ public class CUsuario implements Modelo.dao.Usuariodao {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         try {
             md.connectar();
-            sql = "update usuario set username  ='" + en.getUsuario() + "', password ='" + en.getPassword() + "', perfilUsuario ='" + en.getPerfil_Usuario() + "'";
+            sql = "update usuario set username  ='" + en.getUsuario() + "', password ='" + en.getPassword() + "', perfilUsuario ='" + en.getPerfil_Usuario() + "'"
+                    + " where idUsuario = '"+x+"' ";
             presta = md.getConn().prepareStatement(sql);
             presta.executeUpdate();
 

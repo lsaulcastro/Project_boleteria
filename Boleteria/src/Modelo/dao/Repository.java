@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface Repository<entidad> {
 
-    void save(entidad en);
+     void  save(entidad en);
 
     void update(entidad en, int x);
 

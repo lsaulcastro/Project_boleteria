@@ -57,6 +57,7 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        md.desconnectar();
 
     }
 
@@ -136,13 +137,14 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         }
         tabla.setRowHeight(30);
         tabla.setModel(m);
+        md.desconnectar();
 
         return tabla;
 
     }
 
     @Override
-    public void delete(int id) {
+    public  void  delete(int id) {
         sql = "DELETE FROM `evento` WHERE idEventos = '" + id + "'";
         try {
             md.connectar();
@@ -156,6 +158,8 @@ public class EventoImp implements Modelo.dao.EventoDAO {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        md.desconnectar();
+
     }
 
     @Override
@@ -180,6 +184,8 @@ public class EventoImp implements Modelo.dao.EventoDAO {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+                md.desconnectar();
+
     }
 
     public JTable UserNoConfir(javax.swing.JTable tabla, int a) {

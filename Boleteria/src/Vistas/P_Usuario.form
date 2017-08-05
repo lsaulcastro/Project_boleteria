@@ -132,7 +132,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="contrasena">
+        <Component class="javax.swing.JTextField" name="contrasen">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -329,6 +329,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="nombre">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreActionPerformed"/>
           </Events>
@@ -355,6 +358,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="apellido">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -378,6 +384,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="persona_idpersona">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="persona_idpersonaActionPerformed"/>
           </Events>

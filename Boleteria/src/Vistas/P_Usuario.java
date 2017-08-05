@@ -46,18 +46,15 @@ public class P_Usuario extends javax.swing.JInternalFrame {
 
     public static void UpdateAction(JTextField nombre, JTextField apellido,
             JTextField usuario, JComboBox perfilusaurio, JTextField password, JTextField email, JTextField persona_idpersona) {
-        int a = JtablePersona.getSelectedRow();
+        int a = JtableUsuario.getSelectedRow();
 
-        cusuario = new CUsuario();
+    
 
-        if (nombre.getText().length() >= 1 && apellido.getText().length() > 1 && 1 <= usuario.getText().length() && password.getText().length() >= 1) {
 
-            musuario = new UsuarioModel(nombre.getText(), apellido.getText(), usuario.getText(), perfilusaurio.getSelectedItem().toString(), password.getText(), persona_idpersona.getText());
-            persona.save(invimodel);
+            musuario = new UsuarioModel(usuario.getText(), contrasen.getText(),perfilusaurio.getSelectedItem().toString(),null,null,null);
+            cusuario.update(musuario,Integer.parseInt(JtableUsuario.getValueAt(a, 0).toString()));
 
-        } else {
-            JOptionPane.showMessageDialog(null, "No deje campos vacios.");
-        }
+        
 
     }
 
@@ -83,12 +80,16 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     }
     // ME QUEDE AQUI 
 
-    public static void ShowInternalLista() {
+    
+    public void actualizar(JTextField nombre, JTextField apellido,
+            JTextField telefono, JComboBox sexo, JTextField direccion, JTextField email) {
+        int a = JtableUsuario.getSelectedRow();
 
-        // gui.DeskopPnae(PMenu.jDesktopPanePrincipal,false);
-        //    pusu.getinstanceShowInternalLista();
-        //guid.DeskopPnae(jDesktopPanePrincipal, false);
-        // pusu.setVisible(true);
+        usuario.setText(JtableUsuario.getValueAt(a, 1).toString());
+        contrasen.setText(JtableUsuario.getValueAt(a, 2).toString());
+      // persona_idpersona.setText(JtableUsuario.getValueAt(a, ).toString());
+       
+
     }
 
     @SuppressWarnings("unchecked")
@@ -101,7 +102,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         usuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        contrasena = new javax.swing.JTextField();
+        contrasen = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
@@ -155,7 +156,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Apellido:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
-        jPanel1.add(contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 220, 33));
+        jPanel1.add(contrasen, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 220, 33));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Perfil Usuario:");
@@ -234,6 +235,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel11.setText("Usuario:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
+        nombre.setEnabled(false);
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
@@ -244,12 +246,15 @@ public class P_Usuario extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("IdPersona:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+
+        apellido.setEnabled(false);
         jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 220, 30));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Contrasena: ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
+        persona_idpersona.setEnabled(false);
         persona_idpersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 persona_idpersonaActionPerformed(evt);
@@ -297,11 +302,12 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        cusuario.btnAgregar(usuario, contrasena, perfilusuario, nombre, apellido, persona_idpersona);
+        cusuario.btnAgregar(usuario, contrasen, perfilusuario, nombre, apellido, persona_idpersona);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         // TODO add your handling code here:
+        UpdateAction(nombre, apellido, usuario, perfilusuario, apellido, nombre, persona_idpersona);
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
@@ -310,6 +316,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
 
     private void JtableUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseClicked
       //  mostrasbtnModEle(false);
+        actualizar(nombre, apellido, apellido, perfilusuario, apellido, nombre);
     }//GEN-LAST:event_JtableUsuarioMouseClicked
 
     private void JtableUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtableUsuarioMouseExited
@@ -336,7 +343,7 @@ public class P_Usuario extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JTextField busqueda;
-    public static javax.swing.JTextField contrasena;
+    public static javax.swing.JTextField contrasen;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
